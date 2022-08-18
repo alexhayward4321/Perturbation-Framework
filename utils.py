@@ -4,13 +4,10 @@ import matplotlib.pyplot as plt
 import numpy as np
 import pandas as pd
 
-import importlib
 import os
 import re
 
 import settings
-
-importlib.reload(settings)
 
 
 def read_ng_source():
@@ -131,9 +128,9 @@ def get_mcnp_tally_ebins():
     return gamma_bins, neutron_bins
 
 
-def plot_log_axes(x, y, filename, N, xlabel='Energy [eV]',
-                  ylabel='Flux', norm=False, other=False,
-                  legend=None, title='', savefig=True):
+def plot_log_axes(x, y, filename=None, N=None, xlabel='Energy [eV]',
+                  ylabel='Flux', other=False,
+                  legend=None, title=''):
     fig, ax = plt.subplots()
     ax.set_xscale('log')
     ax.set_yscale('log')
@@ -150,28 +147,29 @@ def plot_log_axes(x, y, filename, N, xlabel='Energy [eV]',
         ax.set_title(title)
 
     # File saving
-    if not savefig:
-        return
+    if filename:
+        if not N:
+            raise Exception(
+                "You must specify how many particles you have simulated")
 
-    otherfile = settings.OTHERFILE
-    if other:
-        filepath = os.path.join("graphs", otherfile, f"other/{filename}.png")
+        run_type = settings.RUN_TYPE
+        if other:
+            filepath = os.path.join(
+                "graphs", run_type, f"other/{filename}.png")
+            if not os.path.exists(os.path.dirname(filepath)):
+                os.makedirs(os.path.dirname(filepath))
+            plt.savefig(filepath, dpi=500)
+            return
+        if type(x) is list:
+            subdir = 'comparison/'
+        else:
+            subdir = 'standard/'
+        # Saving file to output
+        filepath = os.path.join('graphs', run_type,
+                                f'e{N}/{subdir}/{filename}.png')
         if not os.path.exists(os.path.dirname(filepath)):
             os.makedirs(os.path.dirname(filepath))
         plt.savefig(filepath, dpi=500)
-        return
-    if type(x) is list:
-        subdir = 'comparison/'
-    elif norm:
-        subdir = 'normalised/'
-    else:
-        subdir = 'standard/'
-    # Saving file to output
-    filepath = os.path.join('graphs', otherfile,
-                            f'e{N}/{subdir}/{filename}.png')
-    if not os.path.exists(os.path.dirname(filepath)):
-        os.makedirs(os.path.dirname(filepath))
-    plt.savefig(filepath, dpi=500)
 
 
 def plot_histogram(x, y, filename, N, xlabel='Energy [eV]', ylabel='Flux', norm=False):
@@ -259,8 +257,8 @@ def read_partisn_gamma():
     df = pd.read_csv(filepath, delimiter='\t')
     df["Energy high [eV]"] = np.append(df["Energy [eV]"].values[1:], 0)
     df = df.drop(len(df)-1)
-    new_df = df[["Energy [eV]", "Energy high [eV]", "FI/dE [MeV]"]]
-    new_df = new_df.set_axis(["energy low [eV]", "energy high [eV]", "FI/dU"],
+    new_df = df[["Energy [eV]", "Energy high [eV]", "Flux", "FI/dE [MeV]"]]
+    new_df = new_df.set_axis(["energy low [eV]", "energy high [eV]", "Flux", "FI/dU"],
                              axis=1)
     return new_df
 
@@ -313,12 +311,14 @@ def read_mcnp_data():
 def read_mcnp_gammas():
     filepath = "external_data/mcnp_outputs/mcnp_g_final_n.txt"
     df = pd.read_csv(filepath, delimiter='\t')
-    df = df[["energy", "Flux", "Fi/dE [MeV]"]]
+    df = df[["energy", "integral", "Fi/dE [MeV]"]]
     df["Energy high [eV]"] = np.append(df["energy"].values[1:], 0)
-    df = df[["energy", "Energy high [eV]", "Flux", "Fi/dE [MeV]"]]
+    df = df[["energy", "Energy high [eV]", "integral", "Fi/dE [MeV]"]]
     df = df.drop(len(df)-1)
-    df = df.set_axis(["energy low [eV]", "energy high [eV]", "Flux", "FI/dU"],
+    df = df.set_axis(["energy low [eV]", "energy high [eV]", "integral", "FI/dU"],
                      axis=1)
+    df["energy low [eV]"] *= 10**6
+    df["energy high [eV]"] *= 10**6
     return df
 
 

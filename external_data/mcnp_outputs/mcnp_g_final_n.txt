@@ -1,4 +1,4 @@
-energy	Flux	dFi	Fi/dE [MeV]
+energy	integral	dFi	Fi/dE [MeV]
 1.00E-02	5.51E-06	5.82E-02	1.38E-04
 5.00E-02	6.28E-05	1.75E-02	1.26E-03
 1.00E-01	1.06E-03	4.40E-03	5.28E-02

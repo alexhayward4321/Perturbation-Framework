@@ -178,12 +178,14 @@ def inspect_openmc_h5():
     mat = f['Fe56']
     energy = mat['energy']
     temp = energy['294K']
+    print(temp)
     kt = mat['kTs']
     scalar = kt['294K']
     reactions = mat['reactions']
     reaction_002 = reactions['reaction_002']
     reaction_002_294K = reaction_002['294K']['xs']
-    f.visit(printname)
+    print(reaction_002_294K)
+    # f.visit(printname)
     reaction = f['Fe56/reactions/reaction_016']
     atts = list(reaction.attrs)
     print(atts)

@@ -9,22 +9,20 @@ import os
 import re
 
 import utils
+import settings
 
 importlib.reload(utils)
-
-# model parameters
-N = 8
 
 
 def load_model():
     # Specifying settings and source information
+    N = settings.N
+    openmc_settings = openmc.Settings()
 
-    settings = openmc.Settings()
+    openmc_settings.run_mode = "fixed source"
 
-    settings.run_mode = "fixed source"
-
-    settings.particles = int(10**N / 10)
-    settings.batches = 10
+    openmc_settings.particles = int(10**N / 10)
+    openmc_settings.batches = 10
 
     # Getting the source
     g_bins, g_vals, n_bins, n_vals = utils.read_ng_source()
@@ -36,10 +34,10 @@ def load_model():
     n_source.energy = openmc.stats.Tabular(
         n_bins, n_vals, interpolation='histogram')
 
-    settings.source = [n_source]
-    settings.photon_transport = True
+    openmc_settings.source = [n_source]
+    openmc_settings.photon_transport = True
 
-    settings.export_to_xml("openmc_model_data/settings.xml")
+    openmc_settings.export_to_xml("openmc_model_data/settings.xml")
 
     # Specifying tallies
 
@@ -152,12 +150,17 @@ def post_process():
     df_partisn_n = tally_partisn_n.get_pandas_dataframe()
 
     # Saving model output for later retrieval
-    filepath_g1 = f'output/e{N}/g1.csv'
-    filepath_n3 = f'output/e{N}/n3.csv'
-    filepath_n4 = f'output/e{N}/n4.csv'
-    filepath_bench1 = f'output/e{N}/bench1.csv'
-    filepath_partisn_g = f'output/e{N}/partisn_g.csv'
-    filepath_partisn_n = f'output/e{N}/partisn_n.csv'
+    N = settings.N
+    output_folder = settings.RUN_TYPE
+    subdir = os.path.join('output', output_folder, f'e{N}')
+    print(
+        f"This is the directory your openmc simulation output is going to: {subdir}")
+    filepath_g1 = os.path.join(subdir, 'g1.csv')
+    filepath_n3 = os.path.join(subdir, 'n3.csv')
+    filepath_n4 = os.path.join(subdir, 'n4.csv')
+    filepath_bench1 = os.path.join(subdir, 'bench1.csv')
+    filepath_partisn_g = os.path.join(subdir, 'partisn_g.csv')
+    filepath_partisn_n = os.path.join(subdir, 'partisn_n.csv')
     if not os.path.exists(os.path.dirname(filepath_g1)):
         os.makedirs(os.path.dirname(filepath_g1))
     df_g1.to_csv(filepath_g1)
@@ -168,16 +171,11 @@ def post_process():
     df_partisn_n.to_csv(filepath_partisn_n)
 
 
-# %%
+def run():
+    openmc.run(cwd="openmc_model_data")
 
 
 if __name__ == "__main__":
     load_model()
-    openmc.run(cwd="openmc_model_data")
+    run()
     post_process()
-
-# %%
-
-post_process()
-
-# %%
