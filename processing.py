@@ -213,7 +213,10 @@ def main(funclist):
                             [benchmark1,
                             df_bench1['mean'].values/diff_g_bench/1000,
                             benchmark2],
-                            'bench_vs_openmc_fact', N)
+                            'bench_vs_openmc_fact', N,
+                            legend=['benchmark 1',
+                                    'openmc_benchmark_bins', 'benchmark 2'],
+                            title=f"Openmc and benchmark experiment comparisons, 10^{N} particles")
         compare_gamma_flux()
         compare_neutron_flux()
 

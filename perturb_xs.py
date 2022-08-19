@@ -41,6 +41,8 @@ parser.add_argument("-p", "--perturbation", default=0.01,
                     help="perturbation of the xs (default = 0.01)")
 parser.add_argument("-t", "--temp", default="294",
                     help="Only format previously sampled files to HDF5")
+parser.add_argument("di", "--discretization", default=None,
+                    help="Number of groups to discretize energy bins into")
 
 
 args = parser.parse_args()
@@ -71,6 +73,7 @@ nuclides = args.nuclides
 mts = [int(mt) for mt in args.cross_sections]
 perturbation = float(args.perturbation)
 Temp = int(args.temp)
+discretization = int(args.discretization)
 ###
 #   Path deffs
 ###
@@ -87,6 +90,9 @@ REACTION = openmc.data.reaction.REACTION_NAME
 
 lib = openmc.data.DataLibrary()
 lib = lib.from_xml(xlib)                # Gets current
+
+if discretization:
+    ...
 
 for nuc in nuclides:
     for MT in mts:

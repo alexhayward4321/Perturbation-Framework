@@ -27,17 +27,17 @@ class CustomFormatter(
 parser = argparse.ArgumentParser(
     description=description, formatter_class=CustomFormatter)
 
-parser.add_argument("-n", "--nuclides", nargs="+", 
+parser.add_argument("-n", "--nuclides", nargs="+",
                     default=["Fe56"], help="The nuclide(s) to be sampled")
-parser.add_argument("-d", "--destination", default=None, 
+parser.add_argument("-d", "--destination", default=None,
                     help="Directory to create new library in")
-parser.add_argument("-mt", "--cross_sections", default=["2"], nargs="+", 
+parser.add_argument("-mt", "--cross_sections", default=["2"], nargs="+",
                     help="MT numbers to perturb (default = 2)")
-parser.add_argument("-l", "--libdir", default=None, 
+parser.add_argument("-l", "--libdir", default=None,
                     help="Directory of endf library to sample eg. nndc-b7.1-nndc folder")
-parser.add_argument("-x", "--xlib", default=None, 
+parser.add_argument("-x", "--xlib", default=None,
                     help="cross_section.xml library to add random evaluations to. Default is OPENMC_CROSS_SECTIONS")
-parser.add_argument("-p", "--perturbation", default=0.01, 
+parser.add_argument("-p", "--perturbation", default=0.01,
                     help="perturbation of the xs (default = 0.01)")
 parser.add_argument("-t", "--temp", default="294",
                     help="Only format previously sampled files to HDF5")
@@ -70,7 +70,7 @@ else:
 nuclides = args.nuclides
 mts = [int(mt) for mt in args.cross_sections]
 perturbation = float(args.perturbation)
-Temp=int(args.temp)
+Temp = int(args.temp)
 ###
 #   Path deffs
 ###
@@ -86,28 +86,30 @@ lib = lib.from_xml(xlib)                # Gets current
 for nuc in nuclides:
     for MT in mts:
         if not MT in REACTION:
-                print('{} is not a valid MT number'.format(MT))
-                sys.exit(None)
+            print('{} is not a valid MT number'.format(MT))
+            sys.exit(None)
 
         reaction = REACTION[MT]
 
-        print(f"Peturbing {nuc} {reaction} (MT = {MT}) at {Temp} by {perturbation}")
+        print(
+            f"Peturbing {nuc} {reaction} (MT = {MT}) at {Temp} by {perturbation}")
 
         ###
         #   Perturb nuclide
         ###
-        filename=libdir/f"{nuc}.h5"
-        filename_new=output_dir/f"{nuc}-{MT}.h5"
+        filename = libdir/f"{nuc}.h5"
+        filename_new = output_dir/f"{nuc}-{MT}.h5"
 
         shutil.copyfile(filename, filename_new)         # Make a copy of file.
 
-        f = h5py.File(filename_new,'r+')                # open new file
-        energy=f[f"/{nuc}/energy/{Temp}K"][:]
-        cross_section=f[f"/{nuc}/reactions/reaction_{MT:03}/{Temp}K/xs"][:]
+        f = h5py.File(filename_new, 'r+')                # open new file
+        energy = f[f"/{nuc}/energy/{Temp}K"][:]
+        cross_section = f[f"/{nuc}/reactions/reaction_{MT:03}/{Temp}K/xs"][:]
 
         cross_section_peturb = cross_section + cross_section * perturbation
 
-        f[f"/{nuc}/reactions/reaction_{MT:03}/{Temp}K/xs"][:] = cross_section_peturb        # Overwrite the chosen nuclide
+        # Overwrite the chosen nuclide
+        f[f"/{nuc}/reactions/reaction_{MT:03}/{Temp}K/xs"][:] = cross_section_peturb
 
         f.close()
 
@@ -136,4 +138,3 @@ pre.unlink()
 
 ###
 #   Could add plotting option here
-
