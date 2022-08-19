@@ -1,6 +1,7 @@
 # %%
 import matplotlib.pyplot as plt
 import numpy as np
+import openmc
 import pandas as pd
 
 import importlib
@@ -21,22 +22,25 @@ import settings
 # We are assuming all perturbations will be of all iron isotopes
 
 
-def run(N, output_folder):
+def run(N, output_folder, perturbed=False):
     if os.getcwd() != '/ironbenchmark':
         os.chdir('/ironbenchmark')
     settings.N = N
     settings.RUN_TYPE = output_folder
-    model.load_model()
-    model.run()
-    model.post_process()
+    if perturbed:
+        run_folder = '/ironbenchmark/perturbed_run_data'
+    else:
+        run_folder = '/ironbenchmark/openmc_model_data'
+
+    model.load_model(run_folder)
+    openmc.run(cwd=run_folder)
+    model.post_process(run_folder)
     processing.main(["output_summary"])
 
 
 if __name__ == "__main__":
     for i in range(6, 9):
-        run(i, "npd_d000_000_MT0")
-    
-
+        run(i, "npd_d000_000_MT0", perturbed=False)
 
 
 # %%

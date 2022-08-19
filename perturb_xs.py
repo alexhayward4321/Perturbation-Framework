@@ -11,6 +11,7 @@ import matplotlib.pyplot as plt
 from pathlib import Path
 
 import openmc.data
+import modify_materials
 
 description = """
 This script generates perturbed cross sections for local sensitivity analysis. Script
@@ -172,7 +173,7 @@ if discretization:
                 #   Overwrite the name of the new file, and add to library
                 ###
                 data = openmc.data.IncidentNeutron.from_hdf5(filename_new)
-                data.name = f"{nuc}-mt{MT}-p{perturbation}-d{discretization:03}-g{i:03}"
+                data.name = f"{nuc}-mt{MT}-p{perturbation}-d{discretization:03}-g{i+1:03}"
                 data.export_to_hdf5(filename_new, "w")
 
                 lib.register_file(filename_new)
@@ -226,7 +227,11 @@ post = output_dir / "cross_sections_perturbed.xml"
 #     os.system(command)
 # else:
 #     lib.export_to_xml(post)
+
 lib.export_to_xml(post)
+# Uses function from alternative module to automatically generate materials.xml files
+# NOTE THIS BREAKS FOR MULTIPLE MT NUMBERS FOR NOW, THIS IS A KNOWN BUG
+modify_materials.main(nuclides, mts, perturbation, discretization)
 
 # pre.unlink()
 

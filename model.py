@@ -14,7 +14,7 @@ import settings
 importlib.reload(utils)
 
 
-def load_model():
+def load_model(run_folder):
     # Specifying settings and source information
     N = settings.N
     openmc_settings = openmc.Settings()
@@ -37,7 +37,7 @@ def load_model():
     openmc_settings.source = [n_source]
     openmc_settings.photon_transport = True
 
-    openmc_settings.export_to_xml("openmc_model_data/settings.xml")
+    openmc_settings.export_to_xml(f"{run_folder}/settings.xml")
 
     # Specifying tallies
 
@@ -111,12 +111,12 @@ def load_model():
                               gamma_tally_bench1,
                               gamma_tally_partisn,
                               neutron_tally_partisn])
-    tallies.export_to_xml("openmc_model_data/tallies.xml")
+    tallies.export_to_xml(f"{run_folder}}/tallies.xml")
 
 
-def post_process():
+def post_process(run_folder):
 
-    statepoint_path = 'openmc_model_data/statepoint.10.h5'
+    statepoint_path = f'{run_folder}}/statepoint.10.h5'
     statepoint = openmc.StatePoint(statepoint_path)
 
     # Constructing filters for identification
@@ -169,10 +169,6 @@ def post_process():
     df_bench1.to_csv(filepath_bench1)
     df_partisn_g.to_csv(filepath_partisn_g)
     df_partisn_n.to_csv(filepath_partisn_n)
-
-
-def run():
-    openmc.run(cwd="openmc_model_data")
 
 
 if __name__ == "__main__":
