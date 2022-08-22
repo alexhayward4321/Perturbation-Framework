@@ -13,6 +13,9 @@ from pathlib import Path
 import openmc.data
 import modify_materials
 
+import importlib
+importlib.reload(modify_materials)
+
 description = """
 This script generates perturbed cross sections for local sensitivity analysis. Script
 generates a cross_sections_perturbed.xml file with the standard library plus the perturbed evaluations.
@@ -77,7 +80,7 @@ nuclides = args.nuclides
 mts = [int(mt) for mt in args.cross_sections]
 perturbation = float(args.perturbation)
 Temp = int(args.temp)
-discretization = int(args.discretization)
+discretization = args.discretization
 ###
 #   Path deffs
 ###
@@ -133,6 +136,7 @@ def get_cum_energy_groups(length):
 if discretization:
     # Tests if valid discretization number has been input and returns total length of
     # energy groups
+    discretization = int(discretization)
     energy_group_length = valid_discretization_test()
     cum_index = get_cum_energy_groups(energy_group_length)
 
@@ -155,6 +159,9 @@ if discretization:
                 ###
                 filename = libdir/f"{nuc}.h5"
                 filename_new = output_dir/f"{nuc}-mt{MT}-p{perturbation}-d{discretization:03}-g{i+1:03}.h5"
+                if os.path.exists(filename_new):
+                    print("This perturbation already exists so no need to repeat")
+                    continue
 
                 shutil.copyfile(filename, filename_new)         # Make a copy of file.
 
@@ -193,7 +200,10 @@ else:
             #   Perturb nuclide
             ###
             filename = libdir/f"{nuc}.h5"
-            filename_new = output_dir/f"{nuc}-{MT}.h5"
+            filename_new = output_dir/f"{nuc}-mt{MT}-p{perturbation}.h5"
+            if os.path.exists(filename_new):
+                    print("This perturbation already exists so no need to repeat")
+                    continue
 
             shutil.copyfile(filename, filename_new)         # Make a copy of file.
 
@@ -212,7 +222,7 @@ else:
             #   Overwrite the name of the new file, and add to library
             ###
             data = openmc.data.IncidentNeutron.from_hdf5(filename_new)
-            data.name = f"{nuc}-{MT}"
+            data.name = f"{nuc}-mt{MT}-p{perturbation}"
             data.export_to_hdf5(filename_new, "w")
 
             lib.register_file(filename_new)
@@ -231,6 +241,7 @@ post = output_dir / "cross_sections_perturbed.xml"
 lib.export_to_xml(post)
 # Uses function from alternative module to automatically generate materials.xml files
 # NOTE THIS BREAKS FOR MULTIPLE MT NUMBERS FOR NOW, THIS IS A KNOWN BUG
+# Or does it? Check later
 modify_materials.main(nuclides, mts, perturbation, discretization)
 
 # pre.unlink()

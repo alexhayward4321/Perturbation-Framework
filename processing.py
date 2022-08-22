@@ -18,7 +18,7 @@ def main(funclist):
     # Loading in data
     ###
     # File paths to read data from
-    subdir = os.path.join('output', settings.RUN_TYPE, f'e{N}')
+    subdir = os.path.join(settings.RUN_ENV, f'output/e{N}')
     filepath_g1 = os.path.join(subdir, 'g1.csv')
     filepath_n3 = os.path.join(subdir, 'n3.csv')
     filepath_n4 = os.path.join(subdir, 'n4.csv')
@@ -194,9 +194,9 @@ def main(funclist):
     def compare_neutron_flux():
         utils.plot_log_axes([mid_n_bins_partisn,
                             mid_n_bins_partisn, mid_n_bins_mcnp],
-                            [df_partisn_n['mean']/lethargy_n_partisn*kfk_fact_n,
-                            partisn_n.iloc[:, 2]/lethargy_n_partisn*kfk_fact_n,
-                            mcnp_n['integral']/lethargy_n_mcnp],
+                            [df_partisn_n['mean']/lethargy_n_partisn,
+                            partisn_n.iloc[:, 2]/lethargy_n_partisn,
+                            mcnp_n['integral']/lethargy_n_mcnp/kfk_fact_n],
                             "overall_comparison_nl", N,
                             legend=[
                             "openmc_partisn_bins", "partisn", "mcnp"],

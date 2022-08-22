@@ -152,10 +152,10 @@ def plot_log_axes(x, y, filename=None, N=None, xlabel='Energy [eV]',
             raise Exception(
                 "You must specify how many particles you have simulated")
 
-        run_type = settings.RUN_TYPE
+        run_env = settings.RUN_ENV
         if other:
             filepath = os.path.join(
-                "graphs", run_type, f"other/{filename}.png")
+                "graphs", run_env, f"other/{filename}.png")
             if not os.path.exists(os.path.dirname(filepath)):
                 os.makedirs(os.path.dirname(filepath))
             plt.savefig(filepath, dpi=500)
@@ -165,7 +165,7 @@ def plot_log_axes(x, y, filename=None, N=None, xlabel='Energy [eV]',
         else:
             subdir = 'standard/'
         # Saving file to output
-        filepath = os.path.join('graphs', run_type,
+        filepath = os.path.join(run_env, 'graphs',
                                 f'e{N}/{subdir}/{filename}.png')
         if not os.path.exists(os.path.dirname(filepath)):
             os.makedirs(os.path.dirname(filepath))

@@ -1,8 +1,0 @@
-<?xml version='1.0' encoding='utf-8'?>
-<materials>
-  <cross_sections>/root/Lib_Fe_all_0.01/cross_sections_perturbed.xml</cross_sections>
-  <material id="4">
-    <density units="g/cm3" value="7.97" />
-    <nuclide ao="1.0" name="Fe56-102" />
-  </material>
-</materials>

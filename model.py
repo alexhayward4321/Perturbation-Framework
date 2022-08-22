@@ -14,9 +14,10 @@ import settings
 importlib.reload(utils)
 
 
-def load_model(run_folder):
+def load_model():
     # Specifying settings and source information
     N = settings.N
+    run_env = settings.RUN_ENV
     openmc_settings = openmc.Settings()
 
     openmc_settings.run_mode = "fixed source"
@@ -37,7 +38,7 @@ def load_model(run_folder):
     openmc_settings.source = [n_source]
     openmc_settings.photon_transport = True
 
-    openmc_settings.export_to_xml(f"{run_folder}/settings.xml")
+    openmc_settings.export_to_xml(f"{run_env}/settings.xml")
 
     # Specifying tallies
 
@@ -111,12 +112,13 @@ def load_model(run_folder):
                               gamma_tally_bench1,
                               gamma_tally_partisn,
                               neutron_tally_partisn])
-    tallies.export_to_xml(f"{run_folder}}/tallies.xml")
+    tallies.export_to_xml(f"{run_env}/tallies.xml")
 
 
-def post_process(run_folder):
+def post_process():
 
-    statepoint_path = f'{run_folder}}/statepoint.10.h5'
+    run_env = settings.RUN_ENV
+    statepoint_path = f'{run_env}/statepoint.10.h5'
     statepoint = openmc.StatePoint(statepoint_path)
 
     # Constructing filters for identification
@@ -151,8 +153,8 @@ def post_process(run_folder):
 
     # Saving model output for later retrieval
     N = settings.N
-    output_folder = settings.RUN_TYPE
-    subdir = os.path.join('output', output_folder, f'e{N}')
+    output_folder = settings.RUN_ENV
+    subdir = os.path.join(settings.RUN_ENV, f'output/e{N}')
     print(
         f"This is the directory your openmc simulation output is going to: {subdir}")
     filepath_g1 = os.path.join(subdir, 'g1.csv')
@@ -173,5 +175,6 @@ def post_process(run_folder):
 
 if __name__ == "__main__":
     load_model()
-    run()
     post_process()
+
+# %%

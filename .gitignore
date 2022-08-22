@@ -1,6 +1,9 @@
 # My additions
 .vscode/
-
+/tests/
+/perturbed_run_data/
+output/
+graphs/
 
 # Byte-compiled / optimized / DLL files
 __pycache__/
