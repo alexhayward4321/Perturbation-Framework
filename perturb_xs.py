@@ -111,10 +111,6 @@ def valid_discretization_test():
 
 
 def get_cum_energy_groups(length):
-    ones = np.ones(length)
-    perturbation = 0.01
-    discretization = 10
-
     group_size_guide = length // discretization
     group_size = []
     while length > group_size_guide:

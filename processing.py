@@ -22,14 +22,14 @@ def main(funclist):
     filepath_g1 = os.path.join(subdir, 'g1.csv')
     filepath_n3 = os.path.join(subdir, 'n3.csv')
     filepath_n4 = os.path.join(subdir, 'n4.csv')
-    filepath_bench1 = os.path.join(subdir, 'bench1.csv')
+    filepath_bench = os.path.join(subdir, 'bench.csv')
     filepath_partisn_g = os.path.join(subdir, 'partisn_g.csv')
     filepath_partisn_n = os.path.join(subdir, 'partisn_n.csv')
     # Reading openmc simulation data from csv files
     df_g1 = pd.read_csv(filepath_g1)
     df_n3 = pd.read_csv(filepath_n3)
     df_n4 = pd.read_csv(filepath_n4)
-    df_bench1 = pd.read_csv(filepath_bench1)
+    df_bench = pd.read_csv(filepath_bench)
     df_partisn_g = pd.read_csv(filepath_partisn_g)
     df_partisn_n = pd.read_csv(filepath_partisn_n)
     # Reading other data from files
@@ -58,12 +58,12 @@ def main(funclist):
     lethargy_n_openmc = np.log(df_n3['energy high [eV]'].values) - \
         np.log(df_n3['energy low [eV]'].values)
     # Experimental benchmark (gammas only)
-    mid_g_bins_bench = (df_bench1['energy low [eV]'] +
-                        df_bench1['energy high [eV]']) / 2
-    lethargy_g_bench = np.log(df_bench1['energy high [eV]'].values) - \
-        np.log(df_bench1['energy low [eV]'].values)
-    diff_g_bench = df_bench1['energy high [eV]'].values - \
-        df_bench1['energy low [eV]'].values
+    mid_g_bins_bench = (df_bench['energy low [eV]'] +
+                        df_bench['energy high [eV]']) / 2
+    lethargy_g_bench = np.log(df_bench['energy high [eV]'].values) - \
+        np.log(df_bench['energy low [eV]'].values)
+    diff_g_bench = df_bench['energy high [eV]'].values - \
+        df_bench['energy low [eV]'].values
     # Partisn
     mid_g_bins_partisn = (partisn_g['energy high [eV]'].values +
                           partisn_g['energy low [eV]'].values) / 2
@@ -94,7 +94,7 @@ def main(funclist):
     kfk_fact_n = 5.54177e+3
     kfk_fact_g = 3.44196e+3
     # Benchmark
-    openmc_bench_bins_fact = 1/((df_bench1['mean']/diff_g_bench).sum())
+    openmc_bench_bins_fact = 1/((df_bench['mean']/diff_g_bench).sum())
     bench_fact = 1/benchmark1.sum()
     openmc_bench_fact = openmc_bench_bins_fact / bench_fact
     # Partisn
@@ -113,16 +113,16 @@ def main(funclist):
     def inspect_benchmark():
         utils.plot_log_axes([mid_g_bins_bench, mid_g_bins_bench, mid_g_bins_bench],
                             [benchmark1,
-                            df_bench1['mean'].values/diff_g_bench,
+                            df_bench['mean'].values/diff_g_bench,
                             benchmark2])
         utils.plot_log_axes([mid_g_bins_bench, mid_g_bins_bench, mid_g_bins_bench],
                             [benchmark1,
-                            df_bench1['mean'].values/diff_g_bench/1000,
+                            df_bench['mean'].values/diff_g_bench/1000,
                             benchmark2])
         utils.plot_log_axes([mid_g_bins_bench, mid_g_bins_bench,
                             mid_g_bins_bench, mid_g_bins_openmc, mid_g_bins_partisn],
                             [benchmark1,
-                            df_bench1['mean'].values/diff_g_bench/1000,
+                            df_bench['mean'].values/diff_g_bench/1000,
                             benchmark2, df_g1['mean']/diff_g_openmc/1000,
                             df_partisn_g['mean']/diff_g_partisn/1000],
                             legend=["benchmark1", "openmc_bench_bins", "benchmark2",
@@ -211,7 +211,7 @@ def main(funclist):
     def output_summary():
         utils.plot_log_axes([mid_g_bins_bench, mid_g_bins_bench, mid_g_bins_bench],
                             [benchmark1,
-                            df_bench1['mean'].values/diff_g_bench/1000,
+                            df_bench['mean'].values/diff_g_bench/1000,
                             benchmark2],
                             'bench_vs_openmc_fact', N,
                             legend=['benchmark 1',

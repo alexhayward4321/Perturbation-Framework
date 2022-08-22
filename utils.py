@@ -9,6 +9,12 @@ import re
 
 import settings
 
+"""
+    I don't know what a utils folder does, but I've taken it to mean random
+    but useful functions that reappear loads of places but break the flow
+    of understanding.
+"""
+
 
 def read_ng_source():
     filepath = "external_data/sources/cf252_newest_ng-source.txt"
