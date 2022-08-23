@@ -11,10 +11,6 @@ import matplotlib.pyplot as plt
 from pathlib import Path
 
 import openmc.data
-import modify_materials
-
-import importlib
-importlib.reload(modify_materials)
 
 description = """
 This script generates perturbed cross sections for local sensitivity analysis. Script
@@ -98,15 +94,16 @@ REACTION = openmc.data.reaction.REACTION_NAME
 lib = openmc.data.DataLibrary()
 lib = lib.from_xml(xlib)
 
+
 def valid_discretization_test():
     test_file = libdir/f"Fe56.h5"
-    f = h5py.File(test_file)                
+    f = h5py.File(test_file)
     bin_struct = f[f"/Fe56/energy/{Temp}K"][:]
     bin_len = len(bin_struct)
     f.close()
     if discretization <= 0 or discretization > bin_len:
         print(f'{discretization} is not a valid discretization number')
-        sys.exit(None)        
+        sys.exit(None)
     return bin_len
 
 
@@ -126,7 +123,6 @@ def get_cum_energy_groups(length):
     cumulative = np.cumsum(group_size)
     cumulative = np.insert(cumulative, 0, 0)
     return cumulative
-
 
 
 if discretization:
@@ -154,18 +150,21 @@ if discretization:
                 #   Perturb nuclide
                 ###
                 filename = libdir/f"{nuc}.h5"
-                filename_new = output_dir/f"{nuc}-mt{MT}-p{perturbation}-d{discretization:03}-g{i+1:03}.h5"
+                filename_new = output_dir / \
+                    f"{nuc}-mt{MT}-p{perturbation}-d{discretization:03}-g{i+1:03}.h5"
                 if os.path.exists(filename_new):
                     print("This perturbation already exists so no need to repeat")
                     continue
 
-                shutil.copyfile(filename, filename_new)         # Make a copy of file.
+                # Make a copy of file.
+                shutil.copyfile(filename, filename_new)
 
-                f = h5py.File(filename_new, 'r+')                # open new file
+                # open new file
+                f = h5py.File(filename_new, 'r+')
                 energy = f[f"/{nuc}/energy/{Temp}K"][:]
                 cross_section = f[f"/{nuc}/reactions/reaction_{MT:03}/{Temp}K/xs"][:]
                 cross_section_perturb = cross_section.copy()
-                cross_section_perturb[cum_index[i]:cum_index[i+1]] *= perturbation + 1
+                cross_section_perturb[cum_index[i]                                      :cum_index[i+1]] *= perturbation + 1
 
                 # Overwrite the chosen nuclide
                 f[f"/{nuc}/reactions/reaction_{MT:03}/{Temp}K/xs"][:] = cross_section_perturb
@@ -198,10 +197,11 @@ else:
             filename = libdir/f"{nuc}.h5"
             filename_new = output_dir/f"{nuc}-mt{MT}-p{perturbation}.h5"
             if os.path.exists(filename_new):
-                    print("This perturbation already exists so no need to repeat")
-                    continue
+                print("This perturbation already exists so no need to repeat")
+                continue
 
-            shutil.copyfile(filename, filename_new)         # Make a copy of file.
+            # Make a copy of file.
+            shutil.copyfile(filename, filename_new)
 
             f = h5py.File(filename_new, 'r+')                # open new file
             energy = f[f"/{nuc}/energy/{Temp}K"][:]
@@ -223,26 +223,6 @@ else:
 
             lib.register_file(filename_new)
 
-
-pre = output_dir / "cross_sections_perturbed_pre.xml"
 post = output_dir / "cross_sections_perturbed.xml"
-
-# lib.export_to_xml(pre)
-# if post.exists():
-#     command = f"combine_libraries.py -l {pre} {post} -o {post}"
-#     os.system(command)
-# else:
-#     lib.export_to_xml(post)
-
 lib.export_to_xml(post)
-# Uses function from alternative module to automatically generate materials.xml files
 # NOTE THIS BREAKS FOR MULTIPLE MT NUMBERS FOR NOW, THIS IS A KNOWN BUG
-# Or does it? Check later
-modify_materials.main(nuclides, mts, perturbation, discretization)
-
-# pre.unlink()
-
-
-###
-#   Could add plotting option here
-###

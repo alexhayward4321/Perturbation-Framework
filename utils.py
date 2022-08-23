@@ -142,9 +142,13 @@ def plot_log_axes(x, y, filename=None, N=None, xlabel='Energy [eV]',
     ax.set_yscale('log')
     ax.set_xlabel(xlabel)
     ax.set_ylabel(ylabel)
-    if type(x) is list:
-        for i in range(len(x)):
-            ax.plot(x[i], y[i])
+    if type(y) is list:
+        if type(x) is list:
+            for i in range(len(y)):
+                ax.plot(x[i], y[i])
+        else:
+            for i in range(len(y)):
+                ax.plot(x, y[i])
     else:
         ax.plot(x, y)
     if legend:
@@ -325,6 +329,18 @@ def read_mcnp_gammas():
                      axis=1)
     df["energy low [eV]"] *= 10**6
     df["energy high [eV]"] *= 10**6
+    return df
+
+
+def load_tally(filepath):
+    df = pd.read_csv(filepath)
+    df = df[["energy low [eV]", "energy high [eV]", "mean"]]
+    df["F/dE"] = df['mean'] / (df["energy high [eV]"] - df["energy low [eV]"])
+    df["F/dU"] = df['mean'] / \
+        (np.log(df["energy high [eV]"] / df["energy low [eV]"]))
+    df["mid_bins"] = (df['energy low [eV]'] + df['energy high [eV]']) / 2
+    df["dU"] = np.log(df["energy high [eV]"] / df["energy low [eV]"])
+    df["dE"] = df["energy high [eV]"] - df["energy low [eV]"]
     return df
 
 

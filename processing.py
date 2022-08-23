@@ -26,12 +26,12 @@ def main(funclist):
     filepath_partisn_g = os.path.join(subdir, 'partisn_g.csv')
     filepath_partisn_n = os.path.join(subdir, 'partisn_n.csv')
     # Reading openmc simulation data from csv files
-    df_g1 = pd.read_csv(filepath_g1)
-    df_n3 = pd.read_csv(filepath_n3)
-    df_n4 = pd.read_csv(filepath_n4)
-    df_bench = pd.read_csv(filepath_bench)
-    df_partisn_g = pd.read_csv(filepath_partisn_g)
-    df_partisn_n = pd.read_csv(filepath_partisn_n)
+    df_g1 = utils.load_tally(filepath_g1)
+    df_n3 = utils.load_tally(filepath_n3)
+    df_n4 = utils.load_tally(filepath_n4)
+    df_bench = utils.load_tally(filepath_bench)
+    df_partisn_g = utils.load_tally(filepath_partisn_g)
+    df_partisn_n = utils.load_tally(filepath_partisn_n)
     # Reading other data from files
     benchmark1 = utils.read_benchmark_data()[0]['Fe30']
     benchmark2 = utils.read_benchmark_data()[1]['Fe30']
@@ -43,58 +43,13 @@ def main(funclist):
     mcnp_ring_n = mcnp_dict['neutron_ring']
 
     ###
-    # Defining various useful energy bin values
-    ###
-
-    # OpenMC (should technically be the same as mcnp)
-    mid_g_bins_openmc = (df_g1['energy low [eV]'] +
-                         df_g1['energy high [eV]']) / 2
-    mid_n_bins_openmc = (df_n3['energy low [eV]'] +
-                         df_n3['energy high [eV]']) / 2
-    lethargy_g_openmc = np.log(df_g1['energy high [eV]'].values) - \
-        np.log(df_g1['energy low [eV]'].values)
-    diff_g_openmc = df_g1['energy high [eV]'].values - \
-        df_g1['energy low [eV]'].values
-    lethargy_n_openmc = np.log(df_n3['energy high [eV]'].values) - \
-        np.log(df_n3['energy low [eV]'].values)
-    # Experimental benchmark (gammas only)
-    mid_g_bins_bench = (df_bench['energy low [eV]'] +
-                        df_bench['energy high [eV]']) / 2
-    lethargy_g_bench = np.log(df_bench['energy high [eV]'].values) - \
-        np.log(df_bench['energy low [eV]'].values)
-    diff_g_bench = df_bench['energy high [eV]'].values - \
-        df_bench['energy low [eV]'].values
-    # Partisn
-    mid_g_bins_partisn = (partisn_g['energy high [eV]'].values +
-                          partisn_g['energy low [eV]'].values) / 2
-    mid_n_bins_partisn = (partisn_n['energy high [eV]'].values +
-                          partisn_n['energy low [eV]'].values) / 2
-    lethargy_g_partisn = np.log(partisn_g['energy high [eV]'].values) - \
-        np.log(partisn_g['energy low [eV]'].values)
-    diff_g_partisn = partisn_g['energy high [eV]'].values - \
-        partisn_g['energy low [eV]'].values
-    lethargy_n_partisn = np.log(partisn_n['energy high [eV]'].values) - \
-        np.log(partisn_n['energy low [eV]'].values)
-    # mcnp
-    mid_g_bins_mcnp = (mcnp_g["energy low [eV]"].values
-                       + mcnp_g["energy high [eV]"].values) / 2
-    mid_n_bins_mcnp = (mcnp_n["energy low [eV]"].values
-                       + mcnp_n["energy high [eV]"].values) / 2
-    lethargy_g_mcnp = np.log(mcnp_g['energy high [eV]'].values) - \
-        np.log(mcnp_g['energy low [eV]'].values)
-    diff_g_mcnp = mcnp_g['energy high [eV]'].values - \
-        mcnp_g['energy low [eV]'].values
-    lethargy_n_mcnp = np.log(mcnp_n['energy high [eV]'].values) - \
-        np.log(mcnp_n['energy low [eV]'].values)
-
-    ###
     # Factors for comparisons between graphs
     ###
     # Factors direct from mcnp input
     kfk_fact_n = 5.54177e+3
     kfk_fact_g = 3.44196e+3
     # Benchmark
-    openmc_bench_bins_fact = 1/((df_bench['mean']/diff_g_bench).sum())
+    openmc_bench_bins_fact = 1/((df_bench['F/dE']).sum())
     bench_fact = 1/benchmark1.sum()
     openmc_bench_fact = openmc_bench_bins_fact / bench_fact
     # Partisn
@@ -111,56 +66,55 @@ def main(funclist):
 # Comparing openmc simulation and benchmark data
 
     def inspect_benchmark():
-        utils.plot_log_axes([mid_g_bins_bench, mid_g_bins_bench, mid_g_bins_bench],
+        utils.plot_log_axes(df_bench['mid_bins'],
                             [benchmark1,
-                            df_bench['mean'].values/diff_g_bench,
+                            df_bench['F/dE'].values,
                             benchmark2])
-        utils.plot_log_axes([mid_g_bins_bench, mid_g_bins_bench, mid_g_bins_bench],
+        utils.plot_log_axes(df_bench['mid_bins'],
                             [benchmark1,
-                            df_bench['mean'].values/diff_g_bench/1000,
+                            df_bench['F/dE'].values/1000,
                             benchmark2])
-        utils.plot_log_axes([mid_g_bins_bench, mid_g_bins_bench,
-                            mid_g_bins_bench, mid_g_bins_openmc, mid_g_bins_partisn],
+        utils.plot_log_axes([df_bench['mid_bins'], df_bench['mid_bins'],
+                            df_bench['mid_bins'], df_g1['mid_bins'], df_partisn_g['mid_bins']],
                             [benchmark1,
-                            df_bench['mean'].values/diff_g_bench/1000,
-                            benchmark2, df_g1['mean']/diff_g_openmc/1000,
-                            df_partisn_g['mean']/diff_g_partisn/1000],
+                            df_bench['F/dE'].values/1000,
+                            benchmark2, df_g1['F/dE']/1000,
+                            df_partisn_g['F/dE']/1000],
                             legend=["benchmark1", "openmc_bench_bins", "benchmark2",
                                     "openmc_mcnp_bins", "openmc_partisn_bins"])
 
     # Comparing Partisn and openmc
 
     def inspect_partisn():
-        utils.plot_log_axes([mid_g_bins_partisn, mid_g_bins_openmc, mid_g_bins_partisn],
+        utils.plot_log_axes([df_partisn_g['mid_bins'], df_g1['mid_bins'], df_partisn_g['mid_bins']],
                             [partisn_g['Flux'], df_g1['mean'],
                             df_partisn_g['mean']],
                             legend=["partisn", "openmc_mcnp_bins",
                                     "openmc_partisn_bins"],
                             title="Data direct from output")
-        utils.plot_log_axes([mid_g_bins_partisn, mid_g_bins_openmc, mid_g_bins_partisn],
+        utils.plot_log_axes([df_partisn_g['mid_bins'], df_g1['mid_bins'], df_partisn_g['mid_bins']],
                             [partisn_g['Flux'], df_g1['mean'],
                             df_partisn_g['mean']*openmc_partisn_fact_g],
                             legend=["partisn", "openmc_mcnp_bins", "openmc_partisn_bins"])
-        utils.plot_log_axes([mid_g_bins_partisn, mid_g_bins_openmc, mid_g_bins_partisn],
-                            [partisn_g['Flux']/lethargy_g_partisn,
-                            df_g1['mean']*openmc_partisn_fact_g /
-                                lethargy_g_openmc,
-                            df_partisn_g['mean']*openmc_partisn_fact_g/lethargy_g_partisn],
+        utils.plot_log_axes([df_partisn_g['mid_bins'], df_g1['mid_bins'], df_partisn_g['mid_bins']],
+                            [partisn_g['Flux']/df_partisn_g['dU'],
+                            df_g1['F/dU']*openmc_partisn_fact_g,
+                            df_partisn_g['F/dU']*openmc_partisn_fact_g],
                             legend=["partisn", "openmc_mcnp_bins",
                                     "openmc_partisn_bins"],
                             title="Lethargy normalised comparison multiplying openmc results by factor")
-        utils.plot_log_axes([mid_g_bins_partisn, mid_g_bins_openmc, mid_g_bins_partisn],
-                            [partisn_g['Flux']/diff_g_partisn,
-                            df_g1['mean']*openmc_partisn_fact_g/diff_g_openmc,
-                            df_partisn_g['mean']*openmc_partisn_fact_g/diff_g_partisn],
+        utils.plot_log_axes([df_partisn_g['mid_bins'], df_g1['mid_bins'], df_partisn_g['mid_bins']],
+                            [partisn_g['Flux']/df_partisn_g['dE'],
+                            df_g1['F/dE']*openmc_partisn_fact_g,
+                            df_partisn_g['F/dE']*openmc_partisn_fact_g],
                             legend=["partisn", "openmc_mcnp_bins",
                                     "openmc_partisn_bins"],
                             title="Energy bin width normalised comparison with factor")
-        utils.plot_log_axes([mid_n_bins_partisn, mid_n_bins_openmc, mid_n_bins_partisn],
+        utils.plot_log_axes([df_partisn_n['mid_bins'], df_n3['mid_bins'], df_partisn_n['mid_bins']],
                             [partisn_n.iloc[:, 2], df_n3['mean'],
                             df_partisn_n['mean']],
                             legend=["partisn", "openmc_mcnp_bins", "openmc_partisn_bins"])
-        utils.plot_log_axes([mid_n_bins_partisn, mid_n_bins_partisn],
+        utils.plot_log_axes([df_partisn_n['mid_bins'], df_partisn_n['mid_bins']],
                             [partisn_n.iloc[:, 2],
                             df_partisn_n['mean']],
                             legend=["partisn", "openmc_mcnp_bins", "openmc_partisn_bins"])
@@ -168,23 +122,23 @@ def main(funclist):
     # Comparing MCNP and openmc
 
     def inspect_mcnp():
-        utils.plot_log_axes([mid_g_bins_mcnp, mid_g_bins_mcnp],
+        utils.plot_log_axes(df_g1['mid_bins'],
                             [mcnp_g['integral'], df_g1['mean']*openmc_mcnp_fact_g],
                             legend=["mcnp", "openmc_mcnp_bins"])
-        utils.plot_log_axes([mid_n_bins_mcnp, mid_n_bins_mcnp],
+        utils.plot_log_axes(df_n3['mid_bins'],
                             [mcnp_n['integral'], df_n3['mean']*kfk_fact_n],
                             legend=["mcnp", "openmc_mcnp_bins"])
 
     # Comparing all gammas using energy difference (in accordance to benchmark)
 
     def compare_gamma_flux():
-        utils.plot_log_axes([mid_g_bins_partisn, mid_g_bins_bench,
-                            mid_g_bins_partisn, mid_g_bins_mcnp],
-                            [df_partisn_g['mean']/diff_g_partisn,
+        utils.plot_log_axes([df_partisn_g['mid_bins'], df_bench['mid_bins'],
+                            df_partisn_g['mid_bins'], df_g1['mid_bins']],
+                            [df_partisn_g['F/dE'],
                             benchmark1/openmc_bench_fact,
-                            partisn_g.iloc[:, 2]/diff_g_partisn /
+                            partisn_g.iloc[:, 2]/df_partisn_g['dE'] /
                             openmc_partisn_fact_g,
-                            mcnp_g['integral']/diff_g_mcnp/openmc_mcnp_fact_g],
+                            mcnp_g['integral']/df_g1['dE']/openmc_mcnp_fact_g],
                             "overall_comparison_g", N,
                             legend=["openmc", "benchmark", "partisn", "mcnp"],
                             title=f'Comparison of gamma fluxes with 10^{N} particles simulated in openmc')
@@ -192,11 +146,11 @@ def main(funclist):
     # Comparing all neutrons using lethargy
 
     def compare_neutron_flux():
-        utils.plot_log_axes([mid_n_bins_partisn,
-                            mid_n_bins_partisn, mid_n_bins_mcnp],
-                            [df_partisn_n['mean']/lethargy_n_partisn,
-                            partisn_n.iloc[:, 2]/lethargy_n_partisn,
-                            mcnp_n['integral']/lethargy_n_mcnp/kfk_fact_n],
+        utils.plot_log_axes([df_partisn_n['mid_bins'],
+                            df_partisn_n['mid_bins'], df_n3['mid_bins']],
+                            [df_partisn_n['F/dU'],
+                            partisn_n.iloc[:, 2]/df_partisn_n['dU'],
+                            mcnp_n['integral']/df_n3['dU']/kfk_fact_n],
                             "overall_comparison_nl", N,
                             legend=[
                             "openmc_partisn_bins", "partisn", "mcnp"],
@@ -209,9 +163,9 @@ def main(funclist):
                                     df_g1["energy high [eV]"].values[-1])
 
     def output_summary():
-        utils.plot_log_axes([mid_g_bins_bench, mid_g_bins_bench, mid_g_bins_bench],
+        utils.plot_log_axes(df_bench['mid_bins'],
                             [benchmark1,
-                            df_bench['mean'].values/diff_g_bench/1000,
+                            df_bench['F/dE'].values/1000,
                             benchmark2],
                             'bench_vs_openmc_fact', N,
                             legend=['benchmark 1',

@@ -14,14 +14,15 @@ import settings
 
 
 def group_len():
+    libdir = 'root/nndc_hdf5'
     test_file = libdir/f"Fe56.h5"
     with h5py.File(test_file) as f:
-        bin_struct = f[f"/Fe56/energy/{Temp}K"][:]
+        bin_struct = f[f"/Fe56/energy/294K"][:]
         bin_len = len(bin_struct)
     return bin_len
 
 
-def get_cum_energy_groups(length, discretisation):
+def get_cum_energy_groups(length, discretization):
     group_size_guide = length // discretization
     group_size = []
     while length > group_size_guide:
@@ -45,12 +46,11 @@ def get_dx(nuclide, mt, perturbation,
     perturbation, discretisation, and discretisation group as well as the same
     cross section from the 'standard' (unperturbed) data library"""
     # Implement this by literally just multiplying the standard cross section by
-    # 0.01
+    # the perturbation
     data_lib = '/root/nndc_hdf5'
     Temp = 294
     with h5py.File(os.path.join(data_lib, f'{nuclide}.h5')) as f:
         xs = f[f"/{nuclide}/reactions/reaction_{mt:03}/{Temp}K/xs"][:]
-        print(type(xs))
         if discretization is None:
             dx = xs * perturbation
         else:
@@ -75,45 +75,59 @@ def find_power_folder(home_folder):
     return final_path
 
 
-def finite_difference(nuclide, mt, perturbation, discretization=None,
-                      group=None, structure='partisn'):
+def compare_perturbation(nuclide, mt, perturbations, discretization=None,
+                         group=None, structure='partisn'):
     """Function computes the derivative following the perturbation of a cross
     section pertaining to a given nuclide, reaction, perturbation, discretisation,
     and discretisation group for a certain energy group structure"""
 
-    dx, xs = get_dx(nuclide, mt, perturbation,
-                    discretization, group)
-
-    # Finding folder with perturbation output data
-    if discretization is None:
-        id_code = f'mt{mt}-p{perturbation}'
-    else:
-        id_code = f'mt{mt}-p{perturbation}-d{discretization:03}-g{group+1:03}'
-    perturb_home_folder = '/ironbenchmark/perturbed_run_data/'
-    output_folder = os.path.join(perturb_home_folder, id_code, 'output')
-    perturb_folder = find_power_folder(output_folder)
-    # Standard folder
+    # Loading unperturbed flux data
     standard_home_folder = '/ironbenchmark/standard_run/output'
     standard_folder = find_power_folder(standard_home_folder)
 
     if structure == 'partisn':
         partisn_file = 'partisn_n.csv'
-        flux_n = pd.read_csv(os.path.join(standard_folder, partisn_file))
-        flux_n_p = pd.read_csv(os.path.join(perturb_folder, partisn_file))
+        path_flux_n = os.path.join(standard_folder, partisn_file)
     if structure == 'benchmark':
         bench_file = 'bench.csv'
-        flux_n = pd.read_csv(os.path.join(standard_folder, bench_file))
-        flux_n_p = pd.read_csv(os.path.join(perturb_folder, bench_file))
+        path_flux_n = os.path.join(standard_folder, bench_file)
     if structure == 'mcnp':
         mcnp_file = 'n3.csv'
-        flux_n = pd.read_csv(os.path.join(standard_folder, mcnp_file))
-        flux_n_p = pd.read_csv(os.path.join(perturb_folder, mcnp_file))
+        path_flux_n = os.path.join(standard_folder, mcnp_file)
+    flux_n = utils.load_tally(path_flux_n)
 
-    return dx, xs
+    flux_n_p = []
+    for perturbation in perturbations:
+        # Finding folder with perturbation output data
+        if discretization is None:
+            id_code = f'mt{mt}-p{perturbation}'
+        else:
+            id_code = f'mt{mt}-p{perturbation}-d{discretization:03}-g{group+1:03}'
+        perturb_home_folder = '/ironbenchmark/perturbed_run_data/'
+        output_folder = os.path.join(perturb_home_folder, id_code, 'output')
+        perturb_folder = find_power_folder(output_folder)
+
+        if structure == 'partisn':
+            partisn_file = 'partisn_n.csv'
+            path_flux_n_p = os.path.join(perturb_folder, partisn_file)
+        if structure == 'benchmark':
+            bench_file = 'bench.csv'
+            path_flux_n_p = os.path.join(perturb_folder, bench_file)
+        if structure == 'mcnp':
+            mcnp_file = 'n3.csv'
+            path_flux_n_p = os.path.join(perturb_folder, mcnp_file)
+
+        flux_n_p.append(utils.load_tally(path_flux_n_p))
+
+    utils.plot_log_axes(flux_n['mid_bins'],
+                        [flux_n['mean'], *[flux['mean'] for flux in flux_n_p]])
+    utils.plot_log_axes(flux_n['mid_bins'],
+                        [flux_n['mean']])
+    return
 
 
 if __name__ == '__main__':
-    dx, xs = finite_difference(
-        'Fe56', 102, 0.01, discretization=None, group=None, structure='partisn')
+    compare_perturbation(
+        'Fe56', 102, [0.01, 0.1, 0.3], discretization=None, group=None, structure='partisn')
 
 # %%

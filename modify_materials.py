@@ -13,7 +13,7 @@ perturb = 0.01
 MT = 102
 
 
-def main(nuclides, mt, perturbation, discretization=None):
+def main(nuclides=['Fe56'], mt=102, perturbation=0.01, discretization=None):
     if discretization is None:
         generate_materials_xml(nuclides, mt, perturbation)
     else:
@@ -29,10 +29,12 @@ def generate_materials_xml(nuclide_list, mt, perturbation,
     mat_file = '/ironbenchmark/standard_run/materials.xml'
     perturb_folder = '/ironbenchmark/perturbed_run_data/'
     if discretization is None:
-        id_code = f'mt{MT}-p{perturbation}'
+        id_code = f'mt{mt}-p{perturbation}'
+        folder_path = os.path.join(perturb_folder, id_code)
     else:
-        id_code = f'mt{MT}-p{perturbation}-d{discretization:03}-g{group+1:03}'
-    folder_path = os.path.join(perturb_folder, id_code)
+        id_code = f'mt{mt}-p{perturbation}d{discretization:03}'
+        group_code = f'g{group+1:03}'
+        folder_path = os.path.join(perturb_folder, id_code, group_code)
     if not os.path.exists(folder_path):
         os.makedirs(folder_path)
     output_file = os.path.join(folder_path, "materials.xml")

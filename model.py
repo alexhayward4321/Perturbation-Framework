@@ -40,7 +40,16 @@ def load_model():
 
     openmc_settings.export_to_xml(f"{run_env}/settings.xml")
 
+    ###
     # Specifying tallies
+    ###
+
+    # Simple tallies
+    n_gamma = openmc.Tally()
+    n_gamma.score = '(n,gamma)'
+    n_gamma.filters = [openmc.CellFilter(6)]
+
+    # Complex tallies
 
     gamma_tally_mcnp_1 = openmc.Tally()
     neutron_tally_mcnp_3 = openmc.Tally()
@@ -83,8 +92,8 @@ def load_model():
     gamma_e_filter_bench = openmc.EnergyFilter(gamma_bins_bench)
     gamma_tally_bench.scores = ['flux']
     gamma_tally_bench.filters = [gamma_e_filter_bench,
-                                  gamma_p_filter,
-                                  gamma_tally_mcnp_1_cell_filter]
+                                 gamma_p_filter,
+                                 gamma_tally_mcnp_1_cell_filter]
 
     # Adding tallies based on partisn bins
     gamma_bins_partisn, neutron_bins_partisn = \
@@ -105,7 +114,8 @@ def load_model():
         neutron_e_filter_partisn, neutron_p_filter,
         neutron_tally_mcnp_3_cell_filter]
 
-    tallies = openmc.Tallies([gamma_tally_mcnp_1,
+    tallies = openmc.Tallies([n_gamma,
+                              gamma_tally_mcnp_1,
                               neutron_tally_mcnp_3,
                               neutron_tally_mcnp_4,
                               neutron_tally_mcnp_5,
