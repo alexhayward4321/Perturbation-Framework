@@ -25,11 +25,11 @@ import finite_difference
 
 def execute_perturbation(mt, perturbation, discretization=None):
     if discretization is None:
-        command = f"python3 perturb_xs.py -mt {mt} -p {perturbation} -x {settings.XLIB} \
-            -l {settings.LIBDIR} -d {settings.PERTURB_OUTPUT_DIR}"
+        command = f"python3 perturb_xs.py -mt {mt} -p {perturbation} -x '{settings.XLIB}' \
+            -l '{settings.LIBDIR}' -d '{settings.PERTURB_OUTPUT_DIR}'"
     else:
-        command = f"python3 perturb_xs.py -mt {mt} -p {perturbation} -di {discretization} \
-            -x {settings.XLIB} -l {settings.LIBDIR} -d {settings.PERTURB_OUTPUT_DIR}"
+        command = f"python3 perturb_xs.py -mt {mt} -p {perturbation} -di {discretization} 
+            -x '{settings.XLIB}' -l '{settings.LIBDIR}' -d '{settings.PERTURB_OUTPUT_DIR}'"
     os.system(command)
 
 
@@ -79,7 +79,7 @@ def run(powers, mt, perturbations, discretization, standard_run=False, check_rep
 
 if __name__ == "__main__":
 
-    if os.uname.sysname == 'Linux':
+    if os.uname().sysname == 'Linux':
         # Full path to original unperturbed nuclear data library
         settings.LIBDIR = "/root/nndc_hdf5"
         # File where new cross section file for perturbed data is stored
@@ -88,15 +88,18 @@ if __name__ == "__main__":
         settings.PERTURB_OUTPUT_DIR = '/root/neutron_perturbed'
         # Full path to main folder
         settings.MAIN_DIR = '/ironbenchmark'
-    elif os.uname.sysname == 'Darwin':
+    elif os.uname().sysname == 'Darwin':
         settings.LIBDIR = "/Users/user1/Documents/Summer Internship 2022/Nuclear Data/endfb71_hdf5"
         settings.XLIB = '/Users/user1/Documents/Summer Internship 2022/Nuclear Data/neutron_perturbed/cross_sections_perturbed.xml'
         settings.PERTURB_OUTPUT_DIR = '/Users/user1/Documents/Summer Internship 2022/Nuclear Data/neutron_perturbed'
         settings.MAIN_DIR = '/Users/user1/Documents/Summer Internship 2022/Python code/Iron'
 
-    powers = [6]
+    # if not os.path.exists(settings.PERTURB_OUTPUT_DIR):
+    #     os.makedirs(settings.PERTURB_OUTPUT_DIR)
+
+    powers = [8]
     mt = 102
-    perturbations = [0.5]
+    perturbations = [0.01, 0.03, 0.1, 0.3, 1.0, 3.0]
     discretization = None
     run(powers, mt, perturbations, discretization)
     finite_difference.compare_perturbation('Fe56', mt, perturbations, discretization=None,
