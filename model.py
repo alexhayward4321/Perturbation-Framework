@@ -18,10 +18,9 @@ def load_model():
     # Specifying settings and source information
     N = settings.N
     run_env = settings.RUN_ENV
+
     openmc_settings = openmc.Settings()
-
     openmc_settings.run_mode = "fixed source"
-
     openmc_settings.particles = int(10**N / 10)
     openmc_settings.batches = 10
 
@@ -46,7 +45,7 @@ def load_model():
 
     # Simple tallies
     n_gamma = openmc.Tally()
-    n_gamma.score = '(n,gamma)'
+    n_gamma.scores = ['(n,gamma)']
     n_gamma.filters = [openmc.CellFilter(6)]
 
     # Complex tallies
@@ -127,6 +126,7 @@ def load_model():
 
 def post_process():
 
+    N = settings.N
     run_env = settings.RUN_ENV
     statepoint_path = f'{run_env}/statepoint.10.h5'
     statepoint = openmc.StatePoint(statepoint_path)
@@ -162,11 +162,7 @@ def post_process():
     df_partisn_n = tally_partisn_n.get_pandas_dataframe()
 
     # Saving model output for later retrieval
-    N = settings.N
-    output_folder = settings.RUN_ENV
-    subdir = os.path.join(settings.RUN_ENV, f'output/e{N}')
-    print(
-        f"This is the directory your openmc simulation output is going to: {subdir}")
+    subdir = os.path.join(run_env, f'output/e{N}')
     filepath_g1 = os.path.join(subdir, 'g1.csv')
     filepath_n3 = os.path.join(subdir, 'n3.csv')
     filepath_n4 = os.path.join(subdir, 'n4.csv')

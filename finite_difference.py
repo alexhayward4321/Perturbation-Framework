@@ -14,7 +14,7 @@ import settings
 
 
 def group_len():
-    libdir = 'root/nndc_hdf5'
+    libdir = settings.LIBDIR
     test_file = libdir/f"Fe56.h5"
     with h5py.File(test_file) as f:
         bin_struct = f[f"/Fe56/energy/294K"][:]
@@ -47,7 +47,7 @@ def get_dx(nuclide, mt, perturbation,
     cross section from the 'standard' (unperturbed) data library"""
     # Implement this by literally just multiplying the standard cross section by
     # the perturbation
-    data_lib = '/root/nndc_hdf5'
+    data_lib = settings.LIBDIR
     Temp = 294
     with h5py.File(os.path.join(data_lib, f'{nuclide}.h5')) as f:
         xs = f[f"/{nuclide}/reactions/reaction_{mt:03}/{Temp}K/xs"][:]
@@ -82,7 +82,8 @@ def compare_perturbation(nuclide, mt, perturbations, discretization=None,
     and discretisation group for a certain energy group structure"""
 
     # Loading unperturbed flux data
-    standard_home_folder = '/ironbenchmark/standard_run/output'
+    standard_home_folder = os.path.join(
+        settings.MAIN_DIR, '/standard_run/output')
     standard_folder = find_power_folder(standard_home_folder)
 
     if structure == 'partisn':
@@ -103,7 +104,8 @@ def compare_perturbation(nuclide, mt, perturbations, discretization=None,
             id_code = f'mt{mt}-p{perturbation}'
         else:
             id_code = f'mt{mt}-p{perturbation}-d{discretization:03}-g{group+1:03}'
-        perturb_home_folder = '/ironbenchmark/perturbed_run_data/'
+        perturb_home_folder = os.path.join(
+            settings.MAIN_DIR, '/perturbed_run_data/')
         output_folder = os.path.join(perturb_home_folder, id_code, 'output')
         perturb_folder = find_power_folder(output_folder)
 

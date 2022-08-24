@@ -165,7 +165,7 @@ def plot_log_axes(x, y, filename=None, N=None, xlabel='Energy [eV]',
         run_env = settings.RUN_ENV
         if other:
             filepath = os.path.join(
-                "graphs", run_env, f"other/{filename}.png")
+                run_env, "graphs", f"other/{filename}.png")
             if not os.path.exists(os.path.dirname(filepath)):
                 os.makedirs(os.path.dirname(filepath))
             plt.savefig(filepath, dpi=500)
@@ -182,6 +182,7 @@ def plot_log_axes(x, y, filename=None, N=None, xlabel='Energy [eV]',
         plt.savefig(filepath, dpi=500)
 
 
+# Ancient history, can ignore this function until you need it, but you'll need to edit it
 def plot_histogram(x, y, filename, N, xlabel='Energy [eV]', ylabel='Flux', norm=False):
     fig, ax = plt.subplots()
     ax.set_xscale('log')

@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-
+# %%
 import argparse
 import h5py
 import numpy as np
@@ -11,6 +11,7 @@ import matplotlib.pyplot as plt
 from pathlib import Path
 
 import openmc.data
+import settings
 
 description = """
 This script generates perturbed cross sections for local sensitivity analysis. Script
@@ -164,7 +165,8 @@ if discretization:
                 energy = f[f"/{nuc}/energy/{Temp}K"][:]
                 cross_section = f[f"/{nuc}/reactions/reaction_{MT:03}/{Temp}K/xs"][:]
                 cross_section_perturb = cross_section.copy()
-                cross_section_perturb[cum_index[i]                                      :cum_index[i+1]] *= perturbation + 1
+                cross_section_perturb[cum_index[i]
+                    :cum_index[i+1]] *= perturbation + 1
 
                 # Overwrite the chosen nuclide
                 f[f"/{nuc}/reactions/reaction_{MT:03}/{Temp}K/xs"][:] = cross_section_perturb
@@ -225,4 +227,7 @@ else:
 
 post = output_dir / "cross_sections_perturbed.xml"
 lib.export_to_xml(post)
-# NOTE THIS BREAKS FOR MULTIPLE MT NUMBERS FOR NOW, THIS IS A KNOWN BUG
+# NOTE THIS BREAKS FOR MULTIPLE MT NUMBERS FOR NOW
+
+
+# %%

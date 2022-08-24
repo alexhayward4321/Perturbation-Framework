@@ -6,6 +6,8 @@ import copy
 import os
 import shutil
 
+import settings
+
 
 disc = 10
 g = 1
@@ -25,9 +27,9 @@ def main(nuclides=['Fe56'], mt=102, perturbation=0.01, discretization=None):
 def generate_materials_xml(nuclide_list, mt, perturbation,
                            discretization=None, group=None):
     # Creating openmc simulation run folder and specifying geometry and material xml file paths
-    geom_file = '/ironbenchmark/standard_run/geometry.xml'
-    mat_file = '/ironbenchmark/standard_run/materials.xml'
-    perturb_folder = '/ironbenchmark/perturbed_run_data/'
+    geom_file = os.path.join(settings.MAIN_DIR, 'standard_run/geometry.xml')
+    mat_file = os.path.join(settings.MAIN_DIR, 'standard_run/materials.xml')
+    perturb_folder = os.path.join(settings.MAIN_DIR, 'perturbed_run_data/')
     if discretization is None:
         id_code = f'mt{mt}-p{perturbation}'
         folder_path = os.path.join(perturb_folder, id_code)

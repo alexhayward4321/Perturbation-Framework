@@ -4,6 +4,7 @@
 /perturbed_run_data/
 output/
 graphs/
+/archive/
 
 # Byte-compiled / optimized / DLL files
 __pycache__/

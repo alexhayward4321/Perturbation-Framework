@@ -25,9 +25,11 @@ import finite_difference
 
 def execute_perturbation(mt, perturbation, discretization=None):
     if discretization is None:
-        command = f"python3 perturb_xs.py -mt {mt} -p {perturbation}"
+        command = f"python3 perturb_xs.py -mt {mt} -p {perturbation} -x {settings.XLIB} \
+            -l {settings.LIBDIR} -d {settings.PERTURB_OUTPUT_DIR}"
     else:
-        command = f"python3 perturb_xs.py -mt {mt} -p {perturbation} -di {discretization}"
+        command = f"python3 perturb_xs.py -mt {mt} -p {perturbation} -di {discretization} \
+            -x {settings.XLIB} -l {settings.LIBDIR} -d {settings.PERTURB_OUTPUT_DIR}"
     os.system(command)
 
 
@@ -47,10 +49,10 @@ def run_single(N, run_env, check_repeat):
 
 
 def run(powers, mt, perturbations, discretization, standard_run=False, check_repeat=True):
-    if os.getcwd() != '/ironbenchmark':
-        os.chdir('/ironbenchmark')
-    perturb_folder = '/ironbenchmark/perturbed_run_data/'
-    standard_run_folder = '/ironbenchmark/standard_run'
+    if os.getcwd() != settings.MAIN_DIR:
+        os.chdir(settings.MAIN_DIR)
+    perturb_folder = os.path.join(settings.MAIN_DIR, 'perturbed_run_data')
+    standard_run_folder = os.path.join(settings.MAIN_DIR, 'standard_run')
 
     for perturbation in perturbations:
         if standard_run:
@@ -76,9 +78,18 @@ def run(powers, mt, perturbations, discretization, standard_run=False, check_rep
 
 
 if __name__ == "__main__":
-    powers = [8]
+    # Full path to original unperturbed nuclear data library
+    settings.LIBDIR = "/root/nndc_hdf5"
+    # File where new cross section file for perturbed data is stored
+    settings.XLIB = '/root/neutron_perturbed/cross_sections_perturbed.xml'
+    # File where perturbed cross section hdf5 files are stored
+    settings.PERTURB_OUTPUT_DIR = '/root/neutron_perturbed'
+    # Full path to ironbenchmark file
+    settings.MAIN_DIR = '/ironbenchmark'
+
+    powers = [6]
     mt = 102
-    perturbations = [0.01, 0.03, 0.1, 0.3, 1.0, 3.0]
+    perturbations = [0.5]
     discretization = None
     run(powers, mt, perturbations, discretization)
     finite_difference.compare_perturbation('Fe56', mt, perturbations, discretization=None,

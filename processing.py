@@ -13,12 +13,13 @@ import settings
 
 def main(funclist):
     N = settings.N
+    run_env = settings.RUN_ENV
 
     ###
     # Loading in data
     ###
     # File paths to read data from
-    subdir = os.path.join(settings.RUN_ENV, f'output/e{N}')
+    subdir = os.path.join(run_env, f'output/e{N}')
     filepath_g1 = os.path.join(subdir, 'g1.csv')
     filepath_n3 = os.path.join(subdir, 'n3.csv')
     filepath_n4 = os.path.join(subdir, 'n4.csv')
