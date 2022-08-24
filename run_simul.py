@@ -25,11 +25,11 @@ import finite_difference
 
 def execute_perturbation(mt, perturbation, discretization=None):
     if discretization is None:
-        command = f"python3 perturb_xs.py -mt {mt} -p {perturbation} -x {settings.XLIB} \
-            -l {settings.LIBDIR} -d {settings.PERTURB_OUTPUT_DIR}"
+        command = f"python3 perturb_xs.py -mt {mt} -p {perturbation} -x '{settings.XLIB}' \
+            -l '{settings.LIBDIR}' -d '{settings.PERTURB_OUTPUT_DIR}'"
     else:
         command = f"python3 perturb_xs.py -mt {mt} -p {perturbation} -di {discretization} \
-            -x {settings.XLIB} -l {settings.LIBDIR} -d {settings.PERTURB_OUTPUT_DIR}"
+            -x '{settings.XLIB}' -l '{settings.LIBDIR}' -d '{settings.PERTURB_OUTPUT_DIR}'"
     os.system(command)
 
 
@@ -94,9 +94,10 @@ if __name__ == "__main__":
         settings.PERTURB_OUTPUT_DIR = '/Users/user1/Documents/Summer Internship 2022/Nuclear Data/neutron_perturbed'
         settings.MAIN_DIR = '/Users/user1/Documents/Summer Internship 2022/Python code/Iron'
 
-    powers = [6]
+    powers = [8]
+
     mt = 102
-    perturbations = [0.5]
+    perturbations = [0.01, 0.03, 0.1, 0.3, 1.0, 3.0]
     discretization = None
     run(powers, mt, perturbations, discretization)
     finite_difference.compare_perturbation('Fe56', mt, perturbations, discretization=None,

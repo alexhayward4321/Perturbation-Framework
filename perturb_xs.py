@@ -93,7 +93,10 @@ discretization = args.discretization
 REACTION = openmc.data.reaction.REACTION_NAME
 
 lib = openmc.data.DataLibrary()
-lib = lib.from_xml(xlib)
+if not os.path.exists(xlib):
+    lib = lib.from_xml(libdir/'cross_sections.xml')
+else:
+    lib = lib.from_xml(xlib)
 
 
 def valid_discretization_test():
