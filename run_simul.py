@@ -78,14 +78,21 @@ def run(powers, mt, perturbations, discretization, standard_run=False, check_rep
 
 
 if __name__ == "__main__":
-    # Full path to original unperturbed nuclear data library
-    settings.LIBDIR = "/root/nndc_hdf5"
-    # File where new cross section file for perturbed data is stored
-    settings.XLIB = '/root/neutron_perturbed/cross_sections_perturbed.xml'
-    # File where perturbed cross section hdf5 files are stored
-    settings.PERTURB_OUTPUT_DIR = '/root/neutron_perturbed'
-    # Full path to ironbenchmark file
-    settings.MAIN_DIR = '/ironbenchmark'
+
+    if os.uname.sysname == 'Linux':
+        # Full path to original unperturbed nuclear data library
+        settings.LIBDIR = "/root/nndc_hdf5"
+        # File where new cross section file for perturbed data is stored
+        settings.XLIB = '/root/neutron_perturbed/cross_sections_perturbed.xml'
+        # File where perturbed cross section hdf5 files are stored
+        settings.PERTURB_OUTPUT_DIR = '/root/neutron_perturbed'
+        # Full path to main folder
+        settings.MAIN_DIR = '/ironbenchmark'
+    elif os.uname.sysname == 'Darwin':
+        settings.LIBDIR = "/Users/user1/Documents/Summer Internship 2022/Nuclear Data/endfb71_hdf5"
+        settings.XLIB = '/Users/user1/Documents/Summer Internship 2022/Nuclear Data/neutron_perturbed/cross_sections_perturbed.xml'
+        settings.PERTURB_OUTPUT_DIR = '/Users/user1/Documents/Summer Internship 2022/Nuclear Data/neutron_perturbed'
+        settings.MAIN_DIR = '/Users/user1/Documents/Summer Internship 2022/Python code/Iron'
 
     powers = [6]
     mt = 102

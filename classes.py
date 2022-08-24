@@ -1,3 +1,4 @@
+#%%
 import numpy as np
 import pandas as pd
 
@@ -21,3 +22,5 @@ class flux_object:
             return True
         else:
             return False
+
+# %%
