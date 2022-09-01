@@ -1,0 +1,417 @@
+message: datapath = 
+xsdir             = 
+
+g- and n-leakage from KFK Fe-sphere with Cf-source: outer dia=30cm and data=b80
+c ------------------------------------------------------------------------------------------------
+c This input deck was created by S.Simakov to simulate both gamma and neutron leakage spectra 
+c   from KFK spheres of outer diameters from 15 to 40 cm and from the bare (encapsulated) Cf-source
+c
+c Experimental Set-up specifications are taken from: 
+c   - Gamma   Leakage - Report KFK-2444(1979), Fe spheres outer dia =         25, 30, 35     cm
+c       Gamma detector is 5mm thick spherical shell at 1.55 cm above outer surface of Fe sphere
+c   - Neutron Leakage - Report KFK-2219(1975), Fe spheres outer dia = 15, 20, 25, 30, 35, 40 cm
+c       Three types of neutron detectors are located on +X-axis
+c       NB: for n-Leakage: Background (uncomment Shadow Cone cell=8) has to be calculted and subtracted
+c To select the desired size of Fe sphere (cell=6), change:
+c   - sphere outer diameter, i.e. surf=60;
+c   - spherical surfaces (sur=51 and =52) for g-Tally (f104) and its normalization (fm104).
+c To compute g-spectra from;
+c   - bare encapsulated Cf-source (tally f105) - void Iron sphere (cell=6) with a help of card "void 6";
+c   - only from (n,xg) reaction on Sio2/Mg0 matrix and two capsules set Mg = 0 on card "sp10 W" below card "SDEF";
+c   - bare Cf-source but transmitted through Fe-sphere - kill neutrons in Fe sphere (cell=6) using card "elpt:n ...".
+c Cf-252(s.f.) source energy distribution are presented in the external files:
+c   - Cf252_nPrompt_725g.dat = Prompt  Neutron Spectrum (PFNS) from IRDFF-II (Standards)
+c   - Cf252_nDelayed.dat     = Delayed Neutron Spectrum (DFNS) from ENDF/B-VII.1           
+c   - Cf252_gPrompt.dat      = Prompt  Gamma   Spectrum (PFGS) from combination of Obersted, Talou, Pandit
+c   - Cf252_gDelayed.dat     = Delayed Gamma   Spectrum (DFGS) from D.H.Stoddard 
+c More details are available in this MCNP deck and in the attached Evaluation Report:
+c     "KFK γ-ray leakage Iron sphere benchmark with Cf source: entry for SINBAD and analysis"
+c      by S.Simakov and U.Fischer, May 2021.
+c  -------------------------------------------------------------------------------------------------
+c
+1  12 -1.238       -1  2 -3                        imp:n=1 imp:p=1 $ Cf-252 in SiO2/MgO matrix,   Weight=0.14g, Vol=0.113097cc => d=1.2379g/cc
+2  40 -6.768       -4  5 -6  #1                    imp:n=1 imp:P=1 $ Inner Container Zr+1.5wt%Sn, Weight=4.55g, Vol=0.672301cc => d=6.7678g/cc
+3  7  -0.0012 (-4  8 -5):(-4 6  -9):(4  -7  8  -9) imp:n=1 imp:p=1 $ Air between ZrSn and Al containers 
+4  13 -2.645  (-7 11 -8):(-7 9 -12):(7 -10 11 -12)                 $ Outer Container Al+3wt%Mg,   Weight=4.87g, Vol=1.84141cc  => d=2.6447g/cc
+                                   :(-13 14 -11)   imp:n=1 imp:p=1 $ tooth of Outer Container
+5  7  -0.0012  (10 -20 11 -12):( 13 -7 15 -11)                     $ Air inside Sphere
+                              :(-13    15 -14)     imp:n=1 imp:p=1 $ 
+6  1   0.0844  -60 (20 : -15 : 12)                                 $ Fe-sphere, At.Dens=0.0844a/cc (KFK-2219,p.20, KFK-2444,p.54) =>7.80569g/cc (comp. Wiki=7.874g/cc)
+                              :(-20  7 15 -11)     imp:n=1 imp:p=1 $ hole for tooth in Iron sphere
+c
+51 7  -0.0012   60 -51                             imp:n=1 imp:p=1 $ Air outside sphere (1.2e-3g/cc) to introduce sur 51 (F2 Si(Li) g-detector)
+52 7  -0.0012   51 -52                             imp:n=1 imp:p=1 $ layer for Si(Li) g-detector between surfs 51 and 52 (F4 Si(Li) g-detector)
+53 7  -0.0012   52 -68                             imp:n=1 imp:p=1 $ Air outside sphere (1.2e-3g/cc) to introduce sur 53 (F2 Si(Li) g-detector)
+c
+70 7  -0.0012   68 -69    -67                      imp:n=1 imp:p=1 $ volume for F4 He3 detector filled with Air 
+71 7  -0.0012   68 -70    #70                      imp:n=1 imp:p=1 $ Air outside sphere (1.2e-3g/cc) to introduce sur 70 (F2 3He-detector)
+7  7  -0.0012   (-90  70 -61) :(63  61 -62 -90)    imp:n=1 imp:p=1 $ Air outside sphere (1.2e-3g/cc)
+c  foreground: n-Leakage + Background (Air bar)
+8  7  -0.0012                  -63  61 -62         imp:n=1 imp:p=1 $ either Air (m7) outside sphere 
+c  background:             Background (PVC bar)
+c 8  8  -1.4                     -63  61 -62         imp:n=1 imp:p=1 $    or Shadow Cone PVC=C2H3Cl (m8, 1.4g/cc) outside sphere
+9  0                       -90          62         imp:n=1 imp:p=1 $ Air outside sphere
+10 0                        90                     imp:n=0 imp:p=0 $ outside word
+
+1  cx     0.3       $ Cylinder with Cf + SiO2/MgO,  dia =  6mm
+2  px    -0.2       $    its left  plane
+3  px     0.2       $    its right plane,        height =  4mm
+4  cx     0.5       $ Cylinder Container Zircaloy,  dia = 10mm
+5  px    -0.5       $    its left  plane
+6  px     0.5       $    its right plane,        length = 10mm
+7  cx     0.55      $ Cylinder Container Air,       dia = 11mm
+8  px    -0.55      $    its left  plane
+9  px     0.55      $    its right plane,        length = 11mm
+10 cx     0.75      $ Cylinder Container Al +3%Mg , dia = 15mm
+11 px    -0.75      $    its left  plane
+12 px     0.75      $    its right plane,        length = 15mm
+13 cx     0.34      $ "Tooth", effective            Rad =  3.39mm to represent "tooth" 6x6mm
+14 px    -1.40      $    its left  plane at -14.0mm = -6.5mm -7.5mm
+15 px    -1.45      $    its right plane at -14.5mm = -7.0mm -7.5mm
+20 cx     0.80      $ Iron Sphere: Inner Cylinder   dia = 16 mm x 16 mm long
+c                                  Outer Diameter  15.0  20.0  25.0  30.0  35.0  40.0 cm
+60 so    15.0       $ Iron Sphere: Outer Radius R = 7.5, 10.0, 12.5, 15.0, 17.5, 20.0 cm (3 spheres for g-leakage, 6 spheres for n-leakage)
+c    Surface for Si volume (5mm)  R + 1.55 - 0.25 =            13.8  16.3  18.8  
+c    Surface for Si volume (5mm)  R + 1.55 + 0.25 =            14.3  16.8  19.3  
+51 so    16.3       $ surface  for Si(li) g-detector                       19.05 (Rout + 1.55, see KFK-2444, Abb2.7)
+52 so    16.8       $ surface  for Si(li) g-detector                       19.05 (Rout + 1.55, see KFK-2444, Abb2.7)
+53 cz     0.59      $ cylinder for Si(Li) g-detector, dia = 1.18 cm
+c
+67 cy     0.5       $ cylinder      of He3-Si n-detector, diamet = 1 cm 
+68 so    20.5       $ front surface of He3-Si n-detector
+69 so    21.5       $ back  surface of He3-Si n-detector, height = 1 cm
+70 so    22.        $ surface for F2 He3-Si n-detector; my guess = 2 cm above Fe-sphere outer surface
+61 px    76.        $ front plane of Shadow Cone = 96-20cm = 76cm, length=20cm
+62 px    96.        $ rare  plane of Shadow Cone = 102-6cm = 96cm      
+63 cx     8.        $ radius of Shadow Cone = 20 - (20.-2.4)/108*76=7.615cm => Rcone=8cm
+90 rcc  -25. 0. 0.  185. 0. 0.  25.  $ truncated cone with xyz-bottom and HxHyHz-Height vector, bases of r1 and r2
+
+c void 6              $ void only Fe sphere to get Bare Source (NB: not possible in combination with perturbation cards!)
+c void 2 4 6          $ it is CORRECT way to void All cells    (NB: blank VOID card turns off FM cards!)
+c
+mode  n  p          $ two modes: neutrons (n) and photons (p) 
+c mphys on            $ phyics is needed to model photo-nuclear (physics on)
+phys:n  60 7j       $ Max and Min neutron energies
+phys:p  30 j j 1    $ Max E for detailed p-treatment; ides = e or bremstral by photons (default=0=ON); noch; ispn - photonuclear (1/0)
+c
+c *** uncomment elpt to kill neutrons in Fe sphere to estimate gammas born in bare Cf-source and transmitted by Fe sphere ***
+c elpt:n 5j 60 7j    $ cell-by-cell low energy cut-off = kill neutrons with E < 60MeV in Fe sphere (which is cell no. 6)
+c
+c ////////////// Materials and Nuclear Data XS Libraries /////////////////////////
+c
+c m0  nlib=80c  plib=04c  pnlib=12u  $ setting default Libraries for All materials: nlib=80c (ENDF/B-VIII.0) nlib=03c (JEFF-3.3)
+c
+c ====== Iron Sphere:  Marke EWOCE/Armco =========
+c  wt% taken from KFK-2219, p.5 or KFK-2144, p.12 "Eisenkugeln": C=0.07, Mn=0.05, P=0.009, S=0.007wt% 
+c       => Sum of Impurities = 0.136wt% and Fe = 99.864wt%
+c  Isotopic fraction were computed by mattool:
+c     zaid      atom frac      z atom sum      mass frac     z mass sum
+c   ========  =============   =============  =============  =============
+m1     6012   3.211267e-03  $                 6.918910e-04
+       6013   3.473219e-05  $  3.245999e-03   8.109006e-06   7.000000e-04
+      15031   1.618335e-04  $  1.618335e-04   9.000000e-05   9.000000e-05
+      16032   1.154962e-04  $                 6.630074e-05
+      16033   9.119078e-07  $                 5.398450e-07
+      16034   5.167478e-06  $                 3.151570e-06
+      16036   1.215877e-08  $  1.215877e-04   7.851902e-09   7.000000e-05
+      25055   5.068936e-04  $  5.068936e-04   5.000000e-04   5.000000e-04
+      26054   5.821408e-02  $                 5.637880e-02
+      26056   9.138365e-01  $                 9.177654e-01
+      26057   2.110447e-02  $                 2.157431e-02
+      26058   2.808618e-03  $  9.959637e-01   2.921465e-03   9.986400e-01
+mx1:p    2j 16032    9j     $  substitute photo-nuclear data: 16-S-32 instead of 15-P-31
+c
+c ===== Cf-source Materials =====
+c  wt% are taken from KFK-2219, p.4 "Cf-Spaltneutronenquelle"
+c
+c  ---(1)- SiO2/MgO Matrix with Cf-252 (30mkg => 5.51E+7 n/s)
+c  Isotopic fraction were computed by mattool:
+c     zaid      atom frac       z atom sum      mass frac     z mass sum
+c   ========  =============    =============  =============  =============
+m12    8016   5.985420e-01  $                 4.768277e-01
+       8017   2.280000e-04  $                 1.930396e-04
+       8018   1.230000e-03  $  6.000000e-01   1.102662e-03   4.781234e-01
+      12024   1.579800e-01  $                 1.887242e-01
+      12025   2.000000e-02  $                 2.488908e-02
+      12026   2.202000e-02  $  2.000000e-01   2.849605e-02   2.421093e-01
+      14028   1.844460e-01  $                 2.570124e-01
+      14029   9.370000e-03  $                 1.352292e-02
+      14030   6.184000e-03  $  2.000000e-01   9.231999e-03   2.797673e-01
+      98252   1.70e-5       $  30mkg Cf-252 in 0.14g SiO2MgO = 30.e-6/0.14 = 2.14e-4 wt. fraction
+mx12:p   9j 94239           $ substitue photo-nuclear: Pu-239 instead of Cf-252
+c
+c  ---(2)- Inner Container: Zircaloy Zr + 1.5wt% Sn, d = 6.55 g/cc
+c  Isotopic fraction were computed by mattool:
+c     zaid      atom frac       z atom sum      mass frac     z mass sum
+c   ========  =============    =============  =============  =============
+m40   40090   5.085488e-01  $                 4.994553e-01
+      40091   1.109022e-01  $                 1.101317e-01
+      40092   1.695163e-01  $                 1.701893e-01
+      40094   1.717896e-01  $                 1.762274e-01
+      40096   2.767612e-02  $  9.884330e-01   2.899632e-02   9.850000e-01
+      50112   1.122002e-04  $                 1.371589e-04
+      50114   7.634242e-05  $                 9.499086e-05
+      50115   3.932791e-05  $                 4.936454e-05
+      50116   1.681847e-03  $                 2.129403e-03
+      50117   8.883481e-04  $                 1.134463e-03
+      50118   2.801535e-03  $                 3.608256e-03
+      50119   9.936081e-04  $                 1.290597e-03
+      50120   3.768539e-03  $                 4.936075e-03
+      50122   5.355536e-04  $                 7.131822e-04
+      50124   6.697312e-04  $  1.156703e-02   9.065085e-04   1.500000e-02
+c
+c  ---(3)- Outer Container: Al  + 3w% Mg, 
+c  Isotopic fraction were computed by mattool:
+c     zaid      atom frac      z atom sum      mass frac     z mass sum
+c   ========  =============   =============  =============  =============
+m13   12024   2.621991e-02  $                 2.338499e-02
+      12025   3.319396e-03  $                 3.084030e-03
+      12026   3.654655e-03  $  3.319396e-02   3.530974e-03   3.000000e-02
+      13027   9.668060e-01  $  9.668060e-01   9.700000e-01   9.700000e-01
+c
+c ===== Air (wt% see: https://www.engineeringtoolbox.com/air-composition-d_212.html )
+c  Isotopic fraction were computed by mattool:
+m7     7014 -0.7552  8016 -0.2314  18038 -0.0129  1001 -3.0e-8 $ H = 3.e-6wt% (in dry air)
+mx7:p     j             j              j             0         $ omitting photonucl for H-1
+c
+c ===== PVC (=C2H3Cl, density 1.2-1.64 g/cc) for Shadow Cone
+m8    6012 1.9786 6013 0.0214  1001 3.0 17035 0.758 17037 0.242 $ all isotopes 
+c
+c //////////////////// Gamma Tallies ///////////////////////////
+c
+fc104 Gamma Leakage Spectrum from Sphere in cell=52 (5mm thick Si(Li)), Normal. depends on R, per Cf(s.f.)n
+f104:p   52         $ g-detector Si(Li) in spherical cell=52 = 1.55cm from Fe-sur, depth=5mm, Surface=110mm2(dia=1.2cm)
+c fs104   -53         $ segmentation: volume of Si-detector and rest - flux will agree with whole spherical cell=52
+c  Normalization = 4pi*(R+1.55)**2:
+c    sphere dia = 25          30          35         cm
+c    R + 1.55cm = 12.5+1.55   15.0+1.55   17.5+1.55  cm
+c            fm = 2.48063e+3  3.44196e+3  4.56037e+3     
+c fm104    2.48063e+3          $ 4pi*(R+1.55)**2 to get Flux over 4pi for sphere dia 25cm
+  fm104    3.44196e+3          $ 4pi*(R+1.55)**2 to get Flux over 4pi for sphere dia 30cm
+c fm104    4.56037e+3          $ 4pi*(R+1.55)**2 to get Flux over 4pi for sphere dia 35cm
+e104  0.01 0.05 0.10  
+      19i  0.50         $  0.020 MeV bins
+      19i  1.00         $  0.025 MeV bins
+      19i  2.00         $  0.050 MeV bins
+      19i  4.00         $  0.100 MeV bins
+      24i  9.00         $  0.200 MeV bins
+       9i 14.0          $  0.500 MeV bins
+       5i 20.0          $  1.000 MeV bins
+      25. 30.
+ft104   geb 0.02 0.1  0.    $ 20-10% at Eg=0.5-2.0MeV (KFK-2444,Fig.2.10) - Gaussian broadening: FWHM = a + b*sqrt(E + c*E**2)
+c        tag 3               $ Tagging tally: a=1 - all collided particles will lose their tag 
+c fu104  26056.00102 26056.00000 26054.00102 26054.00000 26057.00102 26057.00000 $ Fe56ng,nxg,Fe54ng,nxg,Fe57ng,nxg
+c       1.e10                                                                   $ all_others = Total
+c         inc                  $ Number of collisions in track
+c fu104   0 1 2 3 4 5 6 10 999 $     collisions bins
+fq104   e u                  $ printing hierarchy: e -energy, u -user, m -multiplier, f -cell,surf or det bins
+c
+fc105 Gamma Leakage Spectrum from Bare Cf-src (ring-point at 102.5cm, per Cf252(sf)n)
+f105x:p  102.5  0.6  0.5 ND  $ Detector Si(Li) at L=102.5cm: Sensitive volume height=5mm, Area=110mm2(dia=1.2cm)
+fm105    1.3202543e+5        $ 4pi*L**2 = 1.3202543e+5
+e105  0.01 0.05 0.10  
+      19i  0.50         $  0.020 MeV bins
+      19i  1.00         $  0.025 MeV bins
+      19i  2.00         $  0.050 MeV bins
+      19i  4.00         $  0.100 MeV bins
+      24i  9.00         $  0.200 MeV bins
+       9i 14.0          $  0.500 MeV bins
+       5i 20.0          $  1.000 MeV bins
+      25. 30.
+ft105   geb 0.02 0.10 0.   $ 20-10% at Eg=0.5-2.0MeV (KFK-2444,Fig.2.10) - Gaussian broadening: FWHM = a + b*sqrt(E + c*E**2)
+        icd                $ Identify the cell from which each detector score is made
+fu105   1 2 4              $ names of scored cells: 1 - matrix with Cf, 2 - inner capsule, 4 - outer capsule
+c unc:n  0 12r               $ uncollided secondary particle (neutrons) in cell numbers ji
+fq105   e u                $ printing hierarchy: e -energy, u -user, m -multiplier, f -cell,surf or det bins
+c
+c //////////////////// Neutron Tallies  //////////////////////////
+c
+fc5 Neutron Leakage Spectra D1,D2 (F5 ring-point Flux per one Cf-252 neutron)
+f5x:n  108.  1.2  0.5 ND  $ Detectors D1 and D2 (L=108cm): 3atm H2 or 1.5H2+1.5Kr, dia=4.8cm, Resol=4% at 0.77MeV
+fm5    1.465741e+5        $ 4pi*L**2 = 1.465741e+5
+e5    0.0010 0.0012 0.0015 0.0020 0.0023 0.0025 
+      0.003 0.004 0.005 0.006 0.007 0.008 0.009 
+      0.010 0.011 0.012 0.013 0.014 0.015 0.016 0.017 0.018 0.019
+      0.020 0.021 0.022 0.023 0.024 0.025 0.026 0.027 0.028 0.029 
+      0.030 0.032 0.034 0.036 0.038 0.040 0.042 0.044 0.046 0.048 
+      0.050 0.052 0.054 0.056 0.058 0.060 0.065 0.070 0.075 0.080 0.085 
+      0.090 0.095 0.100 0.105 0.110 0.115 0.120 0.125 0.130 0.135
+      0.14  0.15  0.16  0.17  0.18  0.19  0.20  0.21  0.22  0.23
+      0.24  0.25  0.26  0.27  0.28  0.29  0.30  0.32  0.34  0.36
+      0.38  0.40  0.42  0.44  0.46  0.48  0.50  0.55  0.60  0.65
+      0.70  0.75  0.80  0.85  0.90  0.95  1.00  1.10  1.20  1.30  1.40 1.5 1.6
+      1.70  1.80  1.90  2.00  2.25  2.50  2.75  3.00  3.25  3.50  3.75  
+      4.00  4.25  4.50  4.75  5.00  5.50  6.00  6.50  7.00  7.50
+      8.0   8.5   9.0   9.5  10.0  10.5  11.0   8i    20
+ft5   geb 0 0.0014 10000  $ 2*7% (KFK-2219,p.13) - Gaussian broadening: FWHM = a + b*sqrt(E + c*E**2)
+fq5   e f                 $ printing hierarchy: e -energy, u -user, m -multiplier, f -cell,surf or det bins
+c
+fc15 Neutron Leakage Spectra D3 (F5 ring-point Flux per one Cf-252 neutron)
+f15x:n 153.  2.4  0.5 ND  $ Detectors D3 (L=153cm): 3atm CH4, dia=8.9cm, Resol=4% at 0.77MeV
+fm15   2.941662e+5        $ 4pi*L**2 = 2.941662e+5
+e15   0.0010 0.0012 0.0015 0.0020 0.0023 0.0025 
+      0.003 0.004 0.005 0.006 0.007 0.008 0.009 
+      0.010 0.011 0.012 0.013 0.014 0.015 0.016 0.017 0.018 0.019
+      0.020 0.021 0.022 0.023 0.024 0.025 0.026 0.027 0.028 0.029 
+      0.030 0.032 0.034 0.036 0.038 0.040 0.042 0.044 0.046 0.048 
+      0.050 0.052 0.054 0.056 0.058 0.060 0.065 0.070 0.075 0.080 0.085 
+      0.090 0.095 0.100 0.105 0.110 0.115 0.120 0.125 0.130 0.135
+      0.14  0.15  0.16  0.17  0.18  0.19  0.20  0.21  0.22  0.23
+      0.24  0.25  0.26  0.27  0.28  0.29  0.30  0.32  0.34  0.36
+      0.38  0.40  0.42  0.44  0.46  0.48  0.50  0.55  0.60  0.65
+      0.70  0.75  0.80  0.85  0.90  0.95  1.00  1.10  1.20  1.30  1.40 1.5 1.6
+      1.70  1.80  1.90  2.00  2.25  2.50  2.75  3.00  3.25  3.50  3.75  
+      4.00  4.25  4.50  4.75  5.00  5.50  6.00  6.50  7.00  7.50
+      8.0   8.5   9.0   9.5  10.0  10.5  11.0   8i    20
+ft15  geb 0 0.0014 10000  $ 2*7% (KFK-2219,p.13) - Gaussian broadening: FWHM = a + b*sqrt(E + c*E**2)
+fq15  e f                 $ printing hierarchy: e -energy, u -user, m -multiplier, f -cell,surf or det bins
+c
+fc4 Neutron Leakage Spectra He3 (F4 track-length flux in cell=70)
+f4:n   70              $ F4 flux estimate of Detector He3
+fm4    5.54177e+3      $ 4*pi*R**2 = 5.54177e+3 (R = 21.0cm)
+e4    0.0010 0.0012 0.0015 0.0020 0.0023 0.0025 
+      0.003 0.004 0.005 0.006 0.007 0.008 0.009 
+      0.010 0.011 0.012 0.013 0.014 0.015 0.016 0.017 0.018 0.019
+      0.020 0.021 0.022 0.023 0.024 0.025 0.026 0.027 0.028 0.029 
+      0.030 0.032 0.034 0.036 0.038 0.040 0.042 0.044 0.046 0.048 
+      0.050 0.052 0.054 0.056 0.058 0.060 0.065 0.070 0.075 0.080 0.085 
+      0.090 0.095 0.100 0.105 0.110 0.115 0.120 0.125 0.130 0.135
+      0.14  6i  0.20  9i 0.30  9i 0.50 
+      9i 1.00  9i  2.00 11i 5.00  11i  11.0  8i  20
+ft4   geb 0 0.0014 10000 $ 2*7% (KFK-2219,p.13) - Gaussian broadening: FWHM = a + b*sqrt(E + c*E**2)
+fq4   e f                $ printing hierarchy: e -energy, u -user, m -multiplier, f -cell,surf or det bins
+c
+c fc25 Neutron Leakage in Groups D1,D2 (ring-point Flux F5 per one Cf-252 neutron)
+c f25x:n 108.   1.2   0.5 ND       $ Detectors D1 and D2 (L=108cm), Radius=2.4cm
+c fm25   1.465741e+5               $ 4pi*L**2 = 1.465741e+5 (L=108cm)
+c e25    0.060 0.100 0.16 0.21 0.41 0.80 1.3 2.0 3.0 4.0 5.2 $ Energy bins
+c ft25   geb 0 0.0014 10000        $ 2*7% Gaussian broadening: FWHM = a + b*sqrt(E + c*E**2)
+c fq25   e f                       $ printing hierarchy: e -energy, u -user, m -multiplier, f -cell,surf or det bins
+c c
+c fc35 Neutron Leakage in Groups D3 (ring-point Flux F5 per one Cf-252 neutron)
+c f35x:n 153.   2.4   0.5 ND       $ Detectors D3 
+c fm35   2.941662e+5               $ 4pi*L**2 = 2.941662e+5 (L=153cm)
+c e35    0.060 0.100 0.16 0.21 0.41 0.80 1.3 2.0 3.0 4.0 5.2 $ Energy bins
+c ft35   geb 0 0.0014 10000        $ 2*7% Gaussian broadening: FWHM = a + b*sqrt(E + c*E**2)
+c fq35   e f                       $ printing hierarchy: e -energy, u -user, m -multiplier, f -cell,surf or det bins
+c
+fc22 Neutron Leakage vs Collisions (per one Cf252(s.f.) neutron)
+f22:n 60                         $ surface for g-detector
+e22   0.0010 0.0012 0.0015 0.0020 0.0023 0.0025 
+      0.003 0.004 0.005 0.006 0.007 0.008 0.009 
+      0.010 0.011 0.012 0.013 0.014 0.015 0.016 0.017 0.018 0.019
+      0.020 0.021 0.022 0.023 0.024 0.025 0.026 0.027 0.028 0.029 
+      0.030 0.032 0.034 0.036 0.038 0.040 0.042 0.044 0.046 0.048 
+      0.050 0.052 0.054 0.056 0.058 0.060 0.065 0.070 0.075 0.080 0.085 
+      0.090 0.095 0.100 0.105 0.110 0.115 0.120 0.125 0.130 0.135
+      0.14  6i  0.20  9i 0.30  9i 0.50 
+      9i 1.00  9i  2.00 11i 5.00  11i  11.0  8i  20
+sd22  1.0                $ setting Area(Sur=60) = 1 to get Flux over 4pi*R**2
+fm22  1.0                $
+ft22  inc                $ Number of collisions in track
+fu22  0 1 2 3 4 5 10 999 $           collisions bins
+fq22  e u                $ printing hierarchy: rows - e, columns - user bins, f 
+c
+c ///////////////// Neutron Gamma Sensitivity from Perturbation of Cross Section, Method 1/2 = (1st+2nd)/(only first) term /////////
+c --- (n,elast)  mt = 2
+   pert1:n cell=6 mat=901 rho=0.09284 rxn=2            erg= 0.0  0.8  method=1  $ normal 0.0844 +10% density change to 0.09284 at/cc
+   pert2:n cell=6 mat=901 rho=0.09284 rxn=2            erg= 0.8  2.0  method=1  $ 
+   pert3:n cell=6 mat=901 rho=0.09284 rxn=2            erg= 2.0  6.0  method=1  $ 
+   pert4:n cell=6 mat=901 rho=0.09284 rxn=2            erg= 6.0 16.0  method=1  $ 
+c --- (n,inl):   mt = 51 - 80 + 91                              
+  pert21:n cell=6 mat=901 rho=0.09284 rxn=51 28i 80,91 erg= 0.0  0.8  method=1  $ 
+  pert22:n cell=6 mat=901 rho=0.09284 rxn=51 28i 80,91 erg= 0.8  2.0  method=1  $ 
+  pert23:n cell=6 mat=901 rho=0.09284 rxn=51 28i 80,91 erg= 2.0  6.0  method=1  $ 
+  pert24:n cell=6 mat=901 rho=0.09284 rxn=51 28i 80,91 erg= 6.0 16.0  method=1  $ 
+c --- (n,2n)  mt = 16                                                              
+  pert31:n cell=6 mat=901 rho=0.09284 rxn=16           erg= 0.0  0.8  method=1  $ 
+  pert32:n cell=6 mat=901 rho=0.09284 rxn=16           erg= 0.8  2.0  method=1  $ 
+  pert33:n cell=6 mat=901 rho=0.09284 rxn=16           erg= 2.0  6.0  method=1  $ 
+  pert34:n cell=6 mat=901 rho=0.09284 rxn=16           erg= 6.0 16.0  method=1  $ 
+c --- (n,g)    mt = 102                                                           
+  pert41:n cell=6 mat=901 rho=0.09284 rxn=102          erg= 0.0  0.8  method=1  $ 
+  pert42:n cell=6 mat=901 rho=0.09284 rxn=102          erg= 0.8  2.0  method=1  $ 
+  pert43:n cell=6 mat=901 rho=0.09284 rxn=102          erg= 2.0  6.0  method=1  $ 
+  pert44:n cell=6 mat=901 rho=0.09284 rxn=102          erg= 6.0 16.0  method=1  $ 
+c
+c ---  dummy materials for perturbation: now m901 = m1
+c
+c ====== Iron Sphere:  Marke EWOCE/Armco =========
+c  wt% taken from KFK-2219, p.5 or KFK-2144, p.12 "Eisenkugeln": C=0.07, Mn=0.05, P=0.009, S=0.007wt% 
+c       => Sum of Impurities = 0.136wt% and Fe = 99.864wt%
+c  Isotopic fraction were computed by mattool:
+c     zaid      atom frac      z atom sum      mass frac     z mass sum
+c   ========  =============   =============  =============  =============
+m901   6012   3.211267e-03  $                 6.918910e-04
+       6013   3.473219e-05  $  3.245999e-03   8.109006e-06   7.000000e-04
+      15031   1.618335e-04  $  1.618335e-04   9.000000e-05   9.000000e-05
+      16032   1.154962e-04  $                 6.630074e-05
+      16033   9.119078e-07  $                 5.398450e-07
+      16034   5.167478e-06  $                 3.151570e-06
+      16036   1.215877e-08  $  1.215877e-04   7.851902e-09   7.000000e-05
+      25055   5.068936e-04  $  5.068936e-04   5.000000e-04   5.000000e-04
+      26054   5.821408e-02  $                 5.637880e-02
+      26056   9.138365e-01  $                 9.177654e-01
+      26057   2.110447e-02  $                 2.157431e-02
+      26058   2.808618e-03  $  9.959637e-01   2.921465e-03   9.986400e-01
+mx901:p    2j 16032    9j     $  substitute photo-nuclear data: 16-S-32 instead of 15-P-31
+c
+c m901   6012     -0.0006913   $   by 12C: 0.0007*0.9893 = 0.00069251 
+c        6013     -0.0000073   $   by 13C: 0.0007*0.0107 = 0.00000749 
+c       15031     -0.00009     $ P  = 0.009wt%
+c       16032     -0.00007     $ S  = 0.007wt%
+c       25055     -0.00050     $ Mn = 0.05 wt%
+c       26054.80c -0.056379    $ nlib =80c(ENDF/B-VIII.0) =04c(JEFF-4.0T1) =17c(tendl17)
+c       26056.80c -0.917768    $ nlib =80c(ENDF/B-VIII.0) =04c(JEFF-4.0T1) =31c(IAEA,fe56e80L)
+c       26057.80c -0.021574
+c       26058.80c -0.002921    $ nlib =80c(b8b4) =71c(b7.1) =03c(JEFF-3.3)
+c mx901:p 2j 16032    6j       $ substitute photonucl.: 15-P-31 by 16-S-32 
+c
+c //////////////////////////////////////////////////////////////////////////////////
+c  Cf-Source: Simultaneous Sampling of Neutrons and Gammas (both Prompt and Delayed)
+c  - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+c  Cf-252)s.f) - Neutron Multiplicities per fission, Nu:
+c    Nubar Total(per fission) = 3.7676 +- 0.0047 E.J.Axton, BCNM REPORT GE/PH/01/86 
+c          Prompt             = 3.7590 +- 0.0048    
+c          Delayed            = 0.0086 +- 0.0010 T.R.England, Priv. Communication, 1990
+c  Cf-252(s.f.) - Gamma Multiplicities per fission, Mg:
+c    Nubar Total(per fission) =21.7000 +- 0.0000 present work + D.H.Stoddrad, Report DP-986, 1965
+c          Prompt             =11.0000 +- 0.0000 present work
+c          Delayed            =10.7000 +- 0.0000 D.H.Stoddrad, Report DP-986, 1965
+c ------------------------------------------------------------------------------
+c  Volume Cylinder Source along X-axis in cell=1, Particles = 2 neutrons + 2 gammas, Erg depends on Particle
+sdef pos=0.0 0 0  axs= 1 0 0  rad=d8  ext=d9  par=d10  Erg=fpar=d11  $ Energy spectrum depends on Particle 
+c
+si8     0.3      $ Cf volume cylinder diamet = 6 mm (uniform volume distribution)
+si9     0.2      $ Cf volume cylinder height = 4 mm (+/-0.2 it is the distance from POS along AXS)
+c
+si10 L  n              n              p             p            $ sampling of 4 discretes: n-prompt/delayed and p-prompt/delayed
+c       prompt         delayed        prompt        delayed
+c       nuProm/nuTot   nudDl/nuTot    MgProm/nuTot  MgDel/nuTot  <= n- and g-Multiplicities per Cf(s.f.)neutron
+c       3.7590/3.7676  0.0086/3.7676  11.0/3.7676   10.7/3.7676  
+c      =0.99772       =0.00288       =2.91631      =2.84000    
+sp10 W  0.99772        0.00288        2.91631       2.8400       $ Intensities of mixed particles applied to weights, norm. per Cf252(s.f.)neutron
+c sp10 W  0.99772        0.00288        0.0           0.0          $ to compute contribution from (n,xg) on Cf source capsules
+sb10    1.00           0.03           2.90          2.80         $ Biased probability to make sampling similar to the physical probabilities
+ds11 S  1              2              3             4            $ selection of Energy Distribution for Particle
+c
+c --- 252Cf(s.f.)n: Prompt  Neutron Spectrum (PFNS) from IRDFFStandards/Mannhart; Histogram in 725gr [n/bin]
+  read file = Cf252_nPrompt_725g.dat  $ distribution 1
+c --- 252Cf(s.f.)n: Delayed Neutron Spectrum (DFNS) from ENDF/B-VII.1           ; Function [n/MeV]
+  read file = Cf252_nDelayed.dat      $ distribution 2
+c --- 252Cf(s.f.)g: Prompt  Gamma   Spectrum (PFGS) from combination (Obersted, Talou): Eg>0.1MeV, Mg=8.29+/-0.13 ; Function  [g/MeV]
+  read file = Cf252_gPrompt.dat       $ distribution 3
+c --- 252Cf(s.f.)g: Delayed Gamma   Spectrum (DFGS) from D.H.Stoddard DP-986(1965)    : Eg>0.0MeV, Mg=10.3+/-0.00  ; Histogram [g/bin]
+  read file = Cf252_gDelayed.dat      $ distribution 4
+c
+c sp3   -3 1.175 1.04             $ Watt fission n-spectrum C*exp(-E/a)*sinh(sqrt(b*E)) a=1.175, b=1.04  (Froehner)
+c sp3   -3 1.025 2.926            $ Watt fission n-spectrum C*exp(-E/a)*sinh(sqrt(b*E)) a=1.025, b=2.926 (MCNP)
+c /////////////////////////////////////////////////////////////////////////////////
+c
+c  Print Tallies   Dump to runtp   Print mctal  MaxDumps to runtp   MaxRendez   
+c prdmp    1.E+9           1.E+9             1                  3           0   
+prdmp          j               j             1                  j       2.E+9   
+print  -1        $ print of all tables (basic,default and optional)
+c
+rand GEN=2       $ use L’Ecuyer 63-bit generator, which has a period of 9.2E+18 numbers.
+nps  5.e+8       $ nps = 5.E+8  4x48cpu = 6 min (with perturbation cards)

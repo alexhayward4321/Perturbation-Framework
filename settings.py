@@ -7,3 +7,6 @@ LIBDIR = ''
 XLIB = ''
 PERTURB_OUTPUT_DIR = ''
 MAIN_DIR = ''
+HOME_DIR = ''
+MODEL = ''
+n = 3

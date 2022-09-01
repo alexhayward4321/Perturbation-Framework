@@ -1,10 +1,12 @@
 # My additions
 .vscode/
-/tests/
-/perturbed_run_data/
+tests/
+perturbed_run_data/
 output/
 graphs/
 /archive/
+plot*
+*.h5
 
 # Byte-compiled / optimized / DLL files
 __pycache__/

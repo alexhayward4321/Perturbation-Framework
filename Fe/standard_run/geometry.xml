@@ -1,0 +1,46 @@
+<?xml version='1.0' encoding='utf-8'?>
+<geometry>
+  <cell id="1" material="12" region="-1 2 -3" universe="0" />
+  <cell id="2" material="40" region="-4 5 -6 ~(-1 2 -3)" universe="0" />
+  <cell id="3" material="7" region="(-4 8 -5) | (-4 6 -9) | (4 -7 8 -9)" universe="0" />
+  <cell id="4" material="13" region="(-7 11 -8) | (-7 9 -12) | (7 -10 11 -12) | (-13 14 -11)" universe="0" />
+  <cell id="5" material="7" region="(10 -20 11 -12) | (13 -7 15 -11) | (-13 15 -14)" universe="0" />
+  <cell id="6" material="1" region="(-60 (20 | -15 | 12)) | (-20 7 15 -11)" universe="0" />
+  <cell id="7" material="7" region="(-91 92 70 -61) | (63 61 -62 -91)" universe="0" />
+  <cell id="8" material="7" region="-63 61 -62" universe="0" />
+  <cell id="9" material="void" region="-91 -93 62" universe="0" />
+  <cell id="51" material="7" region="60 -51" universe="0" />
+  <cell id="52" material="7" region="51 -52" universe="0" />
+  <cell id="53" material="7" region="52 -68" universe="0" />
+  <cell id="70" material="7" region="68 -69" universe="0" />
+  <cell id="71" material="7" region="69 -70" universe="0" />
+  <surface coeffs="0.0 0.0 0.3" id="1" type="x-cylinder" />
+  <surface coeffs="-0.2" id="2" type="x-plane" />
+  <surface coeffs="0.2" id="3" type="x-plane" />
+  <surface coeffs="0.0 0.0 0.5" id="4" type="x-cylinder" />
+  <surface coeffs="-0.5" id="5" type="x-plane" />
+  <surface coeffs="0.5" id="6" type="x-plane" />
+  <surface coeffs="0.0 0.0 0.55" id="7" type="x-cylinder" />
+  <surface coeffs="-0.55" id="8" type="x-plane" />
+  <surface coeffs="0.55" id="9" type="x-plane" />
+  <surface coeffs="0.0 0.0 0.75" id="10" type="x-cylinder" />
+  <surface coeffs="-0.75" id="11" type="x-plane" />
+  <surface coeffs="0.75" id="12" type="x-plane" />
+  <surface coeffs="0.0 0.0 0.34" id="13" type="x-cylinder" />
+  <surface coeffs="-1.4" id="14" type="x-plane" />
+  <surface coeffs="-1.45" id="15" type="x-plane" />
+  <surface coeffs="0.0 0.0 0.8" id="20" type="x-cylinder" />
+  <surface coeffs="0.0 0.0 0.0 16.3" id="51" type="sphere" />
+  <surface coeffs="0.0 0.0 0.0 16.8" id="52" type="sphere" />
+  <surface coeffs="0.0 0.0 0.0 15.0" id="60" type="sphere" />
+  <surface coeffs="76.0" id="61" type="x-plane" />
+  <surface coeffs="96.0" id="62" type="x-plane" />
+  <surface coeffs="0.0 0.0 8.0" id="63" type="x-cylinder" />
+  <surface coeffs="0.0 0.0 0.5" id="67" type="y-cylinder" />
+  <surface coeffs="0.0 0.0 0.0 20.5" id="68" type="sphere" />
+  <surface coeffs="0.0 0.0 0.0 21.5" id="69" type="sphere" />
+  <surface coeffs="0.0 0.0 0.0 22.0" id="70" type="sphere" />
+  <surface boundary="vacuum" coeffs="0.0 0.0 25.0" id="91" type="x-cylinder" />
+  <surface boundary="vacuum" coeffs="-25.0" id="92" type="x-plane" />
+  <surface boundary="vacuum" coeffs="160.0" id="93" type="x-plane" />
+</geometry>

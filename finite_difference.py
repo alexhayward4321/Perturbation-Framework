@@ -40,8 +40,8 @@ def get_cum_energy_groups(length, discretization):
     return cumulative
 
 
-def get_dx(nuclide, mt, perturbation,
-           discretization=None, group=None):
+def get_sigma(nuclide, mt, perturbation,
+              discretization=None, group=None):
     """Function reads in the hdf5 cross section for a given nuclide, reaction,
     perturbation, discretisation, and discretisation group as well as the same
     cross section from the 'standard' (unperturbed) data library"""
@@ -51,6 +51,19 @@ def get_dx(nuclide, mt, perturbation,
     Temp = 294
     with h5py.File(os.path.join(data_lib, f'{nuclide}.h5')) as f:
         xs = f[f"/{nuclide}/reactions/reaction_{mt:03}/{Temp}K/xs"][:]
+        Energies = f[f"/{nuclide}/energy/{Temp}K/"][:]
+        df_xs = pd.DataFrame(xs, index=Energies, columns=[
+                             "xs"], dtype=np.float64)
+        g_bins, g_vals, n_bins, n_vals = utils.read_ng_source()
+        df_src = pd.DataFrame(n_vals, index=n_bins, columns=[
+                              "source flux"], dtype=np.float64)
+        df = df_xs.merge(df_src, how='outer',
+                         left_index=True, right_index=True)
+        df["source flux"] = df["source flux"].fillna(method='ffill')
+        df["source flux"] = df["source flux"].fillna(method='bfill')
+        counts = df["source flux"].value_counts()
+        merge2 = df.merge(counts, left_on="source flux", right_index=True)
+        df["product"] = df["source flux"] * df["xs"]
         if discretization is None:
             dx = xs * perturbation
         else:
@@ -58,7 +71,7 @@ def get_dx(nuclide, mt, perturbation,
             cum_index = get_cum_energy_groups(group_len)
             dx = np.zeros(group_len)
             dx += xs[cum_index[group]:cum_index[group+1]] * perturbation
-    return dx, xs
+    return merge2
 
 
 def find_power_folder(home_folder):
@@ -129,7 +142,8 @@ def compare_perturbation(nuclide, mt, perturbations, discretization=None,
 
 
 if __name__ == '__main__':
-    compare_perturbation(
-        'Fe56', 102, [0.01, 0.1, 0.3], discretization=None, group=None, structure='partisn')
+    # compare_perturbation(
+    # 'Fe56-mt102', 102, [0.01, 0.1, 0.3], discretization=None, group=None, structure='partisn')
+    df = get_sigma('Fe56', 102, 0.01)
 
 # %%

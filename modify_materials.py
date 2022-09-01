@@ -15,17 +15,22 @@ perturb = 0.01
 MT = 102
 
 
-def main(nuclides=['Fe56'], mt=102, perturbation=0.01, discretization=None):
+def main(nuclides=None, mt=102, perturbation=0.01, discretization=None):
+    if nuclides is None:
+        if settings.MODEL == 'Fe':
+            nuclides = ['Fe56']
+        elif settings.MODEL == 'H1':
+            nuclides = ['H1']
     if discretization is None:
-        generate_materials_xml(nuclides, mt, perturbation)
+        create_folder_env(nuclides, mt, perturbation)
     else:
         for i in range(discretization):
-            generate_materials_xml(
+            create_folder_env(
                 nuclides, mt, perturbation, discretization, i)
 
 
-def generate_materials_xml(nuclide_list, mt, perturbation,
-                           discretization=None, group=None):
+def create_folder_env(nuclides, mt, perturbation,
+                      discretization=None, group=None):
     # Creating openmc simulation run folder and specifying geometry and material xml file paths
     geom_file = os.path.join(settings.MAIN_DIR, 'standard_run/geometry.xml')
     mat_file = os.path.join(settings.MAIN_DIR, 'standard_run/materials.xml')
@@ -42,24 +47,23 @@ def generate_materials_xml(nuclide_list, mt, perturbation,
     output_file = os.path.join(folder_path, "materials.xml")
     shutil.copyfile(geom_file, os.path.join(folder_path, 'geometry.xml'))
 
+    # creating new perturbed materials file from the standard one
     materials = openmc.Materials.from_xml(mat_file)
-    Iron_copy = copy.deepcopy(materials[0])
-    nuclides = Iron_copy.nuclides
-    Iron_new = openmc.Material(material_id=Iron_copy.id)
-    for nuclide in nuclides:
-        if nuclide.name in nuclide_list:
-            new_nuclide_name = nuclide.name + '-' +\
-                id_code
-            Iron_new.add_nuclide(
-                new_nuclide_name, nuclide.percent, nuclide.percent_type)
-        else:
-            Iron_new.add_nuclide(nuclide.name, nuclide.percent,
-                                 nuclide.percent_type)
-
-    Iron_new.set_density(Iron_copy.density_units, Iron_copy.density)
-    Iron_new.temperature = Iron_copy.temperature
-    materials[0] = Iron_new
-    materials.export_to_xml(output_file)
+    new_materials = openmc.Materials()
+    for material in materials:
+        new_mat = openmc.Material(material_id=material.id)
+        for nuclide in material.nuclides:
+            if nuclide.name in nuclides:
+                new_nuclide_name = nuclide.name + '-' + id_code
+                new_mat.add_nuclide(
+                    new_nuclide_name, nuclide.percent, nuclide.percent_type)
+            else:
+                new_mat.add_nuclide(
+                    nuclide.name, nuclide.percent, nuclide.percent_type)
+        new_mat.set_density(material.density_units, material.density)
+        new_mat.temperature = material.temperature
+        new_materials.append(new_mat)
+    new_materials.export_to_xml(output_file)
 
 
 # %%
