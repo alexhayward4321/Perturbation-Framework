@@ -23,6 +23,7 @@ def group_len():
 
 
 def get_cum_energy_groups(length, discretization):
+    # Irrelevant for now
     group_size_guide = length // discretization
     group_size = []
     while length > group_size_guide:

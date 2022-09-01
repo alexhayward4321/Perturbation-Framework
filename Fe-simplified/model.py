@@ -48,14 +48,14 @@ def load_mat_geom():
     n_detector = +n_detector_inner & -n_detector_outer
     outer_air_layer = +n_detector_outer & -boundary
 
-    H_ball = openmc.Cell(name="ball", fill=Fe, region=ball)
+    Fe_ball = openmc.Cell(name="ball", fill=Fe, region=ball, cell_id=6)
     air_layer_inner = openmc.Cell(fill=Air, region=inner_air_layer)
     detector_g = openmc.Cell(name="detector", fill=Air,
                              region=g_detector, cell_id=52)
     air_layer_middle = openmc.Cell(fill=Air, region=middle_air_layer)
     detector_n = openmc.Cell(fill=Air, region=n_detector, cell_id=70)
     air_layer_outer = openmc.Cell(fill=Air, region=outer_air_layer)
-    Universe = openmc.Universe(cells=[H_ball, air_layer_inner, detector_g, air_layer_middle,
+    Universe = openmc.Universe(cells=[Fe_ball, air_layer_inner, detector_g, air_layer_middle,
                                detector_n, air_layer_outer])
     Geometry = openmc.Geometry(Universe)
     Geometry.export_to_xml(f"{run_env}/geometry.xml")
@@ -91,7 +91,7 @@ def load_model():
     ###
 
     # Simple tallies
-    n_gamma = openmc.Tally()
+    n_gamma = openmc.Tally(tally_id=1)
     n_gamma.scores = ['(n,gamma)']
     n_gamma.filters = [openmc.CellFilter(6)]
 
@@ -159,7 +159,8 @@ def load_model():
         neutron_tally_mcnp_4,
         gamma_tally_bench,
         gamma_tally_partisn,
-        neutron_tally_partisn])
+        neutron_tally_partisn,
+        n_gamma])
     tallies.export_to_xml(f"{run_env}/tallies.xml")
 
 
@@ -217,13 +218,20 @@ def process():
     df_partisn_g.to_csv(filepath_partisn_g)
     df_partisn_n.to_csv(filepath_partisn_n)
 
+    # The tally that matters
+    n_gamma_tally = statepoint.get_tally(1)
+    df_n_gamma = n_gamma_tally.get_pandas_dataframe()
+    filepath_n_gamma = os.path.join(subdir, 'n_gamma.csv')
+    df_n_gamma.to_csv(filepath_n_gamma)
+
 
 if __name__ == "__main__":
     settings.N = 7
-    settings.RUN_ENV = '/ironbenchmark/Fe-simplified/mod_materials'
+    settings.RUN_ENV = '/ironbenchmark/Fe-simplified/standard_run'
     settings.MAIN_DIR = '/ironbenchmark/Fe-simplified'
+    load_mat_geom()
     load_model()
-    openmc.run(cwd=settings.RUN_ENV)
-    process()
+    # openmc.run(cwd=settings.RUN_ENV)
+    # process()
 
 # %%

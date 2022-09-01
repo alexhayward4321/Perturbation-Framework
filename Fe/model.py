@@ -44,7 +44,7 @@ def load_model():
     ###
 
     # Simple tallies
-    n_gamma = openmc.Tally()
+    n_gamma = openmc.Tally(tally_id=1)
     n_gamma.scores = ['(n,gamma)']
     n_gamma.filters = [openmc.CellFilter(6)]
 
@@ -120,7 +120,8 @@ def load_model():
         neutron_tally_mcnp_5,
         gamma_tally_bench,
         gamma_tally_partisn,
-        neutron_tally_partisn])
+        neutron_tally_partisn,
+        n_gamma])
     tallies.export_to_xml(f"{run_env}/tallies.xml")
 
 
@@ -177,6 +178,13 @@ def process():
     df_bench.to_csv(filepath_bench)
     df_partisn_g.to_csv(filepath_partisn_g)
     df_partisn_n.to_csv(filepath_partisn_n)
+
+    # The tally that matters
+    n_gamma_tally = statepoint.get_tally(1)
+    df_n_gamma = n_gamma_tally.get_pandas_dataframe()
+    filepath_n_gamma = os.path.join(subdir, 'n_gamma.csv')
+    df_n_gamma.to_csv(filepath_n_gamma)
+
 
 
 if __name__ == "__main__":
