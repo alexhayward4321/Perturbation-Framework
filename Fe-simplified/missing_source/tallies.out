@@ -1,575 +1,575 @@
- ============================>     TALLY 3     <============================
+ ===========================>     TALLY 68     <============================
 
  Incoming Energy [10000, 50000)
    Particle: photon
      Cell 52
        Total Material
-         Flux                                 1.53814e-05 +/- 7.23748e-07
+         Flux                                 1.45347e-05 +/- 9.45134e-07
  Incoming Energy [50000, 100000)
    Particle: photon
      Cell 52
        Total Material
-         Flux                                 0.000289125 +/- 4.31808e-06
+         Flux                                 0.000272984 +/- 4.08971e-06
  Incoming Energy [100000, 120000)
    Particle: photon
      Cell 52
        Total Material
-         Flux                                 0.000575962 +/- 3.7367e-06
+         Flux                                 0.000542051 +/- 2.64123e-06
  Incoming Energy [120000, 140000)
    Particle: photon
      Cell 52
        Total Material
-         Flux                                 0.000952384 +/- 7.27295e-06
+         Flux                                 0.000928525 +/- 8.77055e-06
  Incoming Energy [140000, 160000)
    Particle: photon
      Cell 52
        Total Material
-         Flux                                 0.00111328 +/- 7.54962e-06
+         Flux                                 0.00106185 +/- 1.20033e-05
  Incoming Energy [160000, 180000)
    Particle: photon
      Cell 52
        Total Material
-         Flux                                 0.00125471 +/- 9.7592e-06
+         Flux                                 0.00120727 +/- 8.72804e-06
  Incoming Energy [180000, 200000)
    Particle: photon
      Cell 52
        Total Material
-         Flux                                 0.00133848 +/- 9.58802e-06
+         Flux                                 0.00129774 +/- 9.70827e-06
  Incoming Energy [200000, 220000)
    Particle: photon
      Cell 52
        Total Material
-         Flux                                 0.0014304 +/- 1.05404e-05
+         Flux                                 0.00137373 +/- 9.73536e-06
  Incoming Energy [220000, 240000)
    Particle: photon
      Cell 52
        Total Material
-         Flux                                 0.00142419 +/- 9.85836e-06
+         Flux                                 0.00137469 +/- 7.8229e-06
  Incoming Energy [240000, 260000)
    Particle: photon
      Cell 52
        Total Material
-         Flux                                 0.00137924 +/- 1.28426e-05
+         Flux                                 0.00131958 +/- 9.49489e-06
  Incoming Energy [260000, 280000)
    Particle: photon
      Cell 52
        Total Material
-         Flux                                 0.00133194 +/- 8.43625e-06
+         Flux                                 0.00128031 +/- 9.86952e-06
  Incoming Energy [280000, 300000)
    Particle: photon
      Cell 52
        Total Material
-         Flux                                 0.0012855 +/- 1.18541e-05
+         Flux                                 0.00121954 +/- 7.83658e-06
  Incoming Energy [300000, 320000)
    Particle: photon
      Cell 52
        Total Material
-         Flux                                 0.00121546 +/- 9.40751e-06
+         Flux                                 0.00117208 +/- 4.96501e-06
  Incoming Energy [320000, 340000)
    Particle: photon
      Cell 52
        Total Material
-         Flux                                 0.00118773 +/- 8.80394e-06
+         Flux                                 0.00112463 +/- 1.05023e-05
  Incoming Energy [340000, 360000)
    Particle: photon
      Cell 52
        Total Material
-         Flux                                 0.00122608 +/- 1.24411e-05
+         Flux                                 0.00116755 +/- 6.9001e-06
  Incoming Energy [360000, 380000)
    Particle: photon
      Cell 52
        Total Material
-         Flux                                 0.00109483 +/- 8.88169e-06
+         Flux                                 0.00104978 +/- 6.9571e-06
  Incoming Energy [380000, 400000)
    Particle: photon
      Cell 52
        Total Material
-         Flux                                 0.00104639 +/- 7.78879e-06
+         Flux                                 0.000994415 +/- 1.12794e-05
  Incoming Energy [400000, 420000)
    Particle: photon
      Cell 52
        Total Material
-         Flux                                 0.00100285 +/- 7.82295e-06
+         Flux                                 0.000952271 +/- 9.49419e-06
  Incoming Energy [420000, 440000)
    Particle: photon
      Cell 52
        Total Material
-         Flux                                 0.000963563 +/- 8.12138e-06
+         Flux                                 0.000921596 +/- 1.12478e-05
  Incoming Energy [440000, 460000)
    Particle: photon
      Cell 52
        Total Material
-         Flux                                 0.000944118 +/- 9.3741e-06
+         Flux                                 0.000896057 +/- 5.68896e-06
  Incoming Energy [460000, 480000)
    Particle: photon
      Cell 52
        Total Material
-         Flux                                 0.000916017 +/- 8.33227e-06
+         Flux                                 0.000865852 +/- 8.34071e-06
  Incoming Energy [480000, 500000)
    Particle: photon
      Cell 52
        Total Material
-         Flux                                 0.000880989 +/- 1.19058e-05
+         Flux                                 0.000843739 +/- 8.95974e-06
  Incoming Energy [500000, 525000)
    Particle: photon
      Cell 52
        Total Material
-         Flux                                 0.0013963 +/- 1.11577e-05
+         Flux                                 0.00133044 +/- 8.27894e-06
  Incoming Energy [525000, 550000)
    Particle: photon
      Cell 52
        Total Material
-         Flux                                 0.00101363 +/- 6.60845e-06
+         Flux                                 0.000959827 +/- 8.13596e-06
  Incoming Energy [550000, 575000)
    Particle: photon
      Cell 52
        Total Material
-         Flux                                 0.000957979 +/- 6.66141e-06
+         Flux                                 0.000939766 +/- 1.00839e-05
  Incoming Energy [575000, 600000)
    Particle: photon
      Cell 52
        Total Material
-         Flux                                 0.000952526 +/- 7.63012e-06
+         Flux                                 0.000913004 +/- 9.83089e-06
  Incoming Energy [600000, 625000)
    Particle: photon
      Cell 52
        Total Material
-         Flux                                 0.000924227 +/- 3.85223e-06
+         Flux                                 0.000888014 +/- 6.22184e-06
  Incoming Energy [625000, 650000)
    Particle: photon
      Cell 52
        Total Material
-         Flux                                 0.000898549 +/- 9.38558e-06
+         Flux                                 0.000861624 +/- 1.07443e-05
  Incoming Energy [650000, 675000)
    Particle: photon
      Cell 52
        Total Material
-         Flux                                 0.000872031 +/- 9.29917e-06
+         Flux                                 0.000852103 +/- 5.91375e-06
  Incoming Energy [675000, 700000)
    Particle: photon
      Cell 52
        Total Material
-         Flux                                 0.00092583 +/- 1.0138e-05
+         Flux                                 0.000887712 +/- 9.113e-06
  Incoming Energy [700000, 725000)
    Particle: photon
      Cell 52
        Total Material
-         Flux                                 0.000853124 +/- 7.13569e-06
+         Flux                                 0.000810345 +/- 6.02762e-06
  Incoming Energy [725000, 750000)
    Particle: photon
      Cell 52
        Total Material
-         Flux                                 0.000816697 +/- 5.33429e-06
+         Flux                                 0.000786994 +/- 5.03733e-06
  Incoming Energy [750000, 775000)
    Particle: photon
      Cell 52
        Total Material
-         Flux                                 0.000818909 +/- 1.01696e-05
+         Flux                                 0.000787911 +/- 1.0887e-05
  Incoming Energy [775000, 800000)
    Particle: photon
      Cell 52
        Total Material
-         Flux                                 0.000816758 +/- 7.62679e-06
+         Flux                                 0.00077661 +/- 7.55059e-06
  Incoming Energy [800000, 825000)
    Particle: photon
      Cell 52
        Total Material
-         Flux                                 0.000845032 +/- 5.931e-06
+         Flux                                 0.000815487 +/- 5.38223e-06
  Incoming Energy [825000, 850000)
    Particle: photon
      Cell 52
        Total Material
-         Flux                                 0.0117133 +/- 3.5269e-05
+         Flux                                 0.0114697 +/- 3.04059e-05
  Incoming Energy [850000, 875000)
    Particle: photon
      Cell 52
        Total Material
-         Flux                                 0.000228396 +/- 4.72463e-06
+         Flux                                 0.000208641 +/- 4.33187e-06
  Incoming Energy [875000, 900000)
    Particle: photon
      Cell 52
        Total Material
-         Flux                                 0.000177531 +/- 3.45141e-06
+         Flux                                 0.000160463 +/- 1.78531e-06
  Incoming Energy [900000, 925000)
    Particle: photon
      Cell 52
        Total Material
-         Flux                                 0.000155407 +/- 1.67934e-06
+         Flux                                 0.000144954 +/- 3.77189e-06
  Incoming Energy [925000, 950000)
    Particle: photon
      Cell 52
        Total Material
-         Flux                                 0.000160734 +/- 2.04577e-06
+         Flux                                 0.000139499 +/- 3.43186e-06
  Incoming Energy [950000, 975000)
    Particle: photon
      Cell 52
        Total Material
-         Flux                                 0.000149547 +/- 3.54855e-06
+         Flux                                 0.000141669 +/- 3.56468e-06
  Incoming Energy [975000, 1000000)
    Particle: photon
      Cell 52
        Total Material
-         Flux                                 0.000162322 +/- 3.56054e-06
+         Flux                                 0.000139193 +/- 3.41668e-06
  Incoming Energy [1000000, 1050000)
    Particle: photon
      Cell 52
        Total Material
-         Flux                                 0.00039492 +/- 3.78559e-06
+         Flux                                 0.000347283 +/- 4.51639e-06
  Incoming Energy [1050000, 1100000)
    Particle: photon
      Cell 52
        Total Material
-         Flux                                 0.000270247 +/- 3.75457e-06
+         Flux                                 0.000245028 +/- 3.23104e-06
  Incoming Energy [1100000, 1150000)
    Particle: photon
      Cell 52
        Total Material
-         Flux                                 0.000281153 +/- 4.32132e-06
+         Flux                                 0.000255554 +/- 1.69396e-06
  Incoming Energy [1150000, 1200000)
    Particle: photon
      Cell 52
        Total Material
-         Flux                                 0.000288343 +/- 2.88674e-06
+         Flux                                 0.000266669 +/- 3.8417e-06
  Incoming Energy [1200000, 1250000)
    Particle: photon
      Cell 52
        Total Material
-         Flux                                 0.000897687 +/- 7.40069e-06
+         Flux                                 0.000845824 +/- 5.63064e-06
  Incoming Energy [1250000, 1300000)
    Particle: photon
      Cell 52
        Total Material
-         Flux                                 0.00022573 +/- 3.21149e-06
+         Flux                                 0.000194792 +/- 2.43491e-06
  Incoming Energy [1300000, 1350000)
    Particle: photon
      Cell 52
        Total Material
-         Flux                                 0.000206091 +/- 2.46987e-06
+         Flux                                 0.000191751 +/- 4.18567e-06
  Incoming Energy [1350000, 1400000)
    Particle: photon
      Cell 52
        Total Material
-         Flux                                 0.000207179 +/- 2.5835e-06
+         Flux                                 0.000178831 +/- 2.97168e-06
  Incoming Energy [1400000, 1450000)
    Particle: photon
      Cell 52
        Total Material
-         Flux                                 0.000599483 +/- 9.14274e-06
+         Flux                                 0.000566895 +/- 4.65168e-06
  Incoming Energy [1450000, 1500000)
    Particle: photon
      Cell 52
        Total Material
-         Flux                                 0.000146686 +/- 1.99921e-06
+         Flux                                 0.000132656 +/- 2.5383e-06
  Incoming Energy [1500000, 1550000)
    Particle: photon
      Cell 52
        Total Material
-         Flux                                 0.0001346 +/- 3.77903e-06
+         Flux                                 0.000124224 +/- 2.41876e-06
  Incoming Energy [1550000, 1600000)
    Particle: photon
      Cell 52
        Total Material
-         Flux                                 0.000146607 +/- 3.10513e-06
+         Flux                                 0.000127893 +/- 1.92871e-06
  Incoming Energy [1600000, 1650000)
    Particle: photon
      Cell 52
        Total Material
-         Flux                                 0.000139812 +/- 2.95693e-06
+         Flux                                 0.000123521 +/- 2.10907e-06
  Incoming Energy [1650000, 1700000)
    Particle: photon
      Cell 52
        Total Material
-         Flux                                 0.00013312 +/- 2.65557e-06
+         Flux                                 0.000117378 +/- 2.06699e-06
  Incoming Energy [1700000, 1750000)
    Particle: photon
      Cell 52
        Total Material
-         Flux                                 0.00013469 +/- 1.99322e-06
+         Flux                                 0.000121477 +/- 2.8947e-06
  Incoming Energy [1750000, 1800000)
    Particle: photon
      Cell 52
        Total Material
-         Flux                                 0.000181812 +/- 2.87523e-06
+         Flux                                 0.000160822 +/- 2.72891e-06
  Incoming Energy [1800000, 1850000)
    Particle: photon
      Cell 52
        Total Material
-         Flux                                 0.000589423 +/- 7.86328e-06
+         Flux                                 0.000544219 +/- 4.96275e-06
  Incoming Energy [1850000, 1900000)
    Particle: photon
      Cell 52
        Total Material
-         Flux                                 0.000114183 +/- 2.07557e-06
+         Flux                                 9.87778e-05 +/- 1.79588e-06
  Incoming Energy [1900000, 1950000)
    Particle: photon
      Cell 52
        Total Material
-         Flux                                 8.8739e-05 +/- 1.83122e-06
+         Flux                                 8.3053e-05 +/- 2.55898e-06
  Incoming Energy [1950000, 2000000)
    Particle: photon
      Cell 52
        Total Material
-         Flux                                 0.000102455 +/- 2.965e-06
+         Flux                                 8.8792e-05 +/- 2.37243e-06
  Incoming Energy [2000000, 2100000)
    Particle: photon
      Cell 52
        Total Material
-         Flux                                 0.000317368 +/- 3.89259e-06
+         Flux                                 0.000290693 +/- 4.64154e-06
  Incoming Energy [2100000, 2200000)
    Particle: photon
      Cell 52
        Total Material
-         Flux                                 0.000471632 +/- 6.72053e-06
+         Flux                                 0.000441733 +/- 5.27271e-06
  Incoming Energy [2200000, 2300000)
    Particle: photon
      Cell 52
        Total Material
-         Flux                                 0.000323918 +/- 3.49981e-06
+         Flux                                 0.00029831 +/- 4.71605e-06
  Incoming Energy [2300000, 2400000)
    Particle: photon
      Cell 52
        Total Material
-         Flux                                 0.000120972 +/- 2.93819e-06
+         Flux                                 0.000112071 +/- 3.1031e-06
  Incoming Energy [2400000, 2500000)
    Particle: photon
      Cell 52
        Total Material
-         Flux                                 0.000123554 +/- 2.29402e-06
+         Flux                                 0.000107731 +/- 2.51701e-06
  Incoming Energy [2500000, 2600000)
    Particle: photon
      Cell 52
        Total Material
-         Flux                                 0.000387533 +/- 4.47163e-06
+         Flux                                 0.000356024 +/- 3.51719e-06
  Incoming Energy [2600000, 2700000)
    Particle: photon
      Cell 52
        Total Material
-         Flux                                 0.000176029 +/- 3.75626e-06
+         Flux                                 0.000168472 +/- 3.02494e-06
  Incoming Energy [2700000, 2800000)
    Particle: photon
      Cell 52
        Total Material
-         Flux                                 0.000179292 +/- 3.83165e-06
+         Flux                                 0.000159102 +/- 2.35097e-06
  Incoming Energy [2800000, 2900000)
    Particle: photon
      Cell 52
        Total Material
-         Flux                                 9.06497e-05 +/- 3.6888e-06
+         Flux                                 7.6939e-05 +/- 2.43632e-06
  Incoming Energy [2900000, 3000000)
    Particle: photon
      Cell 52
        Total Material
-         Flux                                 0.000171623 +/- 2.32143e-06
+         Flux                                 0.00014529 +/- 3.33733e-06
  Incoming Energy [3000000, 3100000)
    Particle: photon
      Cell 52
        Total Material
-         Flux                                 8.36147e-05 +/- 2.31592e-06
+         Flux                                 7.59643e-05 +/- 2.53228e-06
  Incoming Energy [3100000, 3200000)
    Particle: photon
      Cell 52
        Total Material
-         Flux                                 9.22049e-05 +/- 1.70019e-06
+         Flux                                 7.97613e-05 +/- 2.32079e-06
  Incoming Energy [3200000, 3300000)
    Particle: photon
      Cell 52
        Total Material
-         Flux                                 0.000166799 +/- 3.16895e-06
+         Flux                                 0.000144674 +/- 3.565e-06
  Incoming Energy [3300000, 3400000)
    Particle: photon
      Cell 52
        Total Material
-         Flux                                 0.000111711 +/- 1.62905e-06
+         Flux                                 9.47875e-05 +/- 2.6224e-06
  Incoming Energy [3400000, 3500000)
    Particle: photon
      Cell 52
        Total Material
-         Flux                                 0.000158076 +/- 1.89099e-06
+         Flux                                 0.000139153 +/- 2.63259e-06
  Incoming Energy [3500000, 3600000)
    Particle: photon
      Cell 52
        Total Material
-         Flux                                 0.000121552 +/- 2.38102e-06
+         Flux                                 0.000103304 +/- 3.34936e-06
  Incoming Energy [3600000, 3700000)
    Particle: photon
      Cell 52
        Total Material
-         Flux                                 0.000171396 +/- 2.65491e-06
+         Flux                                 0.000150664 +/- 2.01312e-06
  Incoming Energy [3700000, 3800000)
    Particle: photon
      Cell 52
        Total Material
-         Flux                                 6.07131e-05 +/- 1.24297e-06
+         Flux                                 5.78359e-05 +/- 2.30516e-06
  Incoming Energy [3800000, 3900000)
    Particle: photon
      Cell 52
        Total Material
-         Flux                                 6.75726e-05 +/- 2.52488e-06
+         Flux                                 6.12011e-05 +/- 1.52734e-06
  Incoming Energy [3900000, 4000000)
    Particle: photon
      Cell 52
        Total Material
-         Flux                                 5.69148e-05 +/- 1.71797e-06
+         Flux                                 4.74165e-05 +/- 1.26569e-06
  Incoming Energy [4000000, 4200000)
    Particle: photon
      Cell 52
        Total Material
-         Flux                                 9.74406e-05 +/- 2.8607e-06
+         Flux                                 8.41971e-05 +/- 1.36201e-06
  Incoming Energy [4200000, 4400000)
    Particle: photon
      Cell 52
        Total Material
-         Flux                                 8.64288e-05 +/- 2.02183e-06
+         Flux                                 7.13718e-05 +/- 1.52351e-06
  Incoming Energy [4400000, 4600000)
    Particle: photon
      Cell 52
        Total Material
-         Flux                                 7.93678e-05 +/- 2.07405e-06
+         Flux                                 7.05387e-05 +/- 2.42486e-06
  Incoming Energy [4600000, 4800000)
    Particle: photon
      Cell 52
        Total Material
-         Flux                                 7.25578e-05 +/- 1.52744e-06
+         Flux                                 5.86444e-05 +/- 1.90643e-06
  Incoming Energy [4800000, 5000000)
    Particle: photon
      Cell 52
        Total Material
-         Flux                                 7.07619e-05 +/- 1.8982e-06
+         Flux                                 6.08152e-05 +/- 2.6337e-06
  Incoming Energy [5000000, 5200000)
    Particle: photon
      Cell 52
        Total Material
-         Flux                                 5.632e-05 +/- 1.08509e-06
+         Flux                                 4.81481e-05 +/- 2.08587e-06
  Incoming Energy [5200000, 5400000)
    Particle: photon
      Cell 52
        Total Material
-         Flux                                 4.67985e-05 +/- 2.27378e-06
+         Flux                                 4.04126e-05 +/- 2.07171e-06
  Incoming Energy [5400000, 5600000)
    Particle: photon
      Cell 52
        Total Material
-         Flux                                 4.03987e-05 +/- 2.19867e-06
+         Flux                                 3.50321e-05 +/- 1.55808e-06
  Incoming Energy [5600000, 5800000)
    Particle: photon
      Cell 52
        Total Material
-         Flux                                 3.37846e-05 +/- 1.7638e-06
+         Flux                                 3.10103e-05 +/- 1.74644e-06
  Incoming Energy [5800000, 6000000)
    Particle: photon
      Cell 52
        Total Material
-         Flux                                 2.74113e-05 +/- 1.44646e-06
+         Flux                                 2.18159e-05 +/- 1.3314e-06
  Incoming Energy [6000000, 6200000)
    Particle: photon
      Cell 52
        Total Material
-         Flux                                 3.69771e-05 +/- 1.80504e-06
+         Flux                                 3.71677e-05 +/- 1.36901e-06
  Incoming Energy [6200000, 6400000)
    Particle: photon
      Cell 52
        Total Material
-         Flux                                 2.55029e-05 +/- 1.81783e-06
+         Flux                                 2.20934e-05 +/- 1.48218e-06
  Incoming Energy [6400000, 6600000)
    Particle: photon
      Cell 52
        Total Material
-         Flux                                 2.23748e-05 +/- 1.17297e-06
+         Flux                                 2.03639e-05 +/- 1.54863e-06
  Incoming Energy [6600000, 6800000)
    Particle: photon
      Cell 52
        Total Material
-         Flux                                 3.51908e-05 +/- 1.56642e-06
+         Flux                                 3.89807e-05 +/- 1.39828e-06
  Incoming Energy [6800000, 7000000)
    Particle: photon
      Cell 52
        Total Material
-         Flux                                 1.68609e-05 +/- 5.80321e-07
+         Flux                                 1.30759e-05 +/- 5.61765e-07
  Incoming Energy [7000000, 7200000)
    Particle: photon
      Cell 52
        Total Material
-         Flux                                 1.84584e-05 +/- 1.2336e-06
+         Flux                                 1.81194e-05 +/- 9.47723e-07
  Incoming Energy [7200000, 7400000)
    Particle: photon
      Cell 52
        Total Material
-         Flux                                 1.29908e-05 +/- 1.09791e-06
+         Flux                                 1.11416e-05 +/- 6.41412e-07
  Incoming Energy [7400000, 7600000)
    Particle: photon
      Cell 52
        Total Material
-         Flux                                 1.09003e-05 +/- 5.6624e-07
+         Flux                                 1.21978e-05 +/- 7.54565e-07
  Incoming Energy [7600000, 7800000)
    Particle: photon
      Cell 52
        Total Material
-         Flux                                 6.30737e-05 +/- 1.9916e-06
+         Flux                                 6.53732e-05 +/- 2.11637e-06
  Incoming Energy [7800000, 8000000)
    Particle: photon
      Cell 52
        Total Material
-         Flux                                 4.12055e-05 +/- 1.46809e-06
+         Flux                                 4.38038e-05 +/- 1.70998e-06
  Incoming Energy [8000000, 8199999.999999999)
    Particle: photon
      Cell 52
        Total Material
-         Flux                                 7.18292e-06 +/- 5.45367e-07
+         Flux                                 7.52664e-06 +/- 5.67786e-07
  Incoming Energy [8199999.999999999, 8400000)
    Particle: photon
      Cell 52
        Total Material
-         Flux                                 9.61633e-05 +/- 2.33051e-06
+         Flux                                 8.95417e-05 +/- 2.57895e-06
  Incoming Energy [8400000, 8600000)
    Particle: photon
      Cell 52
        Total Material
-         Flux                                 3.41697e-06 +/- 6.55236e-07
+         Flux                                 3.21606e-06 +/- 4.19103e-07
  Incoming Energy [8600000, 8800000)
    Particle: photon
      Cell 52
        Total Material
-         Flux                                 1.31415e-05 +/- 9.71506e-07
+         Flux                                 1.22115e-05 +/- 1.00272e-06
  Incoming Energy [8800000, 9000000)
    Particle: photon
      Cell 52
        Total Material
-         Flux                                 2.29587e-06 +/- 2.31131e-07
+         Flux                                 3.14093e-06 +/- 4.72393e-07
  Incoming Energy [9000000, 9500000)
    Particle: photon
      Cell 52
        Total Material
-         Flux                                 1.17336e-05 +/- 1.00127e-06
+         Flux                                 1.25901e-05 +/- 7.17151e-07
  Incoming Energy [9500000, 10000000)
    Particle: photon
      Cell 52
        Total Material
-         Flux                                 2.15851e-05 +/- 1.18081e-06
+         Flux                                 1.93149e-05 +/- 8.29178e-07
  Incoming Energy [10000000, 10500000)
    Particle: photon
      Cell 52
        Total Material
-         Flux                                 2.04692e-06 +/- 3.10895e-07
+         Flux                                 1.34811e-06 +/- 3.36856e-07
  Incoming Energy [10500000, 11000000)
    Particle: photon
      Cell 52
        Total Material
-         Flux                                 6.18928e-07 +/- 1.98383e-07
+         Flux                                 5.80561e-07 +/- 1.99321e-07
  Incoming Energy [11000000, 11500000)
    Particle: photon
      Cell 52
        Total Material
-         Flux                                 1.1243e-07 +/- 1.1243e-07
+         Flux                                 5.52829e-08 +/- 5.52829e-08
  Incoming Energy [11500000, 12000000)
    Particle: photon
      Cell 52
        Total Material
-         Flux                                 1.5883e-07 +/- 8.10138e-08
+         Flux                                 0 +/- 0
  Incoming Energy [12000000, 12500000)
    Particle: photon
      Cell 52
        Total Material
-         Flux                                 5.6926e-08 +/- 5.6926e-08
+         Flux                                 0 +/- 0
  Incoming Energy [12500000, 13000000)
    Particle: photon
      Cell 52
@@ -579,7 +579,7 @@
    Particle: photon
      Cell 52
        Total Material
-         Flux                                 0 +/- 0
+         Flux                                 5.02455e-08 +/- 5.02455e-08
  Incoming Energy [13500000, 14000000)
    Particle: photon
      Cell 52
@@ -625,1824 +625,1824 @@
      Cell 52
        Total Material
          Flux                                 0 +/- 0
- ============================>     TALLY 4     <============================
+ ===========================>     TALLY 69     <============================
 
  Incoming Energy [99.99999747378752, 1000.0000474974513)
    Particle: neutron
      Cell 70
        Total Material
-         Flux                                 0.000716203 +/- 7.48894e-06
+         Flux                                 0.000724714 +/- 9.1568e-06
  Incoming Energy [1000.0000474974513, 1200.0000569969416)
    Particle: neutron
      Cell 70
        Total Material
-         Flux                                 0.000135818 +/- 2.45892e-06
+         Flux                                 0.000136034 +/- 4.68432e-06
  Incoming Energy [1200.0000569969416, 1500.000013038516)
    Particle: neutron
      Cell 70
        Total Material
-         Flux                                 0.000241081 +/- 5.53689e-06
+         Flux                                 0.000236185 +/- 3.98705e-06
  Incoming Energy [1500.000013038516, 2000.0000949949026)
    Particle: neutron
      Cell 70
        Total Material
-         Flux                                 0.000393038 +/- 4.45887e-06
+         Flux                                 0.000400627 +/- 6.14598e-06
  Incoming Energy [2000.0000949949026, 2300.000051036477)
    Particle: neutron
      Cell 70
        Total Material
-         Flux                                 0.000246604 +/- 6.25366e-06
+         Flux                                 0.000255545 +/- 6.99507e-06
  Incoming Energy [2300.000051036477, 2499.9999441206455)
    Particle: neutron
      Cell 70
        Total Material
-         Flux                                 0.000167604 +/- 4.46304e-06
+         Flux                                 0.000167203 +/- 5.06259e-06
  Incoming Energy [2499.9999441206455, 3000.000026077032)
    Particle: neutron
      Cell 70
        Total Material
-         Flux                                 0.000447901 +/- 6.4465e-06
+         Flux                                 0.000454398 +/- 8.92624e-06
  Incoming Energy [3000.000026077032, 4000.000189989805)
    Particle: neutron
      Cell 70
        Total Material
-         Flux                                 0.000846032 +/- 1.34571e-05
+         Flux                                 0.000845295 +/- 1.19639e-05
  Incoming Energy [4000.000189989805, 4999.999888241291)
    Particle: neutron
      Cell 70
        Total Material
-         Flux                                 0.000794553 +/- 6.28806e-06
+         Flux                                 0.000837086 +/- 1.08207e-05
  Incoming Energy [4999.999888241291, 6000.000052154064)
    Particle: neutron
      Cell 70
        Total Material
-         Flux                                 0.000699512 +/- 8.47919e-06
+         Flux                                 0.00070952 +/- 8.84333e-06
  Incoming Energy [6000.000052154064, 7000.000216066837)
    Particle: neutron
      Cell 70
        Total Material
-         Flux                                 0.000264669 +/- 4.00261e-06
+         Flux                                 0.000273038 +/- 5.54363e-06
  Incoming Energy [7000.000216066837, 8000.00037997961)
    Particle: neutron
      Cell 70
        Total Material
-         Flux                                 9.97819e-05 +/- 3.1573e-06
+         Flux                                 0.000102061 +/- 2.97031e-06
  Incoming Energy [8000.00037997961, 8999.999612569809)
    Particle: neutron
      Cell 70
        Total Material
-         Flux                                 0.000111756 +/- 3.63131e-06
+         Flux                                 0.000113461 +/- 3.72913e-06
  Incoming Energy [8999.999612569809, 9999.999776482582)
    Particle: neutron
      Cell 70
        Total Material
-         Flux                                 0.000234477 +/- 4.47923e-06
+         Flux                                 0.00023035 +/- 6.34516e-06
  Incoming Energy [9999.999776482582, 10999.999940395355)
    Particle: neutron
      Cell 70
        Total Material
-         Flux                                 0.000275558 +/- 6.20195e-06
+         Flux                                 0.000274445 +/- 4.25341e-06
  Incoming Energy [10999.999940395355, 12000.000104308128)
    Particle: neutron
      Cell 70
        Total Material
-         Flux                                 0.000246828 +/- 4.27422e-06
+         Flux                                 0.000251718 +/- 3.91811e-06
  Incoming Energy [12000.000104308128, 13000.000268220901)
    Particle: neutron
      Cell 70
        Total Material
-         Flux                                 0.000227317 +/- 4.19813e-06
+         Flux                                 0.000235313 +/- 5.76437e-06
  Incoming Energy [13000.000268220901, 14000.000432133675)
    Particle: neutron
      Cell 70
        Total Material
-         Flux                                 0.000223071 +/- 3.11841e-06
+         Flux                                 0.000216182 +/- 3.97024e-06
  Incoming Energy [14000.000432133675, 14999.999664723873)
    Particle: neutron
      Cell 70
        Total Material
-         Flux                                 0.000205508 +/- 4.82805e-06
+         Flux                                 0.000214625 +/- 4.61371e-06
  Incoming Energy [14999.999664723873, 16000.00075995922)
    Particle: neutron
      Cell 70
        Total Material
-         Flux                                 0.000199455 +/- 3.92048e-06
+         Flux                                 0.000195863 +/- 5.00237e-06
  Incoming Energy [16000.00075995922, 17000.000923871994)
    Particle: neutron
      Cell 70
        Total Material
-         Flux                                 0.000195018 +/- 3.64166e-06
+         Flux                                 0.000191137 +/- 6.38306e-06
  Incoming Energy [17000.000923871994, 17999.999225139618)
    Particle: neutron
      Cell 70
        Total Material
-         Flux                                 0.000197566 +/- 4.00994e-06
+         Flux                                 0.000199971 +/- 3.9763e-06
  Incoming Energy [17999.999225139618, 18999.99938905239)
    Particle: neutron
      Cell 70
        Total Material
-         Flux                                 0.000219334 +/- 4.82e-06
+         Flux                                 0.000209315 +/- 3.48978e-06
  Incoming Energy [18999.99938905239, 19999.999552965164)
    Particle: neutron
      Cell 70
        Total Material
-         Flux                                 0.000242846 +/- 3.63539e-06
+         Flux                                 0.00025007 +/- 6.54053e-06
  Incoming Energy [19999.999552965164, 20999.999716877937)
    Particle: neutron
      Cell 70
        Total Material
-         Flux                                 0.000302531 +/- 6.69084e-06
+         Flux                                 0.000308826 +/- 4.30849e-06
  Incoming Energy [20999.999716877937, 21999.99988079071)
    Particle: neutron
      Cell 70
        Total Material
-         Flux                                 0.000443512 +/- 4.77845e-06
+         Flux                                 0.000439785 +/- 4.64532e-06
  Incoming Energy [21999.99988079071, 23000.000044703484)
    Particle: neutron
      Cell 70
        Total Material
-         Flux                                 0.00073202 +/- 1.05332e-05
+         Flux                                 0.000762483 +/- 1.1666e-05
  Incoming Energy [23000.000044703484, 24000.000208616257)
    Particle: neutron
      Cell 70
        Total Material
-         Flux                                 0.00180557 +/- 1.29909e-05
+         Flux                                 0.00181118 +/- 1.52716e-05
  Incoming Energy [24000.000208616257, 25000.00037252903)
    Particle: neutron
      Cell 70
        Total Material
-         Flux                                 0.00490102 +/- 2.42516e-05
+         Flux                                 0.00495102 +/- 2.2907e-05
  Incoming Energy [25000.00037252903, 26000.000536441803)
    Particle: neutron
      Cell 70
        Total Material
-         Flux                                 0.00421442 +/- 2.65236e-05
+         Flux                                 0.00417534 +/- 1.87252e-05
  Incoming Energy [26000.000536441803, 27000.000700354576)
    Particle: neutron
      Cell 70
        Total Material
-         Flux                                 0.000417544 +/- 6.99878e-06
+         Flux                                 0.000414448 +/- 7.64918e-06
  Incoming Energy [27000.000700354576, 28000.00086426735)
    Particle: neutron
      Cell 70
        Total Material
-         Flux                                 1.66996e-05 +/- 1.14762e-06
+         Flux                                 1.64187e-05 +/- 1.73485e-06
  Incoming Energy [28000.00086426735, 28999.999165534973)
    Particle: neutron
      Cell 70
        Total Material
-         Flux                                 1.15971e-05 +/- 1.90729e-06
+         Flux                                 1.03959e-05 +/- 1.36122e-06
  Incoming Energy [28999.999165534973, 29999.999329447746)
    Particle: neutron
      Cell 70
        Total Material
-         Flux                                 3.01469e-05 +/- 1.44848e-06
+         Flux                                 3.38725e-05 +/- 1.74122e-06
  Incoming Energy [29999.999329447746, 32000.00151991844)
    Particle: neutron
      Cell 70
        Total Material
-         Flux                                 0.00014709 +/- 2.86352e-06
+         Flux                                 0.000147561 +/- 3.01479e-06
  Incoming Energy [32000.00151991844, 34000.00184774399)
    Particle: neutron
      Cell 70
        Total Material
-         Flux                                 0.000267573 +/- 4.86194e-06
+         Flux                                 0.000271113 +/- 5.74608e-06
  Incoming Energy [34000.00184774399, 35999.998450279236)
    Particle: neutron
      Cell 70
        Total Material
-         Flux                                 0.000385909 +/- 9.23118e-06
+         Flux                                 0.000393941 +/- 5.84753e-06
  Incoming Energy [35999.998450279236, 37999.99877810478)
    Particle: neutron
      Cell 70
        Total Material
-         Flux                                 0.000495233 +/- 7.50323e-06
+         Flux                                 0.000490589 +/- 3.41526e-06
  Incoming Energy [37999.99877810478, 39999.99910593033)
    Particle: neutron
      Cell 70
        Total Material
-         Flux                                 0.000572689 +/- 7.48122e-06
+         Flux                                 0.000571085 +/- 9.21101e-06
  Incoming Energy [39999.99910593033, 41999.999433755875)
    Particle: neutron
      Cell 70
        Total Material
-         Flux                                 0.000564264 +/- 1.11506e-05
+         Flux                                 0.000578118 +/- 9.1706e-06
  Incoming Energy [41999.999433755875, 43999.99976158142)
    Particle: neutron
      Cell 70
        Total Material
-         Flux                                 0.000672686 +/- 9.08033e-06
+         Flux                                 0.000670128 +/- 1.00893e-05
  Incoming Energy [43999.99976158142, 46000.00008940697)
    Particle: neutron
      Cell 70
        Total Material
-         Flux                                 0.000762106 +/- 1.05069e-05
+         Flux                                 0.000782231 +/- 8.38528e-06
  Incoming Energy [46000.00008940697, 48000.00041723251)
    Particle: neutron
      Cell 70
        Total Material
-         Flux                                 0.000790389 +/- 7.14778e-06
+         Flux                                 0.000775926 +/- 9.15209e-06
  Incoming Energy [48000.00041723251, 50000.00074505806)
    Particle: neutron
      Cell 70
        Total Material
-         Flux                                 0.000864325 +/- 1.17314e-05
+         Flux                                 0.000856426 +/- 9.66804e-06
  Incoming Energy [50000.00074505806, 52000.001072883606)
    Particle: neutron
      Cell 70
        Total Material
-         Flux                                 0.00077104 +/- 1.27438e-05
+         Flux                                 0.000800419 +/- 1.19875e-05
  Incoming Energy [52000.001072883606, 54000.00140070915)
    Particle: neutron
      Cell 70
        Total Material
-         Flux                                 0.000410845 +/- 2.82471e-06
+         Flux                                 0.00042094 +/- 9.58692e-06
  Incoming Energy [54000.00140070915, 56000.0017285347)
    Particle: neutron
      Cell 70
        Total Material
-         Flux                                 0.000696655 +/- 6.95459e-06
+         Flux                                 0.000698797 +/- 9.33751e-06
  Incoming Energy [56000.0017285347, 57999.998331069946)
    Particle: neutron
      Cell 70
        Total Material
-         Flux                                 0.000886045 +/- 1.22929e-05
+         Flux                                 0.000882061 +/- 8.22677e-06
  Incoming Energy [57999.998331069946, 59999.99865889549)
    Particle: neutron
      Cell 70
        Total Material
-         Flux                                 0.000917488 +/- 1.2587e-05
+         Flux                                 0.000920245 +/- 1.33964e-05
  Incoming Energy [59999.99865889549, 64999.99761581421)
    Particle: neutron
      Cell 70
        Total Material
-         Flux                                 0.00253195 +/- 1.56495e-05
+         Flux                                 0.00250895 +/- 1.49092e-05
  Incoming Energy [64999.99761581421, 70000.00029802322)
    Particle: neutron
      Cell 70
        Total Material
-         Flux                                 0.0047734 +/- 2.47649e-05
+         Flux                                 0.00478174 +/- 2.34093e-05
  Incoming Energy [70000.00029802322, 75000.00298023224)
    Particle: neutron
      Cell 70
        Total Material
-         Flux                                 0.0040994 +/- 1.99837e-05
+         Flux                                 0.00415331 +/- 9.49035e-06
  Incoming Energy [75000.00298023224, 79999.99821186066)
    Particle: neutron
      Cell 70
        Total Material
-         Flux                                 0.00259936 +/- 1.60645e-05
+         Flux                                 0.00259363 +/- 1.9108e-05
  Incoming Energy [79999.99821186066, 85000.00089406967)
    Particle: neutron
      Cell 70
        Total Material
-         Flux                                 0.00771883 +/- 2.78874e-05
+         Flux                                 0.00779401 +/- 3.19736e-05
  Incoming Energy [85000.00089406967, 90000.00357627869)
    Particle: neutron
      Cell 70
        Total Material
-         Flux                                 0.000883522 +/- 1.27319e-05
+         Flux                                 0.000903551 +/- 9.5318e-06
  Incoming Energy [90000.00357627869, 94999.9988079071)
    Particle: neutron
      Cell 70
        Total Material
-         Flux                                 0.00160497 +/- 9.88635e-06
+         Flux                                 0.00162879 +/- 2.12233e-05
  Incoming Energy [94999.9988079071, 100000.00149011612)
    Particle: neutron
      Cell 70
        Total Material
-         Flux                                 0.00159546 +/- 1.20717e-05
+         Flux                                 0.00161986 +/- 1.74658e-05
  Incoming Energy [100000.00149011612, 104999.99672174454)
    Particle: neutron
      Cell 70
        Total Material
-         Flux                                 0.00234489 +/- 1.18078e-05
+         Flux                                 0.00239717 +/- 1.9376e-05
  Incoming Energy [104999.99672174454, 109999.99940395355)
    Particle: neutron
      Cell 70
        Total Material
-         Flux                                 0.00278809 +/- 1.49911e-05
+         Flux                                 0.00284358 +/- 1.51684e-05
  Incoming Energy [109999.99940395355, 115000.00208616257)
    Particle: neutron
      Cell 70
        Total Material
-         Flux                                 0.00322572 +/- 2.18668e-05
+         Flux                                 0.00324791 +/- 1.28936e-05
  Incoming Energy [115000.00208616257, 119999.99731779099)
    Particle: neutron
      Cell 70
        Total Material
-         Flux                                 0.0036997 +/- 2.33531e-05
+         Flux                                 0.00374185 +/- 2.21031e-05
  Incoming Energy [119999.99731779099, 125000)
    Particle: neutron
      Cell 70
        Total Material
-         Flux                                 0.00519813 +/- 1.85954e-05
+         Flux                                 0.005188 +/- 2.09439e-05
  Incoming Energy [125000, 129999.99523162842)
    Particle: neutron
      Cell 70
        Total Material
-         Flux                                 0.00727056 +/- 4.42618e-05
+         Flux                                 0.00740982 +/- 2.88455e-05
  Incoming Energy [129999.99523162842, 135000.00536441803)
    Particle: neutron
      Cell 70
        Total Material
-         Flux                                 0.00422106 +/- 1.82429e-05
+         Flux                                 0.00425508 +/- 1.20985e-05
  Incoming Energy [135000.00536441803, 140000.00059604645)
    Particle: neutron
      Cell 70
        Total Material
-         Flux                                 0.0116261 +/- 5.80972e-05
+         Flux                                 0.0116896 +/- 4.2055e-05
  Incoming Energy [140000.00059604645, 148570.0011253357)
    Particle: neutron
      Cell 70
        Total Material
-         Flux                                 0.000996973 +/- 1.50253e-05
+         Flux                                 0.000984919 +/- 1.03001e-05
  Incoming Energy [148570.0011253357, 157140.00165462494)
    Particle: neutron
      Cell 70
        Total Material
-         Flux                                 0.00338423 +/- 2.48084e-05
+         Flux                                 0.00338931 +/- 2.00633e-05
  Incoming Energy [157140.00165462494, 165710.00218391418)
    Particle: neutron
      Cell 70
        Total Material
-         Flux                                 0.00794197 +/- 4.02299e-05
+         Flux                                 0.00795264 +/- 2.62591e-05
  Incoming Energy [165710.00218391418, 174290.0013923645)
    Particle: neutron
      Cell 70
        Total Material
-         Flux                                 0.00863643 +/- 3.68508e-05
+         Flux                                 0.00874667 +/- 4.70548e-05
  Incoming Energy [174290.0013923645, 182860.00192165375)
    Particle: neutron
      Cell 70
        Total Material
-         Flux                                 0.012379 +/- 3.46071e-05
+         Flux                                 0.0123904 +/- 3.75076e-05
  Incoming Energy [182860.00192165375, 191430.002450943)
    Particle: neutron
      Cell 70
        Total Material
-         Flux                                 0.0104095 +/- 3.31277e-05
+         Flux                                 0.0104286 +/- 4.82571e-05
  Incoming Energy [191430.002450943, 200000.00298023224)
    Particle: neutron
      Cell 70
        Total Material
-         Flux                                 0.00171984 +/- 1.22129e-05
+         Flux                                 0.0017132 +/- 1.30458e-05
  Incoming Energy [200000.00298023224, 209999.99344348907)
    Particle: neutron
      Cell 70
        Total Material
-         Flux                                 0.00424173 +/- 2.3688e-05
+         Flux                                 0.00426662 +/- 1.74176e-05
  Incoming Energy [209999.99344348907, 219999.9988079071)
    Particle: neutron
      Cell 70
        Total Material
-         Flux                                 0.0117253 +/- 2.29309e-05
+         Flux                                 0.0118165 +/- 3.68047e-05
  Incoming Energy [219999.9988079071, 230000.00417232513)
    Particle: neutron
      Cell 70
        Total Material
-         Flux                                 0.00316699 +/- 2.06656e-05
+         Flux                                 0.00318442 +/- 2.41381e-05
  Incoming Energy [230000.00417232513, 239999.99463558197)
    Particle: neutron
      Cell 70
        Total Material
-         Flux                                 0.00746973 +/- 2.65439e-05
+         Flux                                 0.00752786 +/- 1.84367e-05
  Incoming Energy [239999.99463558197, 250000)
    Particle: neutron
      Cell 70
        Total Material
-         Flux                                 0.00769996 +/- 1.95337e-05
+         Flux                                 0.00780881 +/- 3.46542e-05
  Incoming Energy [250000, 259999.99046325684)
    Particle: neutron
      Cell 70
        Total Material
-         Flux                                 0.00639754 +/- 2.41366e-05
+         Flux                                 0.00641924 +/- 3.42162e-05
  Incoming Energy [259999.99046325684, 270000.01072883606)
    Particle: neutron
      Cell 70
        Total Material
-         Flux                                 0.00989845 +/- 3.55732e-05
+         Flux                                 0.00992627 +/- 3.71111e-05
  Incoming Energy [270000.01072883606, 280000.0011920929)
    Particle: neutron
      Cell 70
        Total Material
-         Flux                                 0.0137663 +/- 5.50827e-05
+         Flux                                 0.0139142 +/- 2.44047e-05
  Incoming Energy [280000.0011920929, 289999.99165534973)
    Particle: neutron
      Cell 70
        Total Material
-         Flux                                 0.00428632 +/- 2.37151e-05
+         Flux                                 0.00431743 +/- 1.17233e-05
  Incoming Energy [289999.99165534973, 300000.01192092896)
    Particle: neutron
      Cell 70
        Total Material
-         Flux                                 0.0115181 +/- 4.65227e-05
+         Flux                                 0.0116635 +/- 3.91064e-05
  Incoming Energy [300000.01192092896, 319999.9928474426)
    Particle: neutron
      Cell 70
        Total Material
-         Flux                                 0.0432999 +/- 6.31548e-05
+         Flux                                 0.0436403 +/- 6.03436e-05
  Incoming Energy [319999.9928474426, 340000.0035762787)
    Particle: neutron
      Cell 70
        Total Material
-         Flux                                 0.0118989 +/- 2.65216e-05
+         Flux                                 0.012026 +/- 3.1651e-05
  Incoming Energy [340000.0035762787, 360000.01430511475)
    Particle: neutron
      Cell 70
        Total Material
-         Flux                                 0.0415186 +/- 8.07304e-05
+         Flux                                 0.0418939 +/- 6.92331e-05
  Incoming Energy [360000.01430511475, 379999.9952316284)
    Particle: neutron
      Cell 70
        Total Material
-         Flux                                 0.0275482 +/- 3.2082e-05
+         Flux                                 0.0278779 +/- 3.40015e-05
  Incoming Energy [379999.9952316284, 400000.0059604645)
    Particle: neutron
      Cell 70
        Total Material
-         Flux                                 0.00587244 +/- 2.64366e-05
+         Flux                                 0.00588314 +/- 2.20184e-05
  Incoming Energy [400000.0059604645, 419999.98688697815)
    Particle: neutron
      Cell 70
        Total Material
-         Flux                                 0.00686259 +/- 2.87013e-05
+         Flux                                 0.00687908 +/- 2.52634e-05
  Incoming Energy [419999.98688697815, 439999.9976158142)
    Particle: neutron
      Cell 70
        Total Material
-         Flux                                 0.0128541 +/- 4.45698e-05
+         Flux                                 0.0129095 +/- 5.518e-05
  Incoming Energy [439999.9976158142, 460000.00834465027)
    Particle: neutron
      Cell 70
        Total Material
-         Flux                                 0.00996723 +/- 3.44826e-05
+         Flux                                 0.0100221 +/- 3.70732e-05
  Incoming Energy [460000.00834465027, 479999.98927116394)
    Particle: neutron
      Cell 70
        Total Material
-         Flux                                 0.0184285 +/- 7.7185e-05
+         Flux                                 0.0186656 +/- 4.3732e-05
  Incoming Energy [479999.98927116394, 500000)
    Particle: neutron
      Cell 70
        Total Material
-         Flux                                 0.0141246 +/- 3.92712e-05
+         Flux                                 0.0141276 +/- 3.82549e-05
  Incoming Energy [500000, 550000.011920929)
    Particle: neutron
      Cell 70
        Total Material
-         Flux                                 0.0300603 +/- 4.33022e-05
+         Flux                                 0.0301831 +/- 6.46552e-05
  Incoming Energy [550000.011920929, 600000.0238418579)
    Particle: neutron
      Cell 70
        Total Material
-         Flux                                 0.0444571 +/- 6.54559e-05
+         Flux                                 0.0448316 +/- 5.43057e-05
  Incoming Energy [600000.0238418579, 649999.9761581421)
    Particle: neutron
      Cell 70
        Total Material
-         Flux                                 0.0809968 +/- 7.39151e-05
+         Flux                                 0.0817906 +/- 4.78123e-05
  Incoming Energy [649999.9761581421, 699999.988079071)
    Particle: neutron
      Cell 70
        Total Material
-         Flux                                 0.0435971 +/- 5.83613e-05
+         Flux                                 0.0439257 +/- 6.47936e-05
  Incoming Energy [699999.988079071, 750000)
    Particle: neutron
      Cell 70
        Total Material
-         Flux                                 0.0393146 +/- 7.92237e-05
+         Flux                                 0.0395228 +/- 5.42524e-05
  Incoming Energy [750000, 800000.011920929)
    Particle: neutron
      Cell 70
        Total Material
-         Flux                                 0.01891 +/- 5.06164e-05
+         Flux                                 0.019128 +/- 4.75007e-05
  Incoming Energy [800000.011920929, 850000.0238418579)
    Particle: neutron
      Cell 70
        Total Material
-         Flux                                 0.0244569 +/- 4.33477e-05
+         Flux                                 0.0246554 +/- 4.08658e-05
  Incoming Energy [850000.0238418579, 899999.9761581421)
    Particle: neutron
      Cell 70
        Total Material
-         Flux                                 0.0263513 +/- 5.66044e-05
+         Flux                                 0.0265627 +/- 4.45585e-05
  Incoming Energy [899999.9761581421, 949999.988079071)
    Particle: neutron
      Cell 70
        Total Material
-         Flux                                 0.0267122 +/- 5.02082e-05
+         Flux                                 0.0269058 +/- 3.76808e-05
  Incoming Energy [949999.988079071, 1000000)
    Particle: neutron
      Cell 70
        Total Material
-         Flux                                 0.0255635 +/- 4.59215e-05
+         Flux                                 0.0256023 +/- 4.26974e-05
  Incoming Energy [1000000, 1100000.023841858)
    Particle: neutron
      Cell 70
        Total Material
-         Flux                                 0.0347247 +/- 6.23779e-05
+         Flux                                 0.0347508 +/- 6.59786e-05
  Incoming Energy [1100000.023841858, 1200000.0476837158)
    Particle: neutron
      Cell 70
        Total Material
-         Flux                                 0.04278 +/- 6.22002e-05
+         Flux                                 0.0427396 +/- 4.9251e-05
  Incoming Energy [1200000.0476837158, 1299999.9523162842)
    Particle: neutron
      Cell 70
        Total Material
-         Flux                                 0.0262333 +/- 6.02734e-05
+         Flux                                 0.0261509 +/- 2.48431e-05
  Incoming Energy [1299999.9523162842, 1399999.976158142)
    Particle: neutron
      Cell 70
        Total Material
-         Flux                                 0.0228857 +/- 4.75402e-05
+         Flux                                 0.0227756 +/- 4.59774e-05
  Incoming Energy [1399999.976158142, 1500000)
    Particle: neutron
      Cell 70
        Total Material
-         Flux                                 0.0177397 +/- 4.09797e-05
+         Flux                                 0.0176822 +/- 4.82656e-05
  Incoming Energy [1500000, 1600000.023841858)
    Particle: neutron
      Cell 70
        Total Material
-         Flux                                 0.0169728 +/- 3.77258e-05
+         Flux                                 0.0169335 +/- 2.59077e-05
  Incoming Energy [1600000.023841858, 1700000.0476837158)
    Particle: neutron
      Cell 70
        Total Material
-         Flux                                 0.0153372 +/- 4.29984e-05
+         Flux                                 0.0150915 +/- 5.22752e-05
  Incoming Energy [1700000.0476837158, 1799999.9523162842)
    Particle: neutron
      Cell 70
        Total Material
-         Flux                                 0.0141148 +/- 1.95631e-05
+         Flux                                 0.0140672 +/- 2.96619e-05
  Incoming Energy [1799999.9523162842, 1899999.976158142)
    Particle: neutron
      Cell 70
        Total Material
-         Flux                                 0.0116496 +/- 3.32478e-05
+         Flux                                 0.011445 +/- 2.24544e-05
  Incoming Energy [1899999.976158142, 2000000)
    Particle: neutron
      Cell 70
        Total Material
-         Flux                                 0.00894361 +/- 2.45144e-05
+         Flux                                 0.0087706 +/- 4.55605e-05
  Incoming Energy [2000000, 2250000)
    Particle: neutron
      Cell 70
        Total Material
-         Flux                                 0.0203051 +/- 4.57956e-05
+         Flux                                 0.0199956 +/- 3.87712e-05
  Incoming Energy [2250000, 2500000)
    Particle: neutron
      Cell 70
        Total Material
-         Flux                                 0.0159597 +/- 3.0177e-05
+         Flux                                 0.0156532 +/- 4.00616e-05
  Incoming Energy [2500000, 2750000)
    Particle: neutron
      Cell 70
        Total Material
-         Flux                                 0.0107815 +/- 3.05411e-05
+         Flux                                 0.0105267 +/- 3.27581e-05
  Incoming Energy [2750000, 3000000)
    Particle: neutron
      Cell 70
        Total Material
-         Flux                                 0.00880023 +/- 1.90787e-05
+         Flux                                 0.00849564 +/- 3.17346e-05
  Incoming Energy [3000000, 3250000)
    Particle: neutron
      Cell 70
        Total Material
-         Flux                                 0.00619821 +/- 3.20188e-05
+         Flux                                 0.00590933 +/- 2.5254e-05
  Incoming Energy [3250000, 3500000)
    Particle: neutron
      Cell 70
        Total Material
-         Flux                                 0.00500786 +/- 2.48965e-05
+         Flux                                 0.00478958 +/- 2.01216e-05
  Incoming Energy [3500000, 3750000)
    Particle: neutron
      Cell 70
        Total Material
-         Flux                                 0.00428325 +/- 2.54031e-05
+         Flux                                 0.00406384 +/- 2.11536e-05
  Incoming Energy [3750000, 4000000)
    Particle: neutron
      Cell 70
        Total Material
-         Flux                                 0.00334095 +/- 1.82027e-05
+         Flux                                 0.00313276 +/- 1.70075e-05
  Incoming Energy [4000000, 4250000)
    Particle: neutron
      Cell 70
        Total Material
-         Flux                                 0.00275533 +/- 1.36071e-05
+         Flux                                 0.00258664 +/- 1.22775e-05
  Incoming Energy [4250000, 4500000)
    Particle: neutron
      Cell 70
        Total Material
-         Flux                                 0.00242581 +/- 1.68574e-05
+         Flux                                 0.00217931 +/- 2.17664e-05
  Incoming Energy [4500000, 4750000)
    Particle: neutron
      Cell 70
        Total Material
-         Flux                                 0.00193427 +/- 1.48938e-05
+         Flux                                 0.00174384 +/- 1.26065e-05
  Incoming Energy [4750000, 5000000)
    Particle: neutron
      Cell 70
        Total Material
-         Flux                                 0.00161816 +/- 1.29077e-05
+         Flux                                 0.00145905 +/- 1.59557e-05
  Incoming Energy [5000000, 5500000)
    Particle: neutron
      Cell 70
        Total Material
-         Flux                                 0.00254927 +/- 2.08449e-05
+         Flux                                 0.00224694 +/- 1.61199e-05
  Incoming Energy [5500000, 6000000)
    Particle: neutron
      Cell 70
        Total Material
-         Flux                                 0.00185055 +/- 1.60645e-05
+         Flux                                 0.00159195 +/- 1.35384e-05
  Incoming Energy [6000000, 6500000)
    Particle: neutron
      Cell 70
        Total Material
-         Flux                                 0.00131084 +/- 9.37119e-06
+         Flux                                 0.00113804 +/- 1.49842e-05
  Incoming Energy [6500000, 7000000)
    Particle: neutron
      Cell 70
        Total Material
-         Flux                                 0.000938278 +/- 8.33079e-06
+         Flux                                 0.000783113 +/- 7.24213e-06
  Incoming Energy [7000000, 7500000)
    Particle: neutron
      Cell 70
        Total Material
-         Flux                                 0.000699901 +/- 8.54446e-06
+         Flux                                 0.000562975 +/- 5.47638e-06
  Incoming Energy [7500000, 8000000)
    Particle: neutron
      Cell 70
        Total Material
-         Flux                                 0.000527449 +/- 8.72921e-06
+         Flux                                 0.000399017 +/- 5.08444e-06
  Incoming Energy [8000000, 8500000)
    Particle: neutron
      Cell 70
        Total Material
-         Flux                                 0.000389132 +/- 6.42489e-06
+         Flux                                 0.000274659 +/- 4.76093e-06
  Incoming Energy [8500000, 9000000)
    Particle: neutron
      Cell 70
        Total Material
-         Flux                                 0.000287837 +/- 6.58331e-06
+         Flux                                 0.000199611 +/- 3.92769e-06
  Incoming Energy [9000000, 9500000)
    Particle: neutron
      Cell 70
        Total Material
-         Flux                                 0.000193605 +/- 3.42022e-06
+         Flux                                 0.00013565 +/- 3.18203e-06
  Incoming Energy [9500000, 10000000)
    Particle: neutron
      Cell 70
        Total Material
-         Flux                                 0.000142935 +/- 2.84753e-06
+         Flux                                 9.09377e-05 +/- 2.69075e-06
  Incoming Energy [10000000, 10500000)
    Particle: neutron
      Cell 70
        Total Material
-         Flux                                 0.000102599 +/- 4.83713e-06
+         Flux                                 6.38272e-05 +/- 2.64617e-06
  Incoming Energy [10500000, 11000000)
    Particle: neutron
      Cell 70
        Total Material
-         Flux                                 7.14458e-05 +/- 3.37261e-06
+         Flux                                 4.17131e-05 +/- 1.52101e-06
  Incoming Energy [11000000, 12000000)
    Particle: neutron
      Cell 70
        Total Material
-         Flux                                 8.85719e-05 +/- 3.05812e-06
+         Flux                                 4.24212e-05 +/- 1.94086e-06
  Incoming Energy [12000000, 13000000)
    Particle: neutron
      Cell 70
        Total Material
-         Flux                                 5.09758e-05 +/- 1.62254e-06
+         Flux                                 2.05738e-05 +/- 1.4723e-06
  Incoming Energy [13000000, 14000000)
    Particle: neutron
      Cell 70
        Total Material
-         Flux                                 2.38898e-05 +/- 2.06874e-06
+         Flux                                 1.16032e-05 +/- 1.03563e-06
  Incoming Energy [14000000, 15000000)
    Particle: neutron
      Cell 70
        Total Material
-         Flux                                 1.30348e-05 +/- 1.4634e-06
+         Flux                                 3.99711e-06 +/- 6.19805e-07
  Incoming Energy [15000000, 16000000)
    Particle: neutron
      Cell 70
        Total Material
-         Flux                                 6.01254e-06 +/- 7.97963e-07
+         Flux                                 1.81845e-06 +/- 4.66532e-07
  Incoming Energy [16000000, 17000000)
    Particle: neutron
      Cell 70
        Total Material
-         Flux                                 3.97067e-06 +/- 4.57791e-07
+         Flux                                 4.01825e-07 +/- 1.64053e-07
  Incoming Energy [17000000, 18000000)
    Particle: neutron
      Cell 70
        Total Material
-         Flux                                 1.635e-06 +/- 4.64001e-07
+         Flux                                 6.41606e-07 +/- 3.41969e-07
  Incoming Energy [18000000, 19000000)
    Particle: neutron
      Cell 70
        Total Material
-         Flux                                 1.22472e-06 +/- 3.91163e-07
+         Flux                                 2.02359e-07 +/- 1.34917e-07
  Incoming Energy [19000000, 20000000)
    Particle: neutron
      Cell 70
        Total Material
-         Flux                                 1.23685e-06 +/- 3.12105e-07
- ============================>     TALLY 5     <============================
+         Flux                                 1.00009e-07 +/- 1.00009e-07
+ ===========================>     TALLY 70     <============================
 
  Incoming Energy [99.99999747378752, 1000.0000474974513)
    Particle: neutron
      Surface 60
        Total Material
-         Current                              0.0006238 +/- 6.69295e-06
+         Current                              0.0006306 +/- 7.93333e-06
  Incoming Energy [1000.0000474974513, 1200.0000569969416)
    Particle: neutron
      Surface 60
        Total Material
-         Current                              0.0001181 +/- 2.28254e-06
+         Current                              0.0001182 +/- 4.23688e-06
  Incoming Energy [1200.0000569969416, 1500.000013038516)
    Particle: neutron
      Surface 60
        Total Material
-         Current                              0.0002098 +/- 4.9862e-06
+         Current                              0.0002054 +/- 3.47115e-06
  Incoming Energy [1500.000013038516, 2000.0000949949026)
    Particle: neutron
      Surface 60
        Total Material
-         Current                              0.0003427 +/- 3.82114e-06
+         Current                              0.0003472 +/- 5.50918e-06
  Incoming Energy [2000.0000949949026, 2300.000051036477)
    Particle: neutron
      Surface 60
        Total Material
-         Current                              0.000215 +/- 5.18116e-06
+         Current                              0.0002211 +/- 6.30776e-06
  Incoming Energy [2300.000051036477, 2499.9999441206455)
    Particle: neutron
      Surface 60
        Total Material
-         Current                              0.0001465 +/- 3.7424e-06
+         Current                              0.0001445 +/- 4.51479e-06
  Incoming Energy [2499.9999441206455, 3000.000026077032)
    Particle: neutron
      Surface 60
        Total Material
-         Current                              0.0003894 +/- 5.68663e-06
+         Current                              0.0003964 +/- 7.4464e-06
  Incoming Energy [3000.000026077032, 4000.000189989805)
    Particle: neutron
      Surface 60
        Total Material
-         Current                              0.0007395 +/- 1.11458e-05
+         Current                              0.0007384 +/- 1.04448e-05
  Incoming Energy [4000.000189989805, 4999.999888241291)
    Particle: neutron
      Surface 60
        Total Material
-         Current                              0.0006958 +/- 5.6545e-06
+         Current                              0.0007306 +/- 1.01008e-05
  Incoming Energy [4999.999888241291, 6000.000052154064)
    Particle: neutron
      Surface 60
        Total Material
-         Current                              0.0006127 +/- 7.80605e-06
+         Current                              0.0006228 +/- 7.34514e-06
  Incoming Energy [6000.000052154064, 7000.000216066837)
    Particle: neutron
      Surface 60
        Total Material
-         Current                              0.0002302 +/- 3.66606e-06
+         Current                              0.0002387 +/- 4.77738e-06
  Incoming Energy [7000.000216066837, 8000.00037997961)
    Particle: neutron
      Surface 60
        Total Material
-         Current                              8.69e-05 +/- 2.75862e-06
+         Current                              8.82e-05 +/- 2.58972e-06
  Incoming Energy [8000.00037997961, 8999.999612569809)
    Particle: neutron
      Surface 60
        Total Material
-         Current                              9.64e-05 +/- 3.21524e-06
+         Current                              9.76e-05 +/- 3.19444e-06
  Incoming Energy [8999.999612569809, 9999.999776482582)
    Particle: neutron
      Surface 60
        Total Material
-         Current                              0.0002019 +/- 3.76962e-06
+         Current                              0.0002001 +/- 5.46799e-06
  Incoming Energy [9999.999776482582, 10999.999940395355)
    Particle: neutron
      Surface 60
        Total Material
-         Current                              0.0002412 +/- 5.14846e-06
+         Current                              0.0002394 +/- 3.80117e-06
  Incoming Energy [10999.999940395355, 12000.000104308128)
    Particle: neutron
      Surface 60
        Total Material
-         Current                              0.0002161 +/- 3.52909e-06
+         Current                              0.0002206 +/- 3.37375e-06
  Incoming Energy [12000.000104308128, 13000.000268220901)
    Particle: neutron
      Surface 60
        Total Material
-         Current                              0.0001996 +/- 3.61847e-06
+         Current                              0.0002067 +/- 4.95547e-06
  Incoming Energy [13000.000268220901, 14000.000432133675)
    Particle: neutron
      Surface 60
        Total Material
-         Current                              0.0001953 +/- 2.78109e-06
+         Current                              0.0001902 +/- 3.38231e-06
  Incoming Energy [14000.000432133675, 14999.999664723873)
    Particle: neutron
      Surface 60
        Total Material
-         Current                              0.0001817 +/- 4.15812e-06
+         Current                              0.0001882 +/- 4.54557e-06
  Incoming Energy [14999.999664723873, 16000.00075995922)
    Particle: neutron
      Surface 60
        Total Material
-         Current                              0.0001767 +/- 3.49937e-06
+         Current                              0.0001738 +/- 4.46915e-06
  Incoming Energy [16000.00075995922, 17000.000923871994)
    Particle: neutron
      Surface 60
        Total Material
-         Current                              0.0001719 +/- 3.36138e-06
+         Current                              0.0001687 +/- 5.60565e-06
  Incoming Energy [17000.000923871994, 17999.999225139618)
    Particle: neutron
      Surface 60
        Total Material
-         Current                              0.0001756 +/- 3.59073e-06
+         Current                              0.0001766 +/- 3.35062e-06
  Incoming Energy [17999.999225139618, 18999.99938905239)
    Particle: neutron
      Surface 60
        Total Material
-         Current                              0.0001949 +/- 4.24644e-06
+         Current                              0.0001858 +/- 2.96573e-06
  Incoming Energy [18999.99938905239, 19999.999552965164)
    Particle: neutron
      Surface 60
        Total Material
-         Current                              0.0002137 +/- 3.17298e-06
+         Current                              0.0002179 +/- 5.65774e-06
  Incoming Energy [19999.999552965164, 20999.999716877937)
    Particle: neutron
      Surface 60
        Total Material
-         Current                              0.0002654 +/- 5.46951e-06
+         Current                              0.0002701 +/- 3.47195e-06
  Incoming Energy [20999.999716877937, 21999.99988079071)
    Particle: neutron
      Surface 60
        Total Material
-         Current                              0.0003927 +/- 4.77039e-06
+         Current                              0.0003939 +/- 4.4233e-06
  Incoming Energy [21999.99988079071, 23000.000044703484)
    Particle: neutron
      Surface 60
        Total Material
-         Current                              0.0006573 +/- 1.01424e-05
+         Current                              0.0006813 +/- 1.1225e-05
  Incoming Energy [23000.000044703484, 24000.000208616257)
    Particle: neutron
      Surface 60
        Total Material
-         Current                              0.0016328 +/- 1.18929e-05
+         Current                              0.0016408 +/- 1.33673e-05
  Incoming Energy [24000.000208616257, 25000.00037252903)
    Particle: neutron
      Surface 60
        Total Material
-         Current                              0.0044832 +/- 1.99002e-05
+         Current                              0.0045295 +/- 2.09063e-05
  Incoming Energy [25000.00037252903, 26000.000536441803)
    Particle: neutron
      Surface 60
        Total Material
-         Current                              0.0038685 +/- 2.37857e-05
+         Current                              0.0038325 +/- 1.72706e-05
  Incoming Energy [26000.000536441803, 27000.000700354576)
    Particle: neutron
      Surface 60
        Total Material
-         Current                              0.0003719 +/- 6.40217e-06
+         Current                              0.0003676 +/- 6.49307e-06
  Incoming Energy [27000.000700354576, 28000.00086426735)
    Particle: neutron
      Surface 60
        Total Material
-         Current                              1.43e-05 +/- 1.00056e-06
+         Current                              1.42e-05 +/- 1.52607e-06
  Incoming Energy [28000.00086426735, 28999.999165534973)
    Particle: neutron
      Surface 60
        Total Material
-         Current                              8.9e-06 +/- 1.1e-06
+         Current                              8.8e-06 +/- 1.1431e-06
  Incoming Energy [28999.999165534973, 29999.999329447746)
    Particle: neutron
      Surface 60
        Total Material
-         Current                              2.58e-05 +/- 1.33167e-06
+         Current                              2.88e-05 +/- 1.59722e-06
  Incoming Energy [29999.999329447746, 32000.00151991844)
    Particle: neutron
      Surface 60
        Total Material
-         Current                              0.000126 +/- 2.33333e-06
+         Current                              0.0001256 +/- 2.5482e-06
  Incoming Energy [32000.00151991844, 34000.00184774399)
    Particle: neutron
      Surface 60
        Total Material
-         Current                              0.0002314 +/- 4.11015e-06
+         Current                              0.0002352 +/- 5.25738e-06
  Incoming Energy [34000.00184774399, 35999.998450279236)
    Particle: neutron
      Surface 60
        Total Material
-         Current                              0.0003362 +/- 8.24729e-06
+         Current                              0.0003433 +/- 5.56786e-06
  Incoming Energy [35999.998450279236, 37999.99877810478)
    Particle: neutron
      Surface 60
        Total Material
-         Current                              0.0004323 +/- 6.35619e-06
+         Current                              0.000428 +/- 3.22146e-06
  Incoming Energy [37999.99877810478, 39999.99910593033)
    Particle: neutron
      Surface 60
        Total Material
-         Current                              0.0005005 +/- 6.31093e-06
+         Current                              0.000499 +/- 8.06639e-06
  Incoming Energy [39999.99910593033, 41999.999433755875)
    Particle: neutron
      Surface 60
        Total Material
-         Current                              0.0004929 +/- 9.66833e-06
+         Current                              0.0005044 +/- 7.5354e-06
  Incoming Energy [41999.999433755875, 43999.99976158142)
    Particle: neutron
      Surface 60
        Total Material
-         Current                              0.0005876 +/- 7.79487e-06
+         Current                              0.000586 +/- 8.63584e-06
  Incoming Energy [43999.99976158142, 46000.00008940697)
    Particle: neutron
      Surface 60
        Total Material
-         Current                              0.0006696 +/- 9.49526e-06
+         Current                              0.0006854 +/- 7.31695e-06
  Incoming Energy [46000.00008940697, 48000.00041723251)
    Particle: neutron
      Surface 60
        Total Material
-         Current                              0.0006935 +/- 6.41569e-06
+         Current                              0.0006818 +/- 7.96074e-06
  Incoming Energy [48000.00041723251, 50000.00074505806)
    Particle: neutron
      Surface 60
        Total Material
-         Current                              0.0007606 +/- 1.01052e-05
+         Current                              0.0007556 +/- 9.17751e-06
  Incoming Energy [50000.00074505806, 52000.001072883606)
    Particle: neutron
      Surface 60
        Total Material
-         Current                              0.0006793 +/- 1.14853e-05
+         Current                              0.0007028 +/- 1.02597e-05
  Incoming Energy [52000.001072883606, 54000.00140070915)
    Particle: neutron
      Surface 60
        Total Material
-         Current                              0.0003565 +/- 3.21541e-06
+         Current                              0.0003641 +/- 8.22793e-06
  Incoming Energy [54000.00140070915, 56000.0017285347)
    Particle: neutron
      Surface 60
        Total Material
-         Current                              0.0006078 +/- 5.67803e-06
+         Current                              0.000611 +/- 8.29859e-06
  Incoming Energy [56000.0017285347, 57999.998331069946)
    Particle: neutron
      Surface 60
        Total Material
-         Current                              0.0007782 +/- 1.05775e-05
+         Current                              0.0007736 +/- 7.73046e-06
  Incoming Energy [57999.998331069946, 59999.99865889549)
    Particle: neutron
      Surface 60
        Total Material
-         Current                              0.0008058 +/- 1.10109e-05
+         Current                              0.0008094 +/- 1.21456e-05
  Incoming Energy [59999.99865889549, 64999.99761581421)
    Particle: neutron
      Surface 60
        Total Material
-         Current                              0.0022197 +/- 1.23963e-05
+         Current                              0.0022034 +/- 1.39214e-05
  Incoming Energy [64999.99761581421, 70000.00029802322)
    Particle: neutron
      Surface 60
        Total Material
-         Current                              0.004252 +/- 2.30014e-05
+         Current                              0.0042554 +/- 2.10524e-05
  Incoming Energy [70000.00029802322, 75000.00298023224)
    Particle: neutron
      Surface 60
        Total Material
-         Current                              0.0036905 +/- 1.90329e-05
+         Current                              0.0037417 +/- 9.28685e-06
  Incoming Energy [75000.00298023224, 79999.99821186066)
    Particle: neutron
      Surface 60
        Total Material
-         Current                              0.0022961 +/- 1.40463e-05
+         Current                              0.0022941 +/- 1.70427e-05
  Incoming Energy [79999.99821186066, 85000.00089406967)
    Particle: neutron
      Surface 60
        Total Material
-         Current                              0.0071207 +/- 2.55969e-05
+         Current                              0.0071895 +/- 2.93183e-05
  Incoming Energy [85000.00089406967, 90000.00357627869)
    Particle: neutron
      Surface 60
        Total Material
-         Current                              0.0007663 +/- 1.07642e-05
+         Current                              0.0007811 +/- 8.15469e-06
  Incoming Energy [90000.00357627869, 94999.9988079071)
    Particle: neutron
      Surface 60
        Total Material
-         Current                              0.0014063 +/- 9.34053e-06
+         Current                              0.0014247 +/- 1.9687e-05
  Incoming Energy [94999.9988079071, 100000.00149011612)
    Particle: neutron
      Surface 60
        Total Material
-         Current                              0.0014011 +/- 1.04917e-05
+         Current                              0.0014227 +/- 1.55542e-05
  Incoming Energy [100000.00149011612, 104999.99672174454)
    Particle: neutron
      Surface 60
        Total Material
-         Current                              0.0020702 +/- 1.13596e-05
+         Current                              0.0021138 +/- 1.76747e-05
  Incoming Energy [104999.99672174454, 109999.99940395355)
    Particle: neutron
      Surface 60
        Total Material
-         Current                              0.0024667 +/- 1.24169e-05
+         Current                              0.002508 +/- 1.18011e-05
  Incoming Energy [109999.99940395355, 115000.00208616257)
    Particle: neutron
      Surface 60
        Total Material
-         Current                              0.0028597 +/- 2.05346e-05
+         Current                              0.0028777 +/- 1.26588e-05
  Incoming Energy [115000.00208616257, 119999.99731779099)
    Particle: neutron
      Surface 60
        Total Material
-         Current                              0.0033003 +/- 2.06516e-05
+         Current                              0.0033384 +/- 2.04756e-05
  Incoming Energy [119999.99731779099, 125000)
    Particle: neutron
      Surface 60
        Total Material
-         Current                              0.0046744 +/- 1.81972e-05
+         Current                              0.0046737 +/- 1.88627e-05
  Incoming Energy [125000, 129999.99523162842)
    Particle: neutron
      Surface 60
        Total Material
-         Current                              0.0066397 +/- 4.00683e-05
+         Current                              0.0067685 +/- 2.74482e-05
  Incoming Energy [129999.99523162842, 135000.00536441803)
    Particle: neutron
      Surface 60
        Total Material
-         Current                              0.0038009 +/- 1.70271e-05
+         Current                              0.0038329 +/- 1.12669e-05
  Incoming Energy [135000.00536441803, 140000.00059604645)
    Particle: neutron
      Surface 60
        Total Material
-         Current                              0.0107695 +/- 5.28523e-05
+         Current                              0.0108264 +/- 3.94445e-05
  Incoming Energy [140000.00059604645, 148570.0011253357)
    Particle: neutron
      Surface 60
        Total Material
-         Current                              0.0008464 +/- 1.24635e-05
+         Current                              0.0008369 +/- 7.94907e-06
  Incoming Energy [148570.0011253357, 157140.00165462494)
    Particle: neutron
      Surface 60
        Total Material
-         Current                              0.0029629 +/- 2.10335e-05
+         Current                              0.0029704 +/- 1.84211e-05
  Incoming Energy [157140.00165462494, 165710.00218391418)
    Particle: neutron
      Surface 60
        Total Material
-         Current                              0.0071265 +/- 3.72431e-05
+         Current                              0.0071308 +/- 2.30067e-05
  Incoming Energy [165710.00218391418, 174290.0013923645)
    Particle: neutron
      Surface 60
        Total Material
-         Current                              0.0078585 +/- 3.13802e-05
+         Current                              0.0079596 +/- 4.29491e-05
  Incoming Energy [174290.0013923645, 182860.00192165375)
    Particle: neutron
      Surface 60
        Total Material
-         Current                              0.0112605 +/- 3.23235e-05
+         Current                              0.0112749 +/- 3.43684e-05
  Incoming Energy [182860.00192165375, 191430.002450943)
    Particle: neutron
      Surface 60
        Total Material
-         Current                              0.0096149 +/- 3.01347e-05
+         Current                              0.0096348 +/- 4.39699e-05
  Incoming Energy [191430.002450943, 200000.00298023224)
    Particle: neutron
      Surface 60
        Total Material
-         Current                              0.0014842 +/- 1.15708e-05
+         Current                              0.0014838 +/- 1.21799e-05
  Incoming Energy [200000.00298023224, 209999.99344348907)
    Particle: neutron
      Surface 60
        Total Material
-         Current                              0.0037351 +/- 2.01767e-05
+         Current                              0.0037532 +/- 1.4991e-05
  Incoming Energy [209999.99344348907, 219999.9988079071)
    Particle: neutron
      Surface 60
        Total Material
-         Current                              0.0106794 +/- 2.13277e-05
+         Current                              0.0107691 +/- 3.24857e-05
  Incoming Energy [219999.9988079071, 230000.00417232513)
    Particle: neutron
      Surface 60
        Total Material
-         Current                              0.0027766 +/- 1.81017e-05
+         Current                              0.0027918 +/- 1.79956e-05
  Incoming Energy [230000.00417232513, 239999.99463558197)
    Particle: neutron
      Surface 60
        Total Material
-         Current                              0.006679 +/- 2.23741e-05
+         Current                              0.0067312 +/- 1.67165e-05
  Incoming Energy [239999.99463558197, 250000)
    Particle: neutron
      Surface 60
        Total Material
-         Current                              0.0069437 +/- 1.81396e-05
+         Current                              0.0070376 +/- 3.25007e-05
  Incoming Energy [250000, 259999.99046325684)
    Particle: neutron
      Surface 60
        Total Material
-         Current                              0.0057109 +/- 2.16741e-05
+         Current                              0.005722 +/- 3.25273e-05
  Incoming Energy [259999.99046325684, 270000.01072883606)
    Particle: neutron
      Surface 60
        Total Material
-         Current                              0.008985 +/- 3.4854e-05
+         Current                              0.0090049 +/- 3.30691e-05
  Incoming Energy [270000.01072883606, 280000.0011920929)
    Particle: neutron
      Surface 60
        Total Material
-         Current                              0.0126912 +/- 4.96957e-05
+         Current                              0.0128334 +/- 2.20077e-05
  Incoming Energy [280000.0011920929, 289999.99165534973)
    Particle: neutron
      Surface 60
        Total Material
-         Current                              0.0037657 +/- 2.10265e-05
+         Current                              0.0037902 +/- 1.08185e-05
  Incoming Energy [289999.99165534973, 300000.01192092896)
    Particle: neutron
      Surface 60
        Total Material
-         Current                              0.0103943 +/- 4.05786e-05
+         Current                              0.0105282 +/- 3.68163e-05
  Incoming Energy [300000.01192092896, 319999.9928474426)
    Particle: neutron
      Surface 60
        Total Material
-         Current                              0.0399487 +/- 5.61088e-05
+         Current                              0.0402592 +/- 5.89872e-05
  Incoming Energy [319999.9928474426, 340000.0035762787)
    Particle: neutron
      Surface 60
        Total Material
-         Current                              0.0106146 +/- 2.4609e-05
+         Current                              0.0107279 +/- 2.73152e-05
  Incoming Energy [340000.0035762787, 360000.01430511475)
    Particle: neutron
      Surface 60
        Total Material
-         Current                              0.0382408 +/- 7.34866e-05
+         Current                              0.0385945 +/- 6.2271e-05
  Incoming Energy [360000.01430511475, 379999.9952316284)
    Particle: neutron
      Surface 60
        Total Material
-         Current                              0.0253472 +/- 3.17601e-05
+         Current                              0.0256598 +/- 2.94497e-05
  Incoming Energy [379999.9952316284, 400000.0059604645)
    Particle: neutron
      Surface 60
        Total Material
-         Current                              0.0051483 +/- 2.32317e-05
+         Current                              0.0051623 +/- 1.87421e-05
  Incoming Energy [400000.0059604645, 419999.98688697815)
    Particle: neutron
      Surface 60
        Total Material
-         Current                              0.0060661 +/- 2.40233e-05
+         Current                              0.0060812 +/- 2.12973e-05
  Incoming Energy [419999.98688697815, 439999.9976158142)
    Particle: neutron
      Surface 60
        Total Material
-         Current                              0.0115971 +/- 3.94683e-05
+         Current                              0.0116442 +/- 4.89569e-05
  Incoming Energy [439999.9976158142, 460000.00834465027)
    Particle: neutron
      Surface 60
        Total Material
-         Current                              0.0088285 +/- 3.23619e-05
+         Current                              0.0088891 +/- 3.357e-05
  Incoming Energy [460000.00834465027, 479999.98927116394)
    Particle: neutron
      Surface 60
        Total Material
-         Current                              0.0167931 +/- 7.13745e-05
+         Current                              0.0170061 +/- 4.40831e-05
  Incoming Energy [479999.98927116394, 500000)
    Particle: neutron
      Surface 60
        Total Material
-         Current                              0.0127372 +/- 3.52268e-05
+         Current                              0.0127405 +/- 3.73652e-05
  Incoming Energy [500000, 550000.011920929)
    Particle: neutron
      Surface 60
        Total Material
-         Current                              0.0268838 +/- 3.81054e-05
+         Current                              0.0270105 +/- 5.8273e-05
  Incoming Energy [550000.011920929, 600000.0238418579)
    Particle: neutron
      Surface 60
        Total Material
-         Current                              0.040115 +/- 5.75975e-05
+         Current                              0.0404683 +/- 4.51509e-05
  Incoming Energy [600000.0238418579, 649999.9761581421)
    Particle: neutron
      Surface 60
        Total Material
-         Current                              0.0744013 +/- 7.19291e-05
+         Current                              0.0751525 +/- 4.78501e-05
  Incoming Energy [649999.9761581421, 699999.988079071)
    Particle: neutron
      Surface 60
        Total Material
-         Current                              0.0399629 +/- 5.13228e-05
+         Current                              0.040291 +/- 5.67834e-05
  Incoming Energy [699999.988079071, 750000)
    Particle: neutron
      Surface 60
        Total Material
-         Current                              0.0360316 +/- 6.9787e-05
+         Current                              0.0362362 +/- 4.7726e-05
  Incoming Energy [750000, 800000.011920929)
    Particle: neutron
      Surface 60
        Total Material
-         Current                              0.0169318 +/- 4.50007e-05
+         Current                              0.0171268 +/- 4.29777e-05
  Incoming Energy [800000.011920929, 850000.0238418579)
    Particle: neutron
      Surface 60
        Total Material
-         Current                              0.0222209 +/- 3.67261e-05
+         Current                              0.0224157 +/- 3.80482e-05
  Incoming Energy [850000.0238418579, 899999.9761581421)
    Particle: neutron
      Surface 60
        Total Material
-         Current                              0.0240677 +/- 4.80988e-05
+         Current                              0.0242702 +/- 4.38058e-05
  Incoming Energy [899999.9761581421, 949999.988079071)
    Particle: neutron
      Surface 60
        Total Material
-         Current                              0.0246298 +/- 4.53482e-05
+         Current                              0.0248198 +/- 3.56264e-05
  Incoming Energy [949999.988079071, 1000000)
    Particle: neutron
      Surface 60
        Total Material
-         Current                              0.0236429 +/- 4.12452e-05
+         Current                              0.0236831 +/- 3.80644e-05
  Incoming Energy [1000000, 1100000.023841858)
    Particle: neutron
      Surface 60
        Total Material
-         Current                              0.0318718 +/- 5.88514e-05
+         Current                              0.0319122 +/- 5.71817e-05
  Incoming Energy [1100000.023841858, 1200000.0476837158)
    Particle: neutron
      Surface 60
        Total Material
-         Current                              0.0396943 +/- 6.11783e-05
+         Current                              0.039663 +/- 4.30225e-05
  Incoming Energy [1200000.0476837158, 1299999.9523162842)
    Particle: neutron
      Surface 60
        Total Material
-         Current                              0.0242078 +/- 5.64755e-05
+         Current                              0.0241479 +/- 2.43176e-05
  Incoming Energy [1299999.9523162842, 1399999.976158142)
    Particle: neutron
      Surface 60
        Total Material
-         Current                              0.0211533 +/- 4.22351e-05
+         Current                              0.0210672 +/- 4.47173e-05
  Incoming Energy [1399999.976158142, 1500000)
    Particle: neutron
      Surface 60
        Total Material
-         Current                              0.0163877 +/- 3.73208e-05
+         Current                              0.0163455 +/- 4.21174e-05
  Incoming Energy [1500000, 1600000.023841858)
    Particle: neutron
      Surface 60
        Total Material
-         Current                              0.0156918 +/- 3.56158e-05
+         Current                              0.0156594 +/- 2.47185e-05
  Incoming Energy [1600000.023841858, 1700000.0476837158)
    Particle: neutron
      Surface 60
        Total Material
-         Current                              0.0141893 +/- 4.07933e-05
+         Current                              0.013969 +/- 5.0655e-05
  Incoming Energy [1700000.0476837158, 1799999.9523162842)
    Particle: neutron
      Surface 60
        Total Material
-         Current                              0.0131071 +/- 1.88399e-05
+         Current                              0.0130771 +/- 2.78992e-05
  Incoming Energy [1799999.9523162842, 1899999.976158142)
    Particle: neutron
      Surface 60
        Total Material
-         Current                              0.0108763 +/- 2.94577e-05
+         Current                              0.0106942 +/- 2.02604e-05
  Incoming Energy [1899999.976158142, 2000000)
    Particle: neutron
      Surface 60
        Total Material
-         Current                              0.0082948 +/- 2.21785e-05
+         Current                              0.0081403 +/- 4.26174e-05
  Incoming Energy [2000000, 2250000)
    Particle: neutron
      Surface 60
        Total Material
-         Current                              0.0188215 +/- 4.55056e-05
+         Current                              0.018547 +/- 3.63462e-05
  Incoming Energy [2250000, 2500000)
    Particle: neutron
      Surface 60
        Total Material
-         Current                              0.0148313 +/- 2.6951e-05
+         Current                              0.0145519 +/- 3.53143e-05
  Incoming Energy [2500000, 2750000)
    Particle: neutron
      Surface 60
        Total Material
-         Current                              0.009996 +/- 2.7895e-05
+         Current                              0.0097633 +/- 2.97669e-05
  Incoming Energy [2750000, 3000000)
    Particle: neutron
      Surface 60
        Total Material
-         Current                              0.0082307 +/- 1.8363e-05
+         Current                              0.0079459 +/- 3.1161e-05
  Incoming Energy [3000000, 3250000)
    Particle: neutron
      Surface 60
        Total Material
-         Current                              0.005804 +/- 3.0143e-05
+         Current                              0.0055365 +/- 2.33592e-05
  Incoming Energy [3250000, 3500000)
    Particle: neutron
      Surface 60
        Total Material
-         Current                              0.0047049 +/- 2.34414e-05
+         Current                              0.0045063 +/- 1.86536e-05
  Incoming Energy [3500000, 3750000)
    Particle: neutron
      Surface 60
        Total Material
-         Current                              0.0040438 +/- 2.3771e-05
+         Current                              0.0038334 +/- 1.91289e-05
  Incoming Energy [3750000, 4000000)
    Particle: neutron
      Surface 60
        Total Material
-         Current                              0.0031498 +/- 1.75188e-05
+         Current                              0.0029539 +/- 1.65055e-05
  Incoming Energy [4000000, 4250000)
    Particle: neutron
      Surface 60
        Total Material
-         Current                              0.0025996 +/- 1.35254e-05
+         Current                              0.0024426 +/- 1.11865e-05
  Incoming Energy [4250000, 4500000)
    Particle: neutron
      Surface 60
        Total Material
-         Current                              0.002297 +/- 1.58836e-05
+         Current                              0.0020619 +/- 2.08398e-05
  Incoming Energy [4500000, 4750000)
    Particle: neutron
      Surface 60
        Total Material
-         Current                              0.001832 +/- 1.43147e-05
+         Current                              0.0016488 +/- 1.16178e-05
  Incoming Energy [4750000, 5000000)
    Particle: neutron
      Surface 60
        Total Material
-         Current                              0.0015343 +/- 1.18959e-05
+         Current                              0.0013847 +/- 1.52738e-05
  Incoming Energy [5000000, 5500000)
    Particle: neutron
      Surface 60
        Total Material
-         Current                              0.0024241 +/- 1.99429e-05
+         Current                              0.0021376 +/- 1.51922e-05
  Incoming Energy [5500000, 6000000)
    Particle: neutron
      Surface 60
        Total Material
-         Current                              0.0017662 +/- 1.48285e-05
+         Current                              0.0015189 +/- 1.2824e-05
  Incoming Energy [6000000, 6500000)
    Particle: neutron
      Surface 60
        Total Material
-         Current                              0.001253 +/- 8.75976e-06
+         Current                              0.0010891 +/- 1.44133e-05
  Incoming Energy [6500000, 7000000)
    Particle: neutron
      Surface 60
        Total Material
-         Current                              0.0008993 +/- 7.81459e-06
+         Current                              0.0007507 +/- 6.87031e-06
  Incoming Energy [7000000, 7500000)
    Particle: neutron
      Surface 60
        Total Material
-         Current                              0.0006722 +/- 8.44433e-06
+         Current                              0.0005408 +/- 5.0636e-06
  Incoming Energy [7500000, 8000000)
    Particle: neutron
      Surface 60
        Total Material
-         Current                              0.0005088 +/- 8.40608e-06
+         Current                              0.000384 +/- 4.73521e-06
  Incoming Energy [8000000, 8500000)
    Particle: neutron
      Surface 60
        Total Material
-         Current                              0.0003757 +/- 6.1645e-06
+         Current                              0.0002655 +/- 4.55156e-06
  Incoming Energy [8500000, 9000000)
    Particle: neutron
      Surface 60
        Total Material
-         Current                              0.0002779 +/- 6.57512e-06
+         Current                              0.0001935 +/- 3.80424e-06
  Incoming Energy [9000000, 9500000)
    Particle: neutron
      Surface 60
        Total Material
-         Current                              0.0001879 +/- 3.4106e-06
+         Current                              0.0001316 +/- 3.0991e-06
  Incoming Energy [9500000, 10000000)
    Particle: neutron
      Surface 60
        Total Material
-         Current                              0.0001389 +/- 2.79066e-06
+         Current                              8.83e-05 +/- 2.55626e-06
  Incoming Energy [10000000, 10500000)
    Particle: neutron
      Surface 60
        Total Material
-         Current                              9.95e-05 +/- 4.67202e-06
+         Current                              6.22e-05 +/- 2.59401e-06
  Incoming Energy [10500000, 11000000)
    Particle: neutron
      Surface 60
        Total Material
-         Current                              6.95e-05 +/- 3.25662e-06
+         Current                              4.09e-05 +/- 1.52352e-06
  Incoming Energy [11000000, 12000000)
    Particle: neutron
      Surface 60
        Total Material
-         Current                              8.65e-05 +/- 3.03407e-06
+         Current                              4.15e-05 +/- 1.88709e-06
  Incoming Energy [12000000, 13000000)
    Particle: neutron
      Surface 60
        Total Material
-         Current                              5e-05 +/- 1.63299e-06
+         Current                              2.01e-05 +/- 1.44106e-06
  Incoming Energy [13000000, 14000000)
    Particle: neutron
      Surface 60
        Total Material
-         Current                              2.33e-05 +/- 2.00028e-06
+         Current                              1.13e-05 +/- 1.02252e-06
  Incoming Energy [14000000, 15000000)
    Particle: neutron
      Surface 60
        Total Material
-         Current                              1.28e-05 +/- 1.44376e-06
+         Current                              3.9e-06 +/- 6.04612e-07
  Incoming Energy [15000000, 16000000)
    Particle: neutron
      Surface 60
        Total Material
-         Current                              5.9e-06 +/- 7.66667e-07
+         Current                              1.8e-06 +/- 4.66667e-07
  Incoming Energy [16000000, 17000000)
    Particle: neutron
      Surface 60
        Total Material
-         Current                              3.9e-06 +/- 4.33333e-07
+         Current                              4e-07 +/- 1.63299e-07
  Incoming Energy [17000000, 18000000)
    Particle: neutron
      Surface 60
        Total Material
-         Current                              1.6e-06 +/- 4.52155e-07
+         Current                              6e-07 +/- 3.05505e-07
  Incoming Energy [18000000, 19000000)
    Particle: neutron
      Surface 60
        Total Material
-         Current                              1.2e-06 +/- 3.8873e-07
+         Current                              2e-07 +/- 1.33333e-07
  Incoming Energy [19000000, 20000000)
    Particle: neutron
      Surface 60
        Total Material
-         Current                              1.2e-06 +/- 2.90593e-07
- ============================>     TALLY 6     <============================
+         Current                              1e-07 +/- 1e-07
+ ===========================>     TALLY 71     <============================
 
  Incoming Energy [341820, 357430)
    Particle: photon
      Cell 52
        Total Material
-         Flux                                 0.00098343 +/- 1.11428e-05
+         Flux                                 0.000935683 +/- 7.37042e-06
  Incoming Energy [357430, 380540)
    Particle: photon
      Cell 52
        Total Material
-         Flux                                 0.00126424 +/- 1.03718e-05
+         Flux                                 0.00120727 +/- 7.62004e-06
  Incoming Energy [380540, 395770)
    Particle: photon
      Cell 52
        Total Material
-         Flux                                 0.000797717 +/- 5.90084e-06
+         Flux                                 0.000755241 +/- 8.47304e-06
  Incoming Energy [395770, 418370)
    Particle: photon
      Cell 52
        Total Material
-         Flux                                 0.00114234 +/- 1.01753e-05
+         Flux                                 0.00108423 +/- 1.07744e-05
  Incoming Energy [418370, 440720)
    Particle: photon
      Cell 52
        Total Material
-         Flux                                 0.00108141 +/- 8.23222e-06
+         Flux                                 0.00103517 +/- 1.17456e-05
  Incoming Energy [440720, 462850)
    Particle: photon
      Cell 52
        Total Material
-         Flux                                 0.00103756 +/- 9.65705e-06
+         Flux                                 0.000987674 +/- 6.22438e-06
  Incoming Energy [462850, 492060)
    Particle: photon
      Cell 52
        Total Material
-         Flux                                 0.00132219 +/- 1.17364e-05
+         Flux                                 0.00125162 +/- 1.17263e-05
  Incoming Energy [492060, 520960)
    Particle: photon
      Cell 52
        Total Material
-         Flux                                 0.00157561 +/- 1.43017e-05
+         Flux                                 0.00150587 +/- 9.05982e-06
  Incoming Energy [520960, 549600)
    Particle: photon
      Cell 52
        Total Material
-         Flux                                 0.00116123 +/- 6.55783e-06
+         Flux                                 0.00110206 +/- 9.07326e-06
  Incoming Energy [549600, 578020)
    Particle: photon
      Cell 52
        Total Material
-         Flux                                 0.00109139 +/- 6.36562e-06
+         Flux                                 0.00106667 +/- 1.04674e-05
  Incoming Energy [578020, 613270)
    Particle: photon
      Cell 52
        Total Material
-         Flux                                 0.00132475 +/- 7.38892e-06
+         Flux                                 0.00128147 +/- 1.01797e-05
  Incoming Energy [613270, 648240)
    Particle: photon
      Cell 52
        Total Material
-         Flux                                 0.00126853 +/- 9.28469e-06
+         Flux                                 0.00121048 +/- 1.1178e-05
  Incoming Energy [648240, 682980)
    Particle: photon
      Cell 52
        Total Material
-         Flux                                 0.00121608 +/- 1.0532e-05
+         Flux                                 0.00117927 +/- 7.09324e-06
  Incoming Energy [682980, 724410)
    Particle: photon
      Cell 52
        Total Material
-         Flux                                 0.00148118 +/- 7.49461e-06
+         Flux                                 0.00141088 +/- 9.51858e-06
  Incoming Energy [724410, 772410)
    Particle: photon
      Cell 52
        Total Material
-         Flux                                 0.00156946 +/- 9.91184e-06
+         Flux                                 0.00151188 +/- 1.29761e-05
  Incoming Energy [772410, 813320)
    Particle: photon
      Cell 52
        Total Material
-         Flux                                 0.00135744 +/- 8.80152e-06
+         Flux                                 0.00130517 +/- 6.17345e-06
  Incoming Energy [813320, 867580)
    Particle: photon
      Cell 52
        Total Material
-         Flux                                 0.0122608 +/- 3.95933e-05
+         Flux                                 0.0119817 +/- 2.91156e-05
  Incoming Energy [867580, 921550)
    Particle: photon
      Cell 52
        Total Material
-         Flux                                 0.000383282 +/- 5.49936e-06
+         Flux                                 0.000349555 +/- 3.50902e-06
  Incoming Energy [921550, 975280)
    Particle: photon
      Cell 52
        Total Material
-         Flux                                 0.000332827 +/- 4.59166e-06
+         Flux                                 0.00030367 +/- 3.66089e-06
  Incoming Energy [975280, 1035500.0000000001)
    Particle: photon
      Cell 52
        Total Material
-         Flux                                 0.000371568 +/- 5.15228e-06
+         Flux                                 0.000326014 +/- 4.36545e-06
  Incoming Energy [1035500.0000000001, 1102100)
    Particle: photon
      Cell 52
        Total Material
-         Flux                                 0.000464272 +/- 4.6623e-06
+         Flux                                 0.000413477 +/- 3.98556e-06
  Incoming Energy [1102100, 1168500)
    Particle: photon
      Cell 52
        Total Material
-         Flux                                 0.000375114 +/- 5.20207e-06
+         Flux                                 0.00034591 +/- 2.1529e-06
  Incoming Energy [1168500, 1247900)
    Particle: photon
      Cell 52
        Total Material
-         Flux                                 0.00106973 +/- 7.57591e-06
+         Flux                                 0.0010031 +/- 7.05037e-06
  Incoming Energy [1247900, 1327000)
    Particle: photon
      Cell 52
        Total Material
-         Flux                                 0.000352457 +/- 4.44658e-06
+         Flux                                 0.000309992 +/- 2.30303e-06
  Incoming Energy [1327000, 1412500)
    Particle: photon
      Cell 52
        Total Material
-         Flux                                 0.000785671 +/- 7.77324e-06
+         Flux                                 0.00072828 +/- 4.60412e-06
  Incoming Energy [1412500, 1504300)
    Particle: photon
      Cell 52
        Total Material
-         Flux                                 0.000269703 +/- 5.0573e-06
+         Flux                                 0.000248536 +/- 3.07464e-06
  Incoming Energy [1504300, 1602500)
    Particle: photon
      Cell 52
        Total Material
-         Flux                                 0.000277954 +/- 4.64235e-06
+         Flux                                 0.000246588 +/- 2.96335e-06
  Incoming Energy [1602500, 1707000)
    Particle: photon
      Cell 52
        Total Material
-         Flux                                 0.000283533 +/- 3.89211e-06
+         Flux                                 0.000249809 +/- 4.10939e-06
  Incoming Energy [1707000, 1824300)
    Particle: photon
      Cell 52
        Total Material
-         Flux                                 0.000834657 +/- 9.57311e-06
+         Flux                                 0.000766042 +/- 5.98652e-06
  Incoming Energy [1824300, 1941400)
    Particle: photon
      Cell 52
        Total Material
-         Flux                                 0.000241594 +/- 2.68073e-06
+         Flux                                 0.00021391 +/- 3.43873e-06
  Incoming Energy [1941400, 2071300)
    Particle: photon
      Cell 52
        Total Material
-         Flux                                 0.000280368 +/- 3.0848e-06
+         Flux                                 0.000246359 +/- 6.74175e-06
  Incoming Energy [2071300, 2214000)
    Particle: photon
      Cell 52
        Total Material
-         Flux                                 0.000649167 +/- 6.5197e-06
+         Flux                                 0.000606878 +/- 6.94879e-06
  Incoming Energy [2214000, 2363000)
    Particle: photon
      Cell 52
        Total Material
-         Flux                                 0.00037344 +/- 4.53054e-06
- ============================>     TALLY 7     <============================
+         Flux                                 0.000349617 +/- 4.02087e-06
+ ===========================>     TALLY 72     <============================
 
  Incoming Energy [1000, 10000)
    Particle: photon
      Cell 52
        Total Material
-         Flux                                 2.82068e-06 +/- 3.93569e-07
+         Flux                                 2.93238e-06 +/- 4.32883e-07
  Incoming Energy [10000, 20000)
    Particle: photon
      Cell 52
        Total Material
-         Flux                                 1.60276e-06 +/- 2.45689e-07
+         Flux                                 2.07144e-06 +/- 3.55581e-07
  Incoming Energy [20000, 30000)
    Particle: photon
      Cell 52
        Total Material
-         Flux                                 2.73199e-06 +/- 3.59891e-07
+         Flux                                 2.46951e-06 +/- 3.36825e-07
  Incoming Energy [30000, 45000)
    Particle: photon
      Cell 52
        Total Material
-         Flux                                 6.79582e-06 +/- 5.20976e-07
+         Flux                                 6.31371e-06 +/- 5.95147e-07
  Incoming Energy [45000, 60000)
    Particle: photon
      Cell 52
        Total Material
-         Flux                                 1.44631e-05 +/- 8.54235e-07
+         Flux                                 1.12169e-05 +/- 9.65321e-07
  Incoming Energy [60000, 70000)
    Particle: photon
      Cell 52
        Total Material
-         Flux                                 1.74565e-05 +/- 1.34916e-06
+         Flux                                 1.54671e-05 +/- 1.37877e-06
  Incoming Energy [70000, 75000)
    Particle: photon
      Cell 52
        Total Material
-         Flux                                 1.31325e-05 +/- 9.40953e-07
+         Flux                                 1.45345e-05 +/- 1.20997e-06
  Incoming Energy [75000, 100000)
    Particle: photon
      Cell 52
        Total Material
-         Flux                                 0.000248324 +/- 3.99539e-06
+         Flux                                 0.000235446 +/- 3.27825e-06
  Incoming Energy [100000, 150000)
    Particle: photon
      Cell 52
        Total Material
-         Flux                                 0.00206038 +/- 8.93366e-06
+         Flux                                 0.00198157 +/- 1.41385e-05
  Incoming Energy [150000, 200000)
    Particle: photon
      Cell 52
        Total Material
-         Flux                                 0.00317443 +/- 1.89837e-05
+         Flux                                 0.00305586 +/- 1.6155e-05
  Incoming Energy [200000, 300000)
    Particle: photon
      Cell 52
        Total Material
-         Flux                                 0.00685127 +/- 2.47444e-05
+         Flux                                 0.00656786 +/- 2.58157e-05
  Incoming Energy [300000, 400000)
    Particle: photon
      Cell 52
        Total Material
-         Flux                                 0.0057705 +/- 2.53771e-05
+         Flux                                 0.00550846 +/- 1.79975e-05
  Incoming Energy [400000, 450000)
    Particle: photon
      Cell 52
        Total Material
-         Flux                                 0.0024428 +/- 1.2716e-05
+         Flux                                 0.00232702 +/- 1.46263e-05
  Incoming Energy [450000, 510000)
    Particle: photon
      Cell 52
        Total Material
-         Flux                                 0.00269686 +/- 1.59345e-05
+         Flux                                 0.0025668 +/- 1.62006e-05
  Incoming Energy [510000, 512000)
    Particle: photon
      Cell 52
        Total Material
-         Flux                                 0.000430863 +/- 7.73823e-06
+         Flux                                 0.000398951 +/- 5.41478e-06
  Incoming Energy [512000, 600000)
    Particle: photon
      Cell 52
        Total Material
-         Flux                                 0.00345745 +/- 8.60196e-06
+         Flux                                 0.00332978 +/- 2.45568e-05
  Incoming Energy [600000, 700000)
    Particle: photon
      Cell 52
        Total Material
-         Flux                                 0.00362064 +/- 1.34313e-05
+         Flux                                 0.00348945 +/- 2.09869e-05
  Incoming Energy [700000, 800000)
    Particle: photon
      Cell 52
        Total Material
-         Flux                                 0.00330549 +/- 1.16856e-05
+         Flux                                 0.00316186 +/- 1.90044e-05
  Incoming Energy [800000, 1000000)
    Particle: photon
      Cell 52
        Total Material
-         Flux                                 0.0135923 +/- 3.96117e-05
+         Flux                                 0.0132196 +/- 3.32513e-05
  Incoming Energy [1000000, 1330000)
    Particle: photon
      Cell 52
        Total Material
-         Flux                                 0.00248264 +/- 1.0541e-05
+         Flux                                 0.00226998 +/- 8.49217e-06
  Incoming Energy [1330000, 1340000)
    Particle: photon
      Cell 52
        Total Material
-         Flux                                 4.51953e-05 +/- 1.42464e-06
+         Flux                                 4.32708e-05 +/- 1.85341e-06
  Incoming Energy [1340000, 1500000)
    Particle: photon
      Cell 52
        Total Material
-         Flux                                 0.000989685 +/- 8.95357e-06
+         Flux                                 0.000912029 +/- 3.39326e-06
  Incoming Energy [1500000, 1660000)
    Particle: photon
      Cell 52
        Total Material
-         Flux                                 0.000446437 +/- 5.36511e-06
+         Flux                                 0.000398517 +/- 4.12321e-06
  Incoming Energy [1660000, 2000000)
    Particle: photon
      Cell 52
        Total Material
-         Flux                                 0.00131901 +/- 1.192e-05
+         Flux                                 0.00119164 +/- 9.92935e-06
  Incoming Energy [2000000, 2500000)
    Particle: photon
      Cell 52
        Total Material
-         Flux                                 0.00135744 +/- 9.3262e-06
+         Flux                                 0.00125054 +/- 9.84051e-06
  Incoming Energy [2500000, 3000000)
    Particle: photon
      Cell 52
        Total Material
-         Flux                                 0.00100513 +/- 1.04898e-05
+         Flux                                 0.000905827 +/- 4.52679e-06
  Incoming Energy [3000000, 3500000)
    Particle: photon
      Cell 52
        Total Material
-         Flux                                 0.000612405 +/- 6.11442e-06
+         Flux                                 0.00053434 +/- 5.48006e-06
  Incoming Energy [3500000, 4000000)
    Particle: photon
      Cell 52
        Total Material
-         Flux                                 0.000478149 +/- 3.35875e-06
+         Flux                                 0.000420421 +/- 5.39091e-06
  Incoming Energy [4000000, 4500000)
    Particle: photon
      Cell 52
        Total Material
-         Flux                                 0.000224948 +/- 4.20481e-06
+         Flux                                 0.000193098 +/- 2.32478e-06
  Incoming Energy [4500000, 5000000)
    Particle: photon
      Cell 52
        Total Material
-         Flux                                 0.000181609 +/- 4.15583e-06
+         Flux                                 0.000152469 +/- 3.40499e-06
  Incoming Energy [5000000, 5500000)
    Particle: photon
      Cell 52
        Total Material
-         Flux                                 0.000123784 +/- 2.39076e-06
+         Flux                                 0.000106705 +/- 3.44233e-06
  Incoming Energy [5500000, 6000000)
    Particle: photon
      Cell 52
        Total Material
-         Flux                                 8.09288e-05 +/- 2.59431e-06
+         Flux                                 6.9714e-05 +/- 2.45876e-06
  Incoming Energy [6000000, 6500000)
    Particle: photon
      Cell 52
        Total Material
-         Flux                                 7.47288e-05 +/- 2.01836e-06
+         Flux                                 7.06406e-05 +/- 2.13274e-06
  Incoming Energy [6500000, 7000000)
    Particle: photon
      Cell 52
        Total Material
-         Flux                                 6.21777e-05 +/- 2.18881e-06
+         Flux                                 6.10412e-05 +/- 1.01285e-06
  Incoming Energy [7000000, 7500000)
    Particle: photon
      Cell 52
        Total Material
-         Flux                                 3.62835e-05 +/- 1.73262e-06
+         Flux                                 3.53953e-05 +/- 1.0136e-06
  Incoming Energy [7500000, 8000000)
    Particle: photon
      Cell 52
        Total Material
-         Flux                                 0.000110345 +/- 2.15511e-06
+         Flux                                 0.00011524 +/- 2.14966e-06
  Incoming Energy [8000000, 10000000)
    Particle: photon
      Cell 52
        Total Material
-         Flux                                 0.000155519 +/- 2.47848e-06
+         Flux                                 0.000147542 +/- 2.78786e-06
  Incoming Energy [10000000, 12000000)
    Particle: photon
      Cell 52
        Total Material
-         Flux                                 2.93711e-06 +/- 3.96439e-07
+         Flux                                 1.98396e-06 +/- 4.184e-07
  Incoming Energy [12000000, 14000000)
    Particle: photon
      Cell 52
        Total Material
-         Flux                                 5.6926e-08 +/- 5.6926e-08
+         Flux                                 5.02455e-08 +/- 5.02455e-08
  Incoming Energy [14000000, 20000000)
    Particle: photon
      Cell 52
@@ -2458,7 +2458,7 @@
      Cell 52
        Total Material
          Flux                                 0 +/- 0
- ============================>     TALLY 8     <============================
+ ===========================>     TALLY 73     <============================
 
  Incoming Energy [1e-05, 0.1)
    Particle: neutron
@@ -2469,883 +2469,874 @@
    Particle: neutron
      Cell 70
        Total Material
-         Flux                                 4.33608e-07 +/- 1.77309e-07
+         Flux                                 6.01376e-07 +/- 2.01989e-07
  Incoming Energy [0.414, 0.532)
    Particle: neutron
      Cell 70
        Total Material
-         Flux                                 2.20132e-07 +/- 1.4751e-07
+         Flux                                 2.17194e-07 +/- 2.17194e-07
  Incoming Energy [0.532, 0.683)
    Particle: neutron
      Cell 70
        Total Material
-         Flux                                 2.38351e-07 +/- 1.60071e-07
+         Flux                                 2.22865e-07 +/- 1.48673e-07
  Incoming Energy [0.683, 0.876)
    Particle: neutron
      Cell 70
        Total Material
-         Flux                                 3.43947e-07 +/- 1.76151e-07
+         Flux                                 6.02585e-07 +/- 2.02354e-07
  Incoming Energy [0.876, 1.12)
    Particle: neutron
      Cell 70
        Total Material
-         Flux                                 7.81047e-07 +/- 2.38055e-07
+         Flux                                 1.03213e-06 +/- 3.20871e-07
  Incoming Energy [1.12, 1.44)
    Particle: neutron
      Cell 70
        Total Material
-         Flux                                 1.43616e-06 +/- 4.7001e-07
+         Flux                                 8.97227e-07 +/- 2.26731e-07
  Incoming Energy [1.44, 1.86)
    Particle: neutron
      Cell 70
        Total Material
-         Flux                                 1.66752e-06 +/- 6.81001e-07
+         Flux                                 2.2832e-06 +/- 3.7451e-07
  Incoming Energy [1.86, 2.38)
    Particle: neutron
      Cell 70
        Total Material
-         Flux                                 2.44423e-06 +/- 4.77057e-07
+         Flux                                 1.66867e-06 +/- 5.02883e-07
  Incoming Energy [2.38, 3.06)
    Particle: neutron
      Cell 70
        Total Material
-         Flux                                 2.93877e-06 +/- 7.99205e-07
+         Flux                                 2.1189e-06 +/- 5.67962e-07
  Incoming Energy [3.06, 3.93)
    Particle: neutron
      Cell 70
        Total Material
-         Flux                                 4.28188e-06 +/- 5.03858e-07
+         Flux                                 3.13802e-06 +/- 4.92625e-07
  Incoming Energy [3.93, 5.04)
    Particle: neutron
      Cell 70
        Total Material
-         Flux                                 4.1804e-06 +/- 7.27122e-07
+         Flux                                 4.73879e-06 +/- 8.64162e-07
  Incoming Energy [5.04, 6.48)
    Particle: neutron
      Cell 70
        Total Material
-         Flux                                 3.89708e-06 +/- 5.65277e-07
+         Flux                                 5.43859e-06 +/- 7.21452e-07
  Incoming Energy [6.48, 8.32)
    Particle: neutron
      Cell 70
        Total Material
-         Flux                                 5.27496e-06 +/- 4.44117e-07
+         Flux                                 5.77826e-06 +/- 9.63147e-07
  Incoming Energy [8.32, 10.7)
    Particle: neutron
      Cell 70
        Total Material
-         Flux                                 8.19628e-06 +/- 1.14225e-06
+         Flux                                 7.04345e-06 +/- 5.89041e-07
  Incoming Energy [10.7, 13.7)
    Particle: neutron
      Cell 70
        Total Material
-         Flux                                 1.06906e-05 +/- 9.84965e-07
+         Flux                                 9.61165e-06 +/- 9.34588e-07
  Incoming Energy [13.7, 17.6)
    Particle: neutron
      Cell 70
        Total Material
-         Flux                                 9.99706e-06 +/- 7.61225e-07
+         Flux                                 1.03102e-05 +/- 1.17112e-06
  Incoming Energy [17.6, 22.6)
    Particle: neutron
      Cell 70
        Total Material
-         Flux                                 1.32076e-05 +/- 8.83773e-07
+         Flux                                 1.58379e-05 +/- 7.2856e-07
  Incoming Energy [22.6, 29)
    Particle: neutron
      Cell 70
        Total Material
-         Flux                                 1.60729e-05 +/- 1.06058e-06
+         Flux                                 1.58563e-05 +/- 1.28536e-06
  Incoming Energy [29, 37.3)
    Particle: neutron
      Cell 70
        Total Material
-         Flux                                 1.87552e-05 +/- 1.56178e-06
+         Flux                                 2.05026e-05 +/- 1.93241e-06
  Incoming Energy [37.3, 47.9)
    Particle: neutron
      Cell 70
        Total Material
-         Flux                                 2.24473e-05 +/- 1.87864e-06
+         Flux                                 2.04581e-05 +/- 1.17585e-06
  Incoming Energy [47.9, 61.4)
    Particle: neutron
      Cell 70
        Total Material
-         Flux                                 2.51265e-05 +/- 2.22404e-06
+         Flux                                 2.34163e-05 +/- 1.26912e-06
  Incoming Energy [61.4, 78.9)
    Particle: neutron
      Cell 70
        Total Material
-         Flux                                 2.59776e-05 +/- 1.45129e-06
+         Flux                                 2.9152e-05 +/- 1.27233e-06
  Incoming Energy [78.9, 101)
    Particle: neutron
      Cell 70
        Total Material
-         Flux                                 3.15912e-05 +/- 2.26505e-06
+         Flux                                 2.84762e-05 +/- 2.40747e-06
  Incoming Energy [101, 130)
    Particle: neutron
      Cell 70
        Total Material
-         Flux                                 3.84703e-05 +/- 1.6269e-06
+         Flux                                 4.10621e-05 +/- 1.62283e-06
  Incoming Energy [130, 167)
    Particle: neutron
      Cell 70
        Total Material
-         Flux                                 4.53201e-05 +/- 2.69213e-06
+         Flux                                 4.42954e-05 +/- 2.46309e-06
  Incoming Energy [167, 214)
    Particle: neutron
      Cell 70
        Total Material
-         Flux                                 4.6433e-05 +/- 1.9805e-06
+         Flux                                 4.84582e-05 +/- 2.82945e-06
  Incoming Energy [214, 275)
    Particle: neutron
      Cell 70
        Total Material
-         Flux                                 5.51318e-05 +/- 2.57398e-06
+         Flux                                 5.89932e-05 +/- 2.77726e-06
  Incoming Energy [275, 354)
    Particle: neutron
      Cell 70
        Total Material
-         Flux                                 6.4651e-05 +/- 2.61343e-06
+         Flux                                 6.69272e-05 +/- 2.91586e-06
  Incoming Energy [354, 454)
    Particle: neutron
      Cell 70
        Total Material
-         Flux                                 8.09939e-05 +/- 3.4353e-06
+         Flux                                 8.04305e-05 +/- 2.45791e-06
  Incoming Energy [454, 583)
    Particle: neutron
      Cell 70
        Total Material
-         Flux                                 0.000100914 +/- 2.71309e-06
+         Flux                                 0.000100025 +/- 2.14324e-06
  Incoming Energy [583, 749)
    Particle: neutron
      Cell 70
        Total Material
-         Flux                                 0.000118026 +/- 3.06928e-06
+         Flux                                 0.000115952 +/- 3.0278e-06
  Incoming Energy [749, 961)
    Particle: neutron
      Cell 70
        Total Material
-         Flux                                 0.000138262 +/- 3.6015e-06
+         Flux                                 0.000142392 +/- 2.52602e-06
  Incoming Energy [961, 1230)
    Particle: neutron
      Cell 70
        Total Material
-         Flux                                 0.000185887 +/- 2.71997e-06
+         Flux                                 0.000184512 +/- 5.61124e-06
  Incoming Energy [1230, 1580)
    Particle: neutron
      Cell 70
        Total Material
-         Flux                                 0.00028063 +/- 5.5992e-06
+         Flux                                 0.000270413 +/- 3.84468e-06
  Incoming Energy [1580, 2030)
    Particle: neutron
      Cell 70
        Total Material
-         Flux                                 0.000351706 +/- 4.79633e-06
+         Flux                                 0.000368927 +/- 5.25651e-06
  Incoming Energy [2030, 2250)
    Particle: neutron
      Cell 70
        Total Material
-         Flux                                 0.000184552 +/- 4.53615e-06
+         Flux                                 0.000186245 +/- 4.5989e-06
  Incoming Energy [2250, 2490)
    Particle: neutron
      Cell 70
        Total Material
-         Flux                                 0.000198039 +/- 4.71089e-06
+         Flux                                 0.000199015 +/- 3.92585e-06
  Incoming Energy [2490, 2610)
    Particle: neutron
      Cell 70
        Total Material
-         Flux                                 0.000102398 +/- 4.1111e-06
+         Flux                                 0.000113753 +/- 4.36747e-06
  Incoming Energy [2610, 2750)
    Particle: neutron
      Cell 70
        Total Material
-         Flux                                 0.000129623 +/- 4.33884e-06
+         Flux                                 0.000122746 +/- 3.41211e-06
  Incoming Energy [2750, 3040)
    Particle: neutron
      Cell 70
        Total Material
-         Flux                                 0.000257535 +/- 4.38829e-06
+         Flux                                 0.00026382 +/- 6.36421e-06
  Incoming Energy [3040, 3350)
    Particle: neutron
      Cell 70
        Total Material
-         Flux                                 0.000285931 +/- 6.25406e-06
+         Flux                                 0.000281777 +/- 1.98518e-06
  Incoming Energy [3350, 3710)
    Particle: neutron
      Cell 70
        Total Material
-         Flux                                 0.000337321 +/- 8.31886e-06
+         Flux                                 0.000337561 +/- 7.16499e-06
  Incoming Energy [3710, 4310)
    Particle: neutron
      Cell 70
        Total Material
-         Flux                                 0.000397104 +/- 6.1007e-06
+         Flux                                 0.0004208 +/- 9.08935e-06
  Incoming Energy [4310, 5530)
    Particle: neutron
      Cell 70
        Total Material
-         Flux                                 0.00101788 +/- 1.17466e-05
+         Flux                                 0.0010365 +/- 1.33803e-05
  Incoming Energy [5530, 7100)
    Particle: neutron
      Cell 70
        Total Material
-         Flux                                 0.000553219 +/- 4.9179e-06
+         Flux                                 0.000575278 +/- 1.08143e-05
  Incoming Energy [7100, 9120)
    Particle: neutron
      Cell 70
        Total Material
-         Flux                                 0.000215833 +/- 5.76316e-06
+         Flux                                 0.000213727 +/- 5.50355e-06
  Incoming Energy [9120, 10600)
    Particle: neutron
      Cell 70
        Total Material
-         Flux                                 0.000371553 +/- 8.55167e-06
+         Flux                                 0.000375859 +/- 7.26806e-06
  Incoming Energy [10600, 11700)
    Particle: neutron
      Cell 70
        Total Material
-         Flux                                 0.000288506 +/- 5.66331e-06
+         Flux                                 0.000284661 +/- 4.30676e-06
  Incoming Energy [11700, 15000)
    Particle: neutron
      Cell 70
        Total Material
-         Flux                                 0.000729598 +/- 6.68055e-06
+         Flux                                 0.000742151 +/- 9.73284e-06
  Incoming Energy [15000, 19300)
    Particle: neutron
      Cell 70
        Total Material
-         Flux                                 0.000878041 +/- 6.13489e-06
+         Flux                                 0.000864985 +/- 7.11354e-06
  Incoming Energy [19300, 21900)
    Particle: neutron
      Cell 70
        Total Material
-         Flux                                 0.000869173 +/- 1.23425e-05
+         Flux                                 0.000875372 +/- 6.46476e-06
  Incoming Energy [21900, 23600)
    Particle: neutron
      Cell 70
        Total Material
-         Flux                                 0.00163103 +/- 1.56928e-05
+         Flux                                 0.00165489 +/- 1.81492e-05
  Incoming Energy [23600, 24200)
    Particle: neutron
      Cell 70
        Total Material
-         Flux                                 0.00164239 +/- 1.71244e-05
+         Flux                                 0.00167449 +/- 1.44129e-05
  Incoming Energy [24200, 24800)
    Particle: neutron
      Cell 70
        Total Material
-         Flux                                 0.00298624 +/- 1.62041e-05
+         Flux                                 0.00301831 +/- 2.14272e-05
  Incoming Energy [24800, 26100)
    Particle: neutron
      Cell 70
        Total Material
-         Flux                                 0.00556825 +/- 2.45837e-05
+         Flux                                 0.00552353 +/- 1.97235e-05
  Incoming Energy [26100, 27000)
    Particle: neutron
      Cell 70
        Total Material
-         Flux                                 0.000295712 +/- 4.53152e-06
+         Flux                                 0.000297849 +/- 5.15499e-06
  Incoming Energy [27000, 28500)
    Particle: neutron
      Cell 70
        Total Material
-         Flux                                 2.12928e-05 +/- 1.5056e-06
+         Flux                                 1.97782e-05 +/- 1.7612e-06
  Incoming Energy [28500, 31800)
    Particle: neutron
      Cell 70
        Total Material
-         Flux                                 0.000162312 +/- 4.33425e-06
+         Flux                                 0.000168672 +/- 2.39133e-06
  Incoming Energy [31800, 34300)
    Particle: neutron
      Cell 70
        Total Material
-         Flux                                 0.000337438 +/- 5.0872e-06
+         Flux                                 0.00033864 +/- 3.83061e-06
  Incoming Energy [34300, 40900)
    Particle: neutron
      Cell 70
        Total Material
-         Flux                                 0.0016747 +/- 1.16205e-05
+         Flux                                 0.00168914 +/- 1.23941e-05
  Incoming Energy [40900, 46300)
    Particle: neutron
      Cell 70
        Total Material
-         Flux                                 0.00183031 +/- 2.37008e-05
+         Flux                                 0.00184904 +/- 9.693e-06
  Incoming Energy [46300, 52500)
    Particle: neutron
      Cell 70
        Total Material
-         Flux                                 0.00243065 +/- 1.27009e-05
+         Flux                                 0.00243569 +/- 2.33896e-05
  Incoming Energy [52500, 56600)
    Particle: neutron
      Cell 70
        Total Material
-         Flux                                 0.00126372 +/- 1.0176e-05
+         Flux                                 0.00127943 +/- 1.26141e-05
  Incoming Energy [56600, 67400)
    Particle: neutron
      Cell 70
        Total Material
-         Flux                                 0.00586337 +/- 2.65094e-05
+         Flux                                 0.00586973 +/- 1.37012e-05
  Incoming Energy [67400, 72000)
    Particle: neutron
      Cell 70
        Total Material
-         Flux                                 0.00550066 +/- 1.77966e-05
+         Flux                                 0.00549495 +/- 2.33549e-05
  Incoming Energy [72000, 79500)
    Particle: neutron
      Cell 70
        Total Material
-         Flux                                 0.00360277 +/- 1.44029e-05
+         Flux                                 0.0036333 +/- 2.20161e-05
  Incoming Energy [79500, 82500)
    Particle: neutron
      Cell 70
        Total Material
-         Flux                                 0.00755817 +/- 2.6859e-05
+         Flux                                 0.00764478 +/- 3.21186e-05
  Incoming Energy [82500, 86500)
    Particle: neutron
      Cell 70
        Total Material
-         Flux                                 0.000888312 +/- 9.52574e-06
+         Flux                                 0.000890042 +/- 1.1812e-05
  Incoming Energy [86500, 98000)
    Particle: neutron
      Cell 70
        Total Material
-         Flux                                 0.00333798 +/- 1.02687e-05
+         Flux                                 0.00338475 +/- 3.1666e-05
  Incoming Energy [98000, 111000)
    Particle: neutron
      Cell 70
        Total Material
-         Flux                                 0.00626539 +/- 2.76161e-05
+         Flux                                 0.00638854 +/- 3.3163e-05
  Incoming Energy [111000, 117000)
    Particle: neutron
      Cell 70
        Total Material
-         Flux                                 0.00417807 +/- 2.84198e-05
+         Flux                                 0.00420507 +/- 2.03982e-05
  Incoming Energy [117000, 123000)
    Particle: neutron
      Cell 70
        Total Material
-         Flux                                 0.00492704 +/- 1.14068e-05
+         Flux                                 0.00495355 +/- 1.56881e-05
  Incoming Energy [123000, 129000)
    Particle: neutron
      Cell 70
        Total Material
-         Flux                                 0.00905501 +/- 3.07499e-05
+         Flux                                 0.00916546 +/- 3.4242e-05
  Incoming Energy [129000, 136000)
    Particle: neutron
      Cell 70
        Total Material
-         Flux                                 0.00693274 +/- 2.95085e-05
+         Flux                                 0.00700657 +/- 2.35033e-05
  Incoming Energy [136000, 143000)
    Particle: neutron
      Cell 70
        Total Material
-         Flux                                 0.00977993 +/- 5.28509e-05
+         Flux                                 0.0098215 +/- 4.49334e-05
  Incoming Energy [143000, 150000)
    Particle: neutron
      Cell 70
        Total Material
-         Flux                                 0.00117253 +/- 1.47169e-05
+         Flux                                 0.00116265 +/- 1.08454e-05
  Incoming Energy [150000, 158000)
    Particle: neutron
      Cell 70
        Total Material
-         Flux                                 0.00359401 +/- 2.1713e-05
+         Flux                                 0.00360051 +/- 2.78535e-05
  Incoming Energy [158000, 166000)
    Particle: neutron
      Cell 70
        Total Material
-         Flux                                 0.00783469 +/- 3.71153e-05
+         Flux                                 0.00786757 +/- 2.36985e-05
  Incoming Energy [166000, 174000)
    Particle: neutron
      Cell 70
        Total Material
-         Flux                                 0.00806446 +/- 3.14406e-05
+         Flux                                 0.0081485 +/- 4.87254e-05
  Incoming Energy [174000, 183000)
    Particle: neutron
      Cell 70
        Total Material
-         Flux                                 0.0129365 +/- 3.90312e-05
+         Flux                                 0.0129655 +/- 3.56605e-05
  Incoming Energy [183000, 193000)
    Particle: neutron
      Cell 70
        Total Material
-         Flux                                 0.0101696 +/- 2.82643e-05
+         Flux                                 0.0101829 +/- 4.52339e-05
  Incoming Energy [193000, 202000)
    Particle: neutron
      Cell 70
        Total Material
-         Flux                                 0.00211211 +/- 1.61782e-05
+         Flux                                 0.00212158 +/- 1.53011e-05
  Incoming Energy [202000, 213000)
    Particle: neutron
      Cell 70
        Total Material
-         Flux                                 0.00565051 +/- 2.69384e-05
+         Flux                                 0.00565278 +/- 2.38208e-05
  Incoming Energy [213000, 224000)
    Particle: neutron
      Cell 70
        Total Material
-         Flux                                 0.010536 +/- 2.72464e-05
+         Flux                                 0.0106091 +/- 3.59979e-05
  Incoming Energy [224000, 235000)
    Particle: neutron
      Cell 70
        Total Material
-         Flux                                 0.00554842 +/- 2.40135e-05
+         Flux                                 0.00562102 +/- 2.54688e-05
  Incoming Energy [235000, 247000)
    Particle: neutron
      Cell 70
        Total Material
-         Flux                                 0.0106233 +/- 2.53413e-05
+         Flux                                 0.0107199 +/- 3.17988e-05
  Incoming Energy [247000, 273000)
    Particle: neutron
      Cell 70
        Total Material
-         Flux                                 0.0237983 +/- 5.80267e-05
+         Flux                                 0.0238993 +/- 6.76273e-05
  Incoming Energy [273000, 287000)
    Particle: neutron
      Cell 70
        Total Material
-         Flux                                 0.010038 +/- 4.49667e-05
+         Flux                                 0.0101712 +/- 3.13232e-05
  Incoming Energy [287000, 295000)
    Particle: neutron
      Cell 70
        Total Material
-         Flux                                 0.00579171 +/- 2.05264e-05
+         Flux                                 0.00585268 +/- 3.32297e-05
  Incoming Energy [295000, 297000)
    Particle: neutron
      Cell 70
        Total Material
-         Flux                                 0.00271862 +/- 2.51423e-05
+         Flux                                 0.00275382 +/- 1.83415e-05
  Incoming Energy [297000, 298000)
    Particle: neutron
      Cell 70
        Total Material
-         Flux                                 0.00157649 +/- 1.47049e-05
+         Flux                                 0.00158971 +/- 1.04406e-05
  Incoming Energy [298000, 302000)
    Particle: neutron
      Cell 70
        Total Material
-         Flux                                 0.00724356 +/- 2.9727e-05
+         Flux                                 0.00730004 +/- 2.20128e-05
  Incoming Energy [302000, 334000)
    Particle: neutron
      Cell 70
        Total Material
-         Flux                                 0.0457599 +/- 4.99248e-05
+         Flux                                 0.0461576 +/- 7.50353e-05
  Incoming Energy [334000, 369000)
    Particle: neutron
      Cell 70
        Total Material
-         Flux                                 0.0503366 +/- 0.000119975
+         Flux                                 0.050823 +/- 8.06889e-05
  Incoming Energy [369000, 388000)
    Particle: neutron
      Cell 70
        Total Material
-         Flux                                 0.0265568 +/- 3.79199e-05
+         Flux                                 0.0268545 +/- 4.14889e-05
  Incoming Energy [388000, 408000)
    Particle: neutron
      Cell 70
        Total Material
-         Flux                                 0.00723728 +/- 2.56294e-05
+         Flux                                 0.00728655 +/- 2.61161e-05
  Incoming Energy [408000, 450000)
    Particle: neutron
      Cell 70
        Total Material
-         Flux                                 0.0199146 +/- 4.49688e-05
+         Flux                                 0.0199389 +/- 5.85436e-05
  Incoming Energy [450000, 498000)
    Particle: neutron
      Cell 70
        Total Material
-         Flux                                 0.0353734 +/- 9.01854e-05
+         Flux                                 0.0357085 +/- 4.96304e-05
  Incoming Energy [498000, 523000)
    Particle: neutron
      Cell 70
        Total Material
-         Flux                                 0.0152938 +/- 3.74303e-05
+         Flux                                 0.0152872 +/- 4.33852e-05
  Incoming Energy [523000, 550000)
    Particle: neutron
      Cell 70
        Total Material
-         Flux                                 0.0180267 +/- 3.9552e-05
+         Flux                                 0.0181223 +/- 3.4022e-05
  Incoming Energy [550000, 578000)
    Particle: neutron
      Cell 70
        Total Material
-         Flux                                 0.0223656 +/- 3.98979e-05
+         Flux                                 0.0224581 +/- 4.89279e-05
  Incoming Energy [578000, 608000)
    Particle: neutron
      Cell 70
        Total Material
-         Flux                                 0.0340876 +/- 6.1181e-05
+         Flux                                 0.0343954 +/- 5.72499e-05
  Incoming Energy [608000, 639000)
    Particle: neutron
      Cell 70
        Total Material
-         Flux                                 0.048715 +/- 4.5368e-05
+         Flux                                 0.0492776 +/- 6.84283e-05
  Incoming Energy [639000, 672000)
    Particle: neutron
      Cell 70
        Total Material
-         Flux                                 0.0459274 +/- 7.49744e-05
+         Flux                                 0.046381 +/- 7.91798e-05
  Incoming Energy [672000, 707000)
    Particle: neutron
      Cell 70
        Total Material
-         Flux                                 0.0321968 +/- 6.98113e-05
+         Flux                                 0.0324904 +/- 4.73541e-05
  Incoming Energy [707000, 743000)
    Particle: neutron
      Cell 70
        Total Material
-         Flux                                 0.02258 +/- 7.25617e-05
+         Flux                                 0.0225924 +/- 4.03822e-05
  Incoming Energy [743000, 781000)
    Particle: neutron
      Cell 70
        Total Material
-         Flux                                 0.0149317 +/- 2.82066e-05
+         Flux                                 0.0150629 +/- 4.85319e-05
  Incoming Energy [781000, 821000)
    Particle: neutron
      Cell 70
        Total Material
-         Flux                                 0.0161279 +/- 5.93697e-05
+         Flux                                 0.0163096 +/- 5.39479e-05
  Incoming Energy [821000, 863000)
    Particle: neutron
      Cell 70
        Total Material
-         Flux                                 0.0222239 +/- 3.32247e-05
+         Flux                                 0.0223815 +/- 4.68105e-05
  Incoming Energy [863000, 907000)
    Particle: neutron
      Cell 70
        Total Material
-         Flux                                 0.0216141 +/- 6.31333e-05
+         Flux                                 0.0217769 +/- 5.52376e-05
  Incoming Energy [907000, 962000)
    Particle: neutron
      Cell 70
        Total Material
-         Flux                                 0.0352447 +/- 4.58991e-05
+         Flux                                 0.0354029 +/- 3.84945e-05
  Incoming Energy [962000, 1000000)
    Particle: neutron
      Cell 70
        Total Material
-         Flux                                 0.014345 +/- 2.96349e-05
+         Flux                                 0.014396 +/- 4.42264e-05
  Incoming Energy [1000000, 1110000)
    Particle: neutron
      Cell 70
        Total Material
-         Flux                                 0.0400713 +/- 6.29796e-05
+         Flux                                 0.0400532 +/- 7.20146e-05
  Incoming Energy [1110000, 1160000)
    Particle: neutron
      Cell 70
        Total Material
-         Flux                                 0.0194918 +/- 4.93199e-05
+         Flux                                 0.0194895 +/- 3.44896e-05
  Incoming Energy [1160000, 1220000)
    Particle: neutron
      Cell 70
        Total Material
-         Flux                                 0.0246075 +/- 4.08899e-05
+         Flux                                 0.024565 +/- 5.77776e-05
  Incoming Energy [1220000, 1290000)
    Particle: neutron
      Cell 70
        Total Material
-         Flux                                 0.0173981 +/- 4.57856e-05
+         Flux                                 0.0173595 +/- 3.26776e-05
  Incoming Energy [1290000, 1350000)
    Particle: neutron
      Cell 70
        Total Material
-         Flux                                 0.0142857 +/- 3.12348e-05
+         Flux                                 0.0142578 +/- 5.86049e-05
  Incoming Energy [1350000, 1420000)
    Particle: neutron
      Cell 70
        Total Material
-         Flux                                 0.0145472 +/- 3.62257e-05
+         Flux                                 0.0144548 +/- 3.42855e-05
  Incoming Energy [1420000, 1500000)
    Particle: neutron
      Cell 70
        Total Material
-         Flux                                 0.0139619 +/- 4.90749e-05
+         Flux                                 0.0139192 +/- 4.05546e-05
  Incoming Energy [1500000, 1570000)
    Particle: neutron
      Cell 70
        Total Material
-         Flux                                 0.0114752 +/- 3.28461e-05
+         Flux                                 0.0114529 +/- 2.50924e-05
  Incoming Energy [1570000, 1650000)
    Particle: neutron
      Cell 70
        Total Material
-         Flux                                 0.0129336 +/- 3.21802e-05
+         Flux                                 0.0127647 +/- 3.08419e-05
  Incoming Energy [1650000, 1740000)
    Particle: neutron
      Cell 70
        Total Material
-         Flux                                 0.0139834 +/- 3.00731e-05
+         Flux                                 0.0138279 +/- 4.96811e-05
  Incoming Energy [1740000, 1830000)
    Particle: neutron
      Cell 70
        Total Material
-         Flux                                 0.0124255 +/- 2.95123e-05
+         Flux                                 0.0124292 +/- 3.15217e-05
  Incoming Energy [1830000, 1920000)
    Particle: neutron
      Cell 70
        Total Material
-         Flux                                 0.00926728 +/- 4.38994e-05
+         Flux                                 0.00903311 +/- 2.851e-05
  Incoming Energy [1920000, 2020000)
    Particle: neutron
      Cell 70
        Total Material
-         Flux                                 0.00872062 +/- 2.8941e-05
+         Flux                                 0.00860035 +/- 3.37392e-05
  Incoming Energy [2020000, 2120000)
    Particle: neutron
      Cell 70
        Total Material
-         Flux                                 0.00828517 +/- 2.40065e-05
+         Flux                                 0.00807952 +/- 2.35425e-05
  Incoming Energy [2120000, 2230000)
    Particle: neutron
      Cell 70
        Total Material
-         Flux                                 0.00834997 +/- 2.4132e-05
+         Flux                                 0.00828183 +/- 2.1657e-05
  Incoming Energy [2230000, 2310000)
    Particle: neutron
      Cell 70
        Total Material
-         Flux                                 0.00606999 +/- 2.6709e-05
+         Flux                                 0.00597914 +/- 1.58069e-05
  Incoming Energy [2310000, 2350000)
    Particle: neutron
      Cell 70
        Total Material
-         Flux                                 0.00244022 +/- 2.10462e-05
+         Flux                                 0.00240338 +/- 7.91755e-06
  Incoming Energy [2350000, 2370000)
    Particle: neutron
      Cell 70
        Total Material
-         Flux                                 0.00183437 +/- 1.13733e-05
+         Flux                                 0.00178847 +/- 1.59844e-05
  Incoming Energy [2370000, 2390000)
    Particle: neutron
      Cell 70
        Total Material
-         Flux                                 0.00123155 +/- 8.36175e-06
+         Flux                                 0.00121285 +/- 1.34189e-05
  Incoming Energy [2390000, 2470000)
    Particle: neutron
      Cell 70
        Total Material
-         Flux                                 0.00471921 +/- 1.57765e-05
+         Flux                                 0.00460273 +/- 1.38289e-05
  Incoming Energy [2470000, 2590000)
    Particle: neutron
      Cell 70
        Total Material
-         Flux                                 0.00509791 +/- 2.03244e-05
+         Flux                                 0.00498502 +/- 2.63215e-05
  Incoming Energy [2590000, 2730000)
    Particle: neutron
      Cell 70
        Total Material
-         Flux                                 0.00649278 +/- 1.75413e-05
+         Flux                                 0.00633509 +/- 1.96249e-05
  Incoming Energy [2730000, 2870000)
    Particle: neutron
      Cell 70
        Total Material
-         Flux                                 0.00527233 +/- 2.12115e-05
+         Flux                                 0.00508688 +/- 1.57888e-05
  Incoming Energy [2870000, 3010000)
    Particle: neutron
      Cell 70
        Total Material
-         Flux                                 0.00452541 +/- 2.53946e-05
+         Flux                                 0.00436976 +/- 2.22043e-05
  Incoming Energy [3010000, 3170000)
    Particle: neutron
      Cell 70
        Total Material
-         Flux                                 0.00409623 +/- 2.13425e-05
+         Flux                                 0.00389816 +/- 2.21021e-05
  Incoming Energy [3170000, 3330000)
    Particle: neutron
      Cell 70
        Total Material
-         Flux                                 0.00358535 +/- 2.34512e-05
+         Flux                                 0.00341754 +/- 1.59368e-05
  Incoming Energy [3330000, 3680000)
    Particle: neutron
      Cell 70
        Total Material
-         Flux                                 0.0064958 +/- 2.57169e-05
+         Flux                                 0.0061582 +/- 2.95696e-05
  Incoming Energy [3680000, 4070000)
    Particle: neutron
      Cell 70
        Total Material
-         Flux                                 0.00521937 +/- 2.43133e-05
+         Flux                                 0.00494906 +/- 2.11784e-05
  Incoming Energy [4070000, 4490000)
    Particle: neutron
      Cell 70
        Total Material
-         Flux                                 0.00426302 +/- 2.64373e-05
+         Flux                                 0.00389293 +/- 1.86688e-05
  Incoming Energy [4490000, 4720000)
    Particle: neutron
      Cell 70
        Total Material
-         Flux                                 0.00180108 +/- 1.44504e-05
+         Flux                                 0.00162394 +/- 1.29869e-05
  Incoming Energy [4720000, 4970000)
    Particle: neutron
      Cell 70
        Total Material
-         Flux                                 0.00166006 +/- 1.13718e-05
+         Flux                                 0.00149995 +/- 1.2425e-05
  Incoming Energy [4970000, 5220000)
    Particle: neutron
      Cell 70
        Total Material
-         Flux                                 0.00141076 +/- 1.47071e-05
+         Flux                                 0.00127216 +/- 9.44822e-06
  Incoming Energy [5220000, 5490000)
    Particle: neutron
      Cell 70
        Total Material
-         Flux                                 0.00128178 +/- 1.07987e-05
+         Flux                                 0.00110637 +/- 1.1162e-05
  Incoming Energy [5490000, 5770000)
    Particle: neutron
      Cell 70
        Total Material
-         Flux                                 0.0011101 +/- 1.07086e-05
+         Flux                                 0.000970852 +/- 1.1395e-05
  Incoming Energy [5770000, 6070000)
    Particle: neutron
      Cell 70
        Total Material
-         Flux                                 0.000988777 +/- 9.38655e-06
+         Flux                                 0.000843753 +/- 1.12189e-05
  Incoming Energy [6070000, 6380000)
    Particle: neutron
      Cell 70
        Total Material
-         Flux                                 0.00082519 +/- 9.40615e-06
+         Flux                                 0.000710611 +/- 8.7576e-06
  Incoming Energy [6380000, 6590000)
    Particle: neutron
      Cell 70
        Total Material
-         Flux                                 0.0004676 +/- 7.07147e-06
+         Flux                                 0.00040813 +/- 6.66068e-06
  Incoming Energy [6590000, 6700000)
    Particle: neutron
      Cell 70
        Total Material
-         Flux                                 0.000211733 +/- 5.06991e-06
+         Flux                                 0.000187407 +/- 4.08495e-06
  Incoming Energy [6700000, 7050000)
    Particle: neutron
      Cell 70
        Total Material
-         Flux                                 0.000615724 +/- 7.54319e-06
+         Flux                                 0.000496738 +/- 7.09588e-06
  Incoming Energy [7050000, 7410000)
    Particle: neutron
      Cell 70
        Total Material
-         Flux                                 0.0005134 +/- 6.17138e-06
+         Flux                                 0.000411946 +/- 6.20028e-06
  Incoming Energy [7410000, 7790000)
    Particle: neutron
      Cell 70
        Total Material
-         Flux                                 0.000436819 +/- 7.96096e-06
+         Flux                                 0.000334976 +/- 4.43248e-06
  Incoming Energy [7790000, 8190000)
    Particle: neutron
      Cell 70
        Total Material
-         Flux                                 0.000362799 +/- 5.50539e-06
+         Flux                                 0.000263997 +/- 4.50741e-06
  Incoming Energy [8190000, 8610000)
    Particle: neutron
      Cell 70
        Total Material
-         Flux                                 0.000294352 +/- 6.31215e-06
+         Flux                                 0.000204491 +/- 4.75383e-06
  Incoming Energy [8610000, 9050000)
    Particle: neutron
      Cell 70
        Total Material
-         Flux                                 0.000238121 +/- 7.08967e-06
+         Flux                                 0.000171714 +/- 3.50915e-06
  Incoming Energy [9050000, 9510000)
    Particle: neutron
      Cell 70
        Total Material
-         Flux                                 0.000176348 +/- 4.35927e-06
+         Flux                                 0.000121318 +/- 3.1821e-06
  Incoming Energy [9510000, 10000000)
    Particle: neutron
      Cell 70
        Total Material
-         Flux                                 0.00013924 +/- 2.51087e-06
+         Flux                                 8.91919e-05 +/- 2.93121e-06
  Incoming Energy [10000000, 10500000)
    Particle: neutron
      Cell 70
        Total Material
-         Flux                                 0.000102599 +/- 4.83713e-06
+         Flux                                 6.38272e-05 +/- 2.64617e-06
  Incoming Energy [10500000, 11100000)
    Particle: neutron
      Cell 70
        Total Material
-         Flux                                 8.25266e-05 +/- 3.66572e-06
+         Flux                                 4.82275e-05 +/- 1.75915e-06
  Incoming Energy [11100000, 11600000)
    Particle: neutron
      Cell 70
        Total Material
-         Flux                                 5.06523e-05 +/- 2.6029e-06
+         Flux                                 2.36196e-05 +/- 1.55102e-06
  Incoming Energy [11600000, 12200000)
    Particle: neutron
      Cell 70
        Total Material
-         Flux                                 4.17946e-05 +/- 2.98152e-06
+         Flux                                 1.71779e-05 +/- 1.09757e-06
  Incoming Energy [12200000, 12500000)
    Particle: neutron
      Cell 70
        Total Material
-         Flux                                 1.75603e-05 +/- 1.25406e-06
+         Flux                                 6.34851e-06 +/- 1.02212e-06
  Incoming Energy [12500000, 12800000)
    Particle: neutron
      Cell 70
        Total Material
-         Flux                                 1.1905e-05 +/- 8.88208e-07
+         Flux                                 6.56632e-06 +/- 7.52888e-07
  Incoming Energy [12800000, 13500000)
    Particle: neutron
      Cell 70
        Total Material
-         Flux                                 2.06264e-05 +/- 1.57723e-06
+         Flux                                 9.16493e-06 +/- 1.17406e-06
  Incoming Energy [13500000, 13800000)
    Particle: neutron
      Cell 70
        Total Material
-         Flux                                 5.73379e-06 +/- 1.03227e-06
+         Flux                                 3.05223e-06 +/- 2.14915e-07
  Incoming Energy [13800000, 14200000)
    Particle: neutron
      Cell 70
        Total Material
-         Flux                                 7.61131e-06 +/- 9.86811e-07
+         Flux                                 3.39123e-06 +/- 7.94143e-07
  Incoming Energy [14200000, 14500000)
    Particle: neutron
      Cell 70
        Total Material
-         Flux                                 4.14224e-06 +/- 7.62106e-07
+         Flux                                 1.04707e-06 +/- 3.12254e-07
  Incoming Energy [14500000, 14900000)
    Particle: neutron
      Cell 70
        Total Material
-         Flux                                 4.45906e-06 +/- 7.86334e-07
+         Flux                                 1.51112e-06 +/- 3.43918e-07
  Incoming Energy [14900000, 15700000)
    Particle: neutron
      Cell 70
        Total Material
-         Flux                                 5.36552e-06 +/- 7.65736e-07
+         Flux                                 1.51712e-06 +/- 4.29624e-07
  Incoming Energy [15700000, 16500000)
    Particle: neutron
      Cell 70
        Total Material
-         Flux                                 4.10356e-06 +/- 6.18659e-07
+         Flux                                 8.03506e-07 +/- 2.0042e-07
  Incoming Energy [16500000, 16900000)
    Particle: neutron
      Cell 70
        Total Material
-         Flux                                 1.11763e-06 +/- 3.20437e-07
+         Flux                                 1.0182e-07 +/- 1.0182e-07
  Incoming Energy [16900000, 17300000)
    Particle: neutron
      Cell 70
        Total Material
-         Flux                                 9.05167e-07 +/- 2.35101e-07
+         Flux                                 4.37866e-07 +/- 2.5233e-07
  Incoming Energy [17300000, 19600000)
    Particle: neutron
      Cell 70
        Total Material
-         Flux                                 3.39404e-06 +/- 7.05828e-07
+         Flux                                 4.06099e-07 +/- 2.25936e-07
  ============================>     TALLY 1     <============================
 
  Cell 6
-   Particle: neutron
-     Incoming Energy [510000, 2000000)
-       Total Material
-         Flux                                 14.9935 +/- 0.00362107
- ============================>     TALLY 2     <============================
-
- Cell 6
-   Particle: photon
-     Incoming Energy [510000, 2000000)
-       Total Material
-         Flux                                 2.88027 +/- 0.00117552
+   Total Material
+     (n,gamma)                            0.00889826 +/- 6.12923e-06

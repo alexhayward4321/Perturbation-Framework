@@ -1,3 +1,4 @@
+# %%
 import numpy as np
 import pandas as pd
 
@@ -7,7 +8,7 @@ import re
 import settings
 
 
-def read_ng_source():
+def read_ng_source(tegrity=False):
     filepath = os.path.join(
         settings.MAIN_DIR, "data/external/sources/cf252_newest_ng-source.txt")
     with open(filepath) as f:
@@ -21,9 +22,13 @@ def read_ng_source():
         clean = np.flip(np.array(split, 'f'))
         clean_datasets.append(clean)
     g_bins = clean_datasets[1]
-    g_vals = np.append(clean_datasets[3], clean_datasets[3][-1])
+    g_vals = np.append(clean_datasets[3], 0)
     n_bins = clean_datasets[0]
-    n_vals = np.append(clean_datasets[2], clean_datasets[2][-1])
+    # CRUCIAL to divide source by energy bins, as that is the form
+    # that openmc understands
+    n_vals = np.append(clean_datasets[2] / (n_bins[1:] - n_bins[:-1]), 0)
+    if tegrity:
+        n_vals = np.append(clean_datasets[2], 0)
     return g_bins, g_vals, n_bins, n_vals
 
 
@@ -262,3 +267,7 @@ def read_mcnp_gammas():
     df["energy low [eV]"] *= 10**6
     df["energy high [eV]"] *= 10**6
     return df
+
+
+if __name__ == "__main__":
+    a, b, c, d = read_ng_source()

@@ -1,3 +1,4 @@
+# %%
 import numpy as np
 import pandas as pd
 
@@ -6,8 +7,110 @@ import re
 
 import settings
 
+IDS = ['nPrompt_725g', 'nDelayed', 'gPrompt', 'gDelayed']
 
-def read_ng_source():
+
+def extract_source_data(filename):
+    """
+    Extracts neutron/gamma source data from MCNP input file,
+    Input:
+        MCNP input file path
+    Returns:
+        tuple with four entries:
+            string of comments
+            list of column names
+            np.array of energy bins
+            np.array of probabilities for those energy bins (unit varies)
+    """
+    with open(filename) as f:
+        text = f.readlines()
+
+    columns = re.compile(r'^c\s+(\w[\w,/ ]+)\s{2,}(\w[ \w,/]+)', re.M)
+    comment = re.compile(r'^#.+')
+    data = re.compile(r'^\s+([\d+.E\-+]+)\s+([\d+.E\-+]+)')
+
+    column_list = []
+    comment_list = []
+    data1 = []
+    data2 = []
+    for line in text:
+        col = re.match(columns, line)
+        com = re.match(comment, line)
+        dat = re.match(data, line)
+
+        if col:
+            # Just tidying some things up
+            # Note that we replaced '/' with 'per' because h5py does weird things with '/'
+            cols = [col.group(1), col.group(2)]
+            cols_clean = [column.strip().replace('/', ' per ')
+                          for column in cols]
+
+            column_list.append(cols_clean[0])
+            column_list.append(cols_clean[1])
+        if com:
+            comment_list.append(com.group())
+        if dat:
+            data1.append(dat.group(1))
+            data2.append(dat.group(2))
+    return comment_list, column_list, np.array(data1, dtype=np.float64), np.array(data2, dtype=np.float64)
+
+
+def get_source_file_paths():
+    """
+        Gives you the filepaths of the .dat MCNP input sources
+        and the output paths to write the openmc h5 sources
+        Input: 
+            No input
+        Returns: tuple of two lists.
+            First list is input .dat file paths
+            Second is output .h5 file paths
+    """
+    filenames = ['Cf252_' + id + '.dat' for id in IDS]
+    input_folder = os.path.join(
+        settings.MAIN_DIR, 'data/external/sources/mcnp_input_sources')
+    output_folder = os.path.join(
+        settings.MAIN_DIR, 'data/external/sources/mcnp_h5_sources')
+    filepaths = [os.path.join(input_folder, filename)
+                 for filename in filenames]
+    fileouts = []
+    for i in range(len(filepaths)):
+        fileout = os.path.join(
+            output_folder, 'Cf252_' + IDS[i] + '_out.h5')
+        fileouts.append(fileout)
+    return filepaths, fileouts
+
+
+def get_source_data_dict(convert=True):
+    """
+    No input, returns dict of dicts
+    corresponding to mcnp input data. Keys are the file ids.
+    """
+    fileins, fileouts = get_source_file_paths()
+    array_dict = {}
+    for i, file in enumerate(fileins):
+        comments, columns, data1, data2 = extract_source_data(file)
+        print(data1.dtype, data2.dtype)
+        if convert:
+            data1 *= 10**6
+            data2 *= 10**6
+        if data1[0] < 1.0e-5:
+            data1[0] = 1.0e-5
+        ########################
+        # Experimental stuff
+        # test_below = 1
+        # limit = 2.0e7
+        # data1 = data1[test_below:]
+        # data1 = data1[data1 <= limit]
+        # length = len(data1)
+        # data2 = data2[:length]
+        ########################
+        array_dict[IDS[i]] = {'x': data1.round(10),
+                              'y': data2,
+                              'columns': columns}
+    return array_dict
+
+
+def read_ng_source(tegrity=False):
     filepath = os.path.join(
         settings.MAIN_DIR, "data/external/sources/cf252_newest_ng-source.txt")
     with open(filepath) as f:
@@ -18,12 +121,16 @@ def read_ng_source():
     clean_datasets = []
     for dataset in datasets:
         split = dataset.split()
-        clean = np.flip(np.array(split, 'f'))
+        clean = np.flip(np.array(split, np.float64))
         clean_datasets.append(clean)
     g_bins = clean_datasets[1]
-    g_vals = np.append(clean_datasets[3], clean_datasets[3][-1])
+    g_vals = np.append(clean_datasets[3], 0)
     n_bins = clean_datasets[0]
-    n_vals = np.append(clean_datasets[2], clean_datasets[2][-1])
+    # CRUCIAL to divide source by energy bins, as that is the form
+    # that openmc understands
+    n_vals = np.append(clean_datasets[2] / (n_bins[1:] - n_bins[:-1]), 0)
+    if tegrity:
+        n_vals = np.append(clean_datasets[2], 0)
     return g_bins, g_vals, n_bins, n_vals
 
 
@@ -262,3 +369,10 @@ def read_mcnp_gammas():
     df["energy low [eV]"] *= 10**6
     df["energy high [eV]"] *= 10**6
     return df
+
+
+if __name__ == "__main__":
+    settings.MAIN_DIR = '/ironbenchmark/Fe-simplified'
+    # g_bins, g_vals, n_bins, n_vals = read_ng_source()
+    a, b = get_partisn_tally_ebins()
+# %%

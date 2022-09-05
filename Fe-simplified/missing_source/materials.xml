@@ -1,0 +1,16 @@
+<?xml version='1.0' encoding='utf-8'?>
+<materials>
+  <material id="1">
+    <density units="atom/b-cm" value="0.0844" />
+    <nuclide ao="0.9138365" name="Fe56" />
+    <nuclide ao="0.05921408" name="Fe54" />
+    <nuclide ao="0.02110447" name="Fe57" />
+    <nuclide ao="0.002808618" name="Fe58" />
+  </material>
+  <material id="7">
+    <density units="g/cm3" value="0.0012" />
+    <nuclide name="N14" wo="0.07552" />
+    <nuclide name="O16" wo="0.2314" />
+    <nuclide name="Ar38" wo="0.0129" />
+  </material>
+</materials>

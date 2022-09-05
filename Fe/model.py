@@ -43,10 +43,16 @@ def load_model():
     # Specifying tallies
     ###
 
-    # Simple tallies
-    n_gamma = openmc.Tally(tally_id=1)
-    n_gamma.scores = ['(n,gamma)']
-    n_gamma.filters = [openmc.CellFilter(6)]
+    # Tally for sensitivity tally (the one that matters most)
+    sens_n = openmc.Tally(tally_id=1)
+    sens_g = openmc.Tally(tally_id=2)
+    sens_n.scores = ['flux']
+    sens_g.scores = ['flux']
+    gamma_p_filter = openmc.ParticleFilter('photon')
+    neutron_p_filter = openmc.ParticleFilter('neutron')
+    sens_filter = openmc.EnergyFilter([510000, 2000000])
+    sens_n.filters = [openmc.CellFilter(6), neutron_p_filter, sens_filter]
+    sens_g.filters = [openmc.CellFilter(6), gamma_p_filter, sens_filter]
 
     # Complex tallies
 
@@ -58,8 +64,6 @@ def load_model():
     gamma_bins_mcnp, neutron_bins_mcnp = data_load.get_mcnp_tally_ebins()
     gamma_e_filter_mcnp = openmc.EnergyFilter(gamma_bins_mcnp)
     neutron_e_filter_mcnp = openmc.EnergyFilter(neutron_bins_mcnp)
-    gamma_p_filter = openmc.ParticleFilter('photon')
-    neutron_p_filter = openmc.ParticleFilter('neutron')
 
     gamma_tally_mcnp_1_cell_filter = openmc.CellFilter(52)
     gamma_tally_mcnp_1.scores = ['flux']
@@ -121,7 +125,7 @@ def load_model():
         gamma_tally_bench,
         gamma_tally_partisn,
         neutron_tally_partisn,
-        n_gamma])
+        sens_n, sens_g])
     tallies.export_to_xml(f"{run_env}/tallies.xml")
 
 
@@ -179,12 +183,15 @@ def process():
     df_partisn_g.to_csv(filepath_partisn_g)
     df_partisn_n.to_csv(filepath_partisn_n)
 
-    # The tally that matters
-    n_gamma_tally = statepoint.get_tally(1)
-    df_n_gamma = n_gamma_tally.get_pandas_dataframe()
-    filepath_n_gamma = os.path.join(subdir, 'n_gamma.csv')
-    df_n_gamma.to_csv(filepath_n_gamma)
-
+    # The tallies that matter
+    sens_n_tally = statepoint.get_tally(id=1)
+    df_sens_n = sens_n_tally.get_pandas_dataframe()
+    filepath_sens_n = os.path.join(subdir, 'sens_n.csv')
+    df_sens_n.to_csv(filepath_sens_n)
+    sens_g_tally = statepoint.get_tally(id=2)
+    df_sens_g = sens_g_tally.get_pandas_dataframe()
+    filepath_sens_g = os.path.join(subdir, 'sens_g.csv')
+    df_sens_g.to_csv(filepath_sens_g)
 
 
 if __name__ == "__main__":

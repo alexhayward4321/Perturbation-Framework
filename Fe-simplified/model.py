@@ -49,12 +49,13 @@ def load_mat_geom():
     outer_air_layer = +n_detector_outer & -boundary
 
     Fe_ball = openmc.Cell(name="ball", fill=Fe, region=ball, cell_id=6)
-    air_layer_inner = openmc.Cell(fill=Air, region=inner_air_layer)
+    air_layer_inner = openmc.Cell(fill=Air, region=inner_air_layer, cell_id=51)
     detector_g = openmc.Cell(name="detector", fill=Air,
                              region=g_detector, cell_id=52)
-    air_layer_middle = openmc.Cell(fill=Air, region=middle_air_layer)
+    air_layer_middle = openmc.Cell(
+        fill=Air, region=middle_air_layer, cell_id=53)
     detector_n = openmc.Cell(fill=Air, region=n_detector, cell_id=70)
-    air_layer_outer = openmc.Cell(fill=Air, region=outer_air_layer)
+    air_layer_outer = openmc.Cell(fill=Air, region=outer_air_layer, cell_id=71)
     Universe = openmc.Universe(cells=[Fe_ball, air_layer_inner, detector_g, air_layer_middle,
                                detector_n, air_layer_outer])
     Geometry = openmc.Geometry(Universe)
@@ -72,28 +73,44 @@ def load_model():
     openmc_settings.batches = 10
 
     # Getting the source
-    g_bins, g_vals, n_bins, n_vals = data_load.read_ng_source()
-    g_source = openmc.Source()
-    g_source.particle = 'photon'
-    g_source.energy = openmc.stats.Tabular(
-        g_bins, g_vals, interpolation='histogram')
-    n_source = openmc.Source()
-    n_source.energy = openmc.stats.Tabular(
-        n_bins, n_vals, interpolation='histogram')
+    if os.path.basename(settings.RUN_ENV) == 'old_source':
+        d = data_load.get_source_data_dict()
+        n_bins = d['nPrompt_725g']['x']
+        n_vals = d['nPrompt_725g']['y']
+        n_source = openmc.Source()
+        n_source.energy = openmc.stats.Tabular(
+            n_bins, n_vals, interpolation='histogram')
+        openmc_settings.source = [n_source]
+    elif os.path.basename(settings.RUN_ENV) == 'missing_source':
+        ...
+    else:
+        g_bins, g_vals, n_bins, n_vals = data_load.read_ng_source()
+        g_source = openmc.Source()
+        g_source.particle = 'photon'
+        g_source.energy = openmc.stats.Tabular(
+            g_bins, g_vals, interpolation='histogram')
+        n_source = openmc.Source()
+        n_source.energy = openmc.stats.Tabular(
+            n_bins, n_vals, interpolation='histogram')
+        openmc_settings.source = [n_source]
 
-    openmc_settings.source = [n_source]
     openmc_settings.photon_transport = True
-
     openmc_settings.export_to_xml(f"{run_env}/settings.xml")
 
     ###
     # Specifying tallies
     ###
 
-    # Simple tallies
-    n_gamma = openmc.Tally(tally_id=1)
-    n_gamma.scores = ['(n,gamma)']
-    n_gamma.filters = [openmc.CellFilter(6)]
+    # Tally for sensitivity tally (the one that matters most)
+    sens_n = openmc.Tally(tally_id=1)
+    sens_g = openmc.Tally(tally_id=2)
+    sens_n.scores = ['flux']
+    sens_g.scores = ['flux']
+    gamma_p_filter = openmc.ParticleFilter('photon')
+    neutron_p_filter = openmc.ParticleFilter('neutron')
+    sens_filter = openmc.EnergyFilter([510000, 2000000])
+    sens_n.filters = [openmc.CellFilter(6), neutron_p_filter, sens_filter]
+    sens_g.filters = [openmc.CellFilter(6), gamma_p_filter, sens_filter]
 
     # Complex tallies
 
@@ -104,8 +121,6 @@ def load_model():
     gamma_bins_mcnp, neutron_bins_mcnp = data_load.get_mcnp_tally_ebins()
     gamma_e_filter_mcnp = openmc.EnergyFilter(gamma_bins_mcnp)
     neutron_e_filter_mcnp = openmc.EnergyFilter(neutron_bins_mcnp)
-    gamma_p_filter = openmc.ParticleFilter('photon')
-    neutron_p_filter = openmc.ParticleFilter('neutron')
 
     gamma_tally_mcnp_1_cell_filter = openmc.CellFilter(52)
     gamma_tally_mcnp_1.scores = ['flux']
@@ -160,8 +175,34 @@ def load_model():
         gamma_tally_bench,
         gamma_tally_partisn,
         neutron_tally_partisn,
-        n_gamma])
+        sens_n, sens_g])
     tallies.export_to_xml(f"{run_env}/tallies.xml")
+
+
+def plot_model():
+    plot_xy = openmc.Plot()
+    plot_xy.width = (50, 50)
+    plot_xy.pixels = (2000, 2000)
+    plot_xy.colors = {openmc.Cell(6): 'grey',
+                      openmc.Cell(51): 'blue',
+                      openmc.Cell(52): 'darkseagreen',
+                      openmc.Cell(53): 'blue',
+                      openmc.Cell(70): 'darkseagreen',
+                      openmc.Cell(71): 'blue'}
+
+    plot_xz = openmc.Plot()
+    plot_xz.width = (50, 50)
+    plot_xz.pixels = (2000, 2000)
+    plot_xz.basis = "xz"
+    vox_plot = openmc.Plot()
+    vox_plot.type = "voxel"
+    vox_plot.width = (50, 50, 50)
+    vox_plot.pixels = (200, 200, 200)
+
+    # plot_xy.color_by = 'material'
+    Plots = openmc.Plots([plot_xy, plot_xz, vox_plot])
+    Plots.export_to_xml(f'{settings.RUN_ENV}/plots.xml')
+    openmc.plot_geometry(cwd=settings.RUN_ENV)
 
 
 def process():
@@ -218,20 +259,27 @@ def process():
     df_partisn_g.to_csv(filepath_partisn_g)
     df_partisn_n.to_csv(filepath_partisn_n)
 
-    # The tally that matters
-    n_gamma_tally = statepoint.get_tally(1)
-    df_n_gamma = n_gamma_tally.get_pandas_dataframe()
-    filepath_n_gamma = os.path.join(subdir, 'n_gamma.csv')
-    df_n_gamma.to_csv(filepath_n_gamma)
+    # The tallies that matter
+    sens_n_tally = statepoint.get_tally(id=1)
+    df_sens_n = sens_n_tally.get_pandas_dataframe()
+    filepath_sens_n = os.path.join(subdir, 'sens_n.csv')
+    df_sens_n.to_csv(filepath_sens_n)
+    sens_g_tally = statepoint.get_tally(id=2)
+    df_sens_g = sens_g_tally.get_pandas_dataframe()
+    filepath_sens_g = os.path.join(subdir, 'sens_g.csv')
+    df_sens_g.to_csv(filepath_sens_g)
 
 
 if __name__ == "__main__":
     settings.N = 7
     settings.RUN_ENV = '/ironbenchmark/Fe-simplified/standard_run'
     settings.MAIN_DIR = '/ironbenchmark/Fe-simplified'
+    if not os.path.exists(settings.RUN_ENV):
+        os.makedirs(settings.RUN_ENV)
     load_mat_geom()
+    # plot_model()
     load_model()
-    # openmc.run(cwd=settings.RUN_ENV)
-    # process()
+    openmc.run(cwd=settings.RUN_ENV)
+    process()
 
 # %%

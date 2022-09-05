@@ -1,0 +1,15 @@
+<?xml version='1.0' encoding='utf-8'?>
+<geometry>
+  <cell id="6" material="1" name="ball" region="-60" universe="7" />
+  <cell id="20" material="7" region="60 -31" universe="7" />
+  <cell id="21" material="7" region="32 -33" universe="7" />
+  <cell id="22" material="7" region="34 -35" universe="7" />
+  <cell id="52" material="7" name="detector" region="31 -32" universe="7" />
+  <cell id="70" material="7" region="33 -34" universe="7" />
+  <surface coeffs="0.0 0.0 0.0 16.3" id="31" type="sphere" />
+  <surface coeffs="0.0 0.0 0.0 16.8" id="32" type="sphere" />
+  <surface coeffs="0.0 0.0 0.0 20.5" id="33" type="sphere" />
+  <surface coeffs="0.0 0.0 0.0 21.5" id="34" type="sphere" />
+  <surface boundary="vacuum" coeffs="0.0 0.0 0.0 22.0" id="35" type="sphere" />
+  <surface coeffs="0.0 0.0 0.0 15" id="60" type="sphere" />
+</geometry>

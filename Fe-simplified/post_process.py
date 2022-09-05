@@ -231,7 +231,7 @@ def main(funclist=['output_summary']):
 if __name__ == "__main__":
     settings.N = 7
     settings.MAIN_DIR = '/ironbenchmark/Fe-simplified'
-    settings.RUN_ENV = '/ironbenchmark/Fe-simplified/mod_materials'
+    settings.RUN_ENV = '/ironbenchmark/Fe-simplified/standard_run'
     main(["output_summary"])
 
 # # %%

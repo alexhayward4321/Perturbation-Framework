@@ -17,10 +17,10 @@ MT = 102
 
 def main(nuclides=None, mt=102, perturbation=0.01, discretization=None):
     if nuclides is None:
-        if settings.MODEL == 'Fe':
-            nuclides = ['Fe56']
-        elif settings.MODEL == 'H1':
+        if settings.MODEL == 'H1':
             nuclides = ['H1']
+        else:
+            nuclides = ['Fe56']
     if discretization is None:
         create_folder_env(nuclides, mt, perturbation)
     else:
@@ -53,7 +53,10 @@ def create_folder_env(nuclides, mt, perturbation,
     for material in materials:
         new_mat = openmc.Material(material_id=material.id)
         for nuclide in material.nuclides:
-            if nuclide.name in nuclides:
+            if nuclides is None:
+                new_mat.add_nuclide(
+                    nuclide.name, nuclide.percent, nuclide.percent_type)
+            elif nuclide.name in nuclides:
                 new_nuclide_name = nuclide.name + '-' + id_code
                 new_mat.add_nuclide(
                     new_nuclide_name, nuclide.percent, nuclide.percent_type)
@@ -66,4 +69,6 @@ def create_folder_env(nuclides, mt, perturbation,
     new_materials.export_to_xml(output_file)
 
 
-# %%
+if __name__ == '__main__':
+    main(nuclides=None, mt=102, perturbation=0.01, discretization=None)
+    # %%
