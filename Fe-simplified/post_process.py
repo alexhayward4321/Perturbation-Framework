@@ -11,6 +11,8 @@ import utils
 import settings
 import data_load
 
+importlib.reload(utils)
+
 
 def main(funclist=['output_summary']):
     N = settings.N
@@ -63,6 +65,10 @@ def main(funclist=['output_summary']):
     tail = 80
     openmc_mcnp_fact_g = (mcnp_g.iloc[:, 2].values[:125-tail] /
                           df_g1['mean'].values[:125-tail]).mean()
+
+    # print(openmc_bench_fact)
+    # print(openmc_partisn_fact_g)
+    # print(openmc_mcnp_fact_g)
 
 
 # Comparing openmc simulation and benchmark data
@@ -134,17 +140,27 @@ def main(funclist=['output_summary']):
 
     # Comparing all gammas using energy difference (in accordance to benchmark)
 
+    def compare_gamma_flux_tegrity():
+        utils.plot_log_axes([df_partisn_g['mid_bins'], df_bench['mid_bins'],
+                            df_partisn_g['mid_bins'], df_g1['mid_bins']],
+                            [df_partisn_g['F/dE']/kfk_fact_g,
+                            benchmark1,
+                            partisn_g.iloc[:, 2]/df_partisn_g['dE'],
+                            mcnp_g['integral']/df_g1['dE']/kfk_fact_g],
+                            "overall_comparison_g_tegrity", N,
+                            legend=["openmc", "benchmark", "partisn", "mcnp"],
+                            title=f'Gamma flux divided by bin width comparison\n between simulation software - true')
+
     def compare_gamma_flux():
         utils.plot_log_axes([df_partisn_g['mid_bins'], df_bench['mid_bins'],
                             df_partisn_g['mid_bins'], df_g1['mid_bins']],
-                            [df_partisn_g['F/dE'],
-                            benchmark1/openmc_bench_fact,
-                            partisn_g.iloc[:, 2]/df_partisn_g['dE'] /
-                            openmc_partisn_fact_g,
-                            mcnp_g['integral']/df_g1['dE']/openmc_mcnp_fact_g],
+                            [df_partisn_g['F/dE']/kfk_fact_g*2,
+                            benchmark1/2,
+                            partisn_g.iloc[:, 2]/df_partisn_g['dE'],
+                            mcnp_g['integral']/df_g1['dE']/kfk_fact_g],
                             "overall_comparison_g", N,
                             legend=["openmc", "benchmark", "partisn", "mcnp"],
-                            title=f'Comparison of gamma fluxes with 10^{N} particles simulated in openmc')
+                            title=f'Gamma flux divided by bin width comparison\n between simulation software - shifted')
 
     # Comparing all neutrons using lethargy
 
@@ -156,8 +172,8 @@ def main(funclist=['output_summary']):
                             mcnp_n['integral']/df_n3['dU']/kfk_fact_n],
                             "overall_comparison_nl", N,
                             legend=[
-                            "openmc_partisn_bins", "partisn", "mcnp"],
-                            title=f"Comparison of neutron fluxes with 10^{N} particles simulated in openmc")
+                            "openmc", "partisn", "mcnp"],
+                            title=f"Neutron flux per unit lethargy comparison between\n simulation software")
 
     def plot_histograms():
         utils.plot_histogram(hist_gamma_bins,
@@ -229,10 +245,10 @@ def main(funclist=['output_summary']):
 
 
 if __name__ == "__main__":
-    settings.N = 7
+    settings.N = 8
     settings.MAIN_DIR = '/ironbenchmark/Fe-simplified'
     settings.RUN_ENV = '/ironbenchmark/Fe-simplified/standard_run'
-    main(["output_summary"])
+    main(["compare_gamma_flux_tegrity", "output_summary"])
 
 # # %%
 # inspect_benchmark()

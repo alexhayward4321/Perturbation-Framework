@@ -1,9 +1,4 @@
 # %%
-import finite_difference
-import modify_materials
-import settings
-import sys
-import re
 import matplotlib.pyplot as plt
 import numpy as np
 import openmc
@@ -11,16 +6,15 @@ import pandas as pd
 
 import importlib
 import os
+import sys
+import re
+
+import settings
+import modify_materials
+import finite_difference
+
 os.chdir('/ironbenchmark')
-
-importlib.reload(modify_materials)
-
-# Key examples for run  type:
-# Overall pattern: sourceInfo_discretisation_discretisationNumber_MTnumberPerturbed
-# npd neutron prompt delayed
-# gp gamma prompt only
-# npdgpd neutron prompt delayed gamma prompt delayed
-# We are assuming all perturbations will be of all iron isotopes
+importlib.reload(finite_difference)
 
 
 def execute_perturbation(mt, perturbation, nuclides=None, discretization=None):
@@ -62,7 +56,7 @@ def run_single(N, run_env, check_repeat):
     post_process.main()
 
 
-def main_run(powers, mt=None, perturbations=None, discretization=None, check_repeat=True,
+def main_run(powers, mts=None, perturbations=None, discretization=None, check_repeat=True,
              run_env=None):
     """
         Runs multiple simulations depending on varying numbers of particles,
@@ -77,28 +71,32 @@ def main_run(powers, mt=None, perturbations=None, discretization=None, check_rep
             os.makedirs(run_env)
         for i in powers:
             run_single(i, run_env, check_repeat)
-    elif mt is None:
+    elif mts is None:
         for i in powers:
             run_single(i, standard_run_folder, check_repeat)
     else:
-        for perturbation in perturbations:
-            if discretization is None:
-                execute_perturbation(mt, perturbation)
-                modify_materials.main(perturbation=perturbation, mt=mt)
-                id_code = f'mt{mt}-p{perturbation}'
-                run_env = os.path.join(perturb_folder, id_code)
-                for i in powers:
-                    run_single(i, run_env, check_repeat)
-            else:
-                execute_perturbation(mt, perturbation, discretization)
-                modify_materials.main(
-                    perturbation=perturbation, discretization=discretization)
-                for group in range(discretization):
-                    id_code = f'mt{mt}-p{perturbation}d{discretization:03}'
-                    group_code = f'g{group+1:03}'
-                    run_env = os.path.join(perturb_folder, id_code, group_code)
+        for mt in mts:
+            for perturbation in perturbations:
+                if discretization is None:
+                    execute_perturbation(mt, perturbation)
+                    modify_materials.main(perturbation=perturbation, mt=mt)
+                    id_code = f'mt{mt}-p{perturbation}'
+                    run_env = os.path.join(perturb_folder, id_code)
                     for i in powers:
                         run_single(i, run_env, check_repeat)
+                        finite_difference.compare_perturbation(
+                            mt, perturbation)
+                else:
+                    execute_perturbation(mt, perturbation, discretization)
+                    modify_materials.main(
+                        perturbation=perturbation, discretization=discretization)
+                    for group in range(discretization):
+                        id_code = f'mt{mt}-p{perturbation}d{discretization:03}'
+                        group_code = f'g{group+1:03}'
+                        run_env = os.path.join(
+                            perturb_folder, id_code, group_code)
+                        for i in powers:
+                            run_single(i, run_env, check_repeat)
 
 
 def load_config(model, n=3):
@@ -141,9 +139,12 @@ def load_config(model, n=3):
 if __name__ == "__main__":
     # Tells you which model folder has all of the information you want and loads settings
     # for that
-    load_config('Fe-simplified')
-    main_run(powers=[7], mt=2, perturbations=[0.1], check_repeat=False)
-    
+    load_config('H1')
+    main_run(powers=[7], check_repeat=False)
+    # main_run(powers=[7], mts=[2, 102, 4],
+    #          perturbations=[0.01, 0.01, 0.3, 1.0], check_repeat=False)
+    # main_run(powers=[7], mts=[2, 4, 102], perturbations=[
+    #  0.01, 0.1, 0.3], check_repeat=False)
 
     # %env OPENMC_CROSS_SECTIONS /root/neutron_perturbed/cross_sections_perturbed.xml
 

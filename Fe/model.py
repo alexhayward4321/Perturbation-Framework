@@ -51,8 +51,8 @@ def load_model():
     gamma_p_filter = openmc.ParticleFilter('photon')
     neutron_p_filter = openmc.ParticleFilter('neutron')
     sens_filter = openmc.EnergyFilter([510000, 2000000])
-    sens_n.filters = [openmc.CellFilter(6), neutron_p_filter, sens_filter]
-    sens_g.filters = [openmc.CellFilter(6), gamma_p_filter, sens_filter]
+    sens_n.filters = [openmc.CellFilter(70), neutron_p_filter, sens_filter]
+    sens_g.filters = [openmc.CellFilter(52), gamma_p_filter, sens_filter]
 
     # Complex tallies
 

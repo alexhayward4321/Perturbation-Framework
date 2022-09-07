@@ -15,7 +15,7 @@ import settings
 
 
 def plot_log_axes(x, y, filename=None, N=None, xlabel='Energy [eV]',
-                  ylabel='Flux', other=False,
+                  ylabel=r'Flux [cm$^{-2}$particle$^{-1}$]', other=False,
                   legend=None, title=''):
     fig, ax = plt.subplots()
     ax.set_xscale('log')
@@ -63,7 +63,7 @@ def plot_log_axes(x, y, filename=None, N=None, xlabel='Energy [eV]',
 
 
 # Ancient history, can ignore this function until you need it, but you'll need to edit it
-def plot_histogram(x, y, filename, N, xlabel='Energy [eV]', ylabel='Flux', norm=False):
+def plot_histogram(x, y, filename, N, xlabel='Energy [eV]', ylabel=r'Flux \[cm$^{-2}$s$^2$\]', norm=False):
     fig, ax = plt.subplots()
     ax.set_xscale('log')
     ax.set_yscale('log')

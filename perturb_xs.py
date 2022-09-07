@@ -1,5 +1,6 @@
 #!/usr/bin/env python3
 # %%
+import re
 import argparse
 import h5py
 import numpy as np
@@ -78,19 +79,37 @@ mts = [int(mt) for mt in args.cross_sections]
 perturbation = float(args.perturbation)
 Temp = int(args.temp)
 discretization = args.discretization
-###
-#   Path deffs
-###
 
-###
-#
-###
+
+def inelastic(nuc):
+    # Modifying mts for MT = 4
+    filename = libdir/f"{nuc}.h5"
+    f = h5py.File(filename, 'r')
+    groups = f[f"/{nuc}/reactions"]
+    groups = groups.keys()
+    p = re.compile('\w+_(\d{3})')
+    inelastic_mt = []
+    for reaction in groups:
+        m = p.match(reaction)
+        if m:
+            inelastic_mt.append(m.group(1))
+    inelastic_mt = [int(r) for r in inelastic_mt]
+    # for sorting and removing duplicates
+    inelastic_mt = list(set(inelastic_mt))
+    final = []
+    for mt in inelastic_mt:
+        if mt > 50 and mt < 92:
+            final.append(mt)
+    final = [int(r) for r in final]
+    f.close()
+    return final
 
 
 ###
 #   Parameter deffs
 ###
 REACTION = openmc.data.reaction.REACTION_NAME
+
 
 lib = openmc.data.DataLibrary()
 if not os.path.exists(xlib):
@@ -99,134 +118,55 @@ else:
     lib = lib.from_xml(xlib)
 
 
-def valid_discretization_test():
-    test_file = libdir/f"Fe56.h5"
-    f = h5py.File(test_file)
-    bin_struct = f[f"/Fe56/energy/{Temp}K"][:]
-    bin_len = len(bin_struct)
-    f.close()
-    if discretization <= 0 or discretization > bin_len:
-        print(f'{discretization} is not a valid discretization number')
-        sys.exit(None)
-    return bin_len
+for nuc in nuclides:
 
+    for MT in mts:
+        if not MT in REACTION and MT != 4:
+            print('{} is not a valid MT number'.format(MT))
+            sys.exit(None)
 
-def get_cum_energy_groups(length):
-    group_size_guide = length // discretization
-    group_size = []
-    while length > group_size_guide:
-        length -= group_size_guide
-        group_size.append(group_size_guide)
+        reaction = REACTION[MT]
 
-    i = 0
-    while length > 0:
-        group_size[i] += 1
-        i += 1
-        length -= 1
+        print(
+            f"Perturbing {nuc} {reaction} (MT = {MT}) at {Temp} by {perturbation}")
 
-    cumulative = np.cumsum(group_size)
-    cumulative = np.insert(cumulative, 0, 0)
-    return cumulative
+        ###
+        #   Perturb nuclide
+        ###
+        filename = libdir/f"{nuc}.h5"
+        filename_new = output_dir/f"{nuc}-mt{MT}-p{perturbation}.h5"
+        if os.path.exists(filename_new):
+            print("This perturbation already exists so no need to repeat")
+            continue
 
+        # Make a copy of file.
+        shutil.copyfile(filename, filename_new)
 
-if discretization:
-    # Tests if valid discretization number has been input and returns total length of
-    # energy groups
-    discretization = int(discretization)
-    energy_group_length = valid_discretization_test()
-    cum_index = get_cum_energy_groups(energy_group_length)
+        f = h5py.File(filename_new, 'r+')                # open new file
+        energy = f[f"/{nuc}/energy/{Temp}K"][:]
 
-    for nuc in nuclides:
-        for MT in mts:
-            if not MT in REACTION:
-                print('{} is not a valid MT number'.format(MT))
-                sys.exit(None)
-
-            reaction = REACTION[MT]
-
-            for i in range(discretization):
-
-                print(
-                    f""""Perturbing {nuc} {reaction} (MT = {MT}) at {Temp} by {perturbation}
-                    with discretization {discretization} in energy group {i+1}""")
-
-                ###
-                #   Perturb nuclide
-                ###
-                filename = libdir/f"{nuc}.h5"
-                filename_new = output_dir / \
-                    f"{nuc}-mt{MT}-p{perturbation}-d{discretization:03}-g{i+1:03}.h5"
-                if os.path.exists(filename_new):
-                    print("This perturbation already exists so no need to repeat")
-                    continue
-
-                # Make a copy of file.
-                shutil.copyfile(filename, filename_new)
-
-                # open new file
-                f = h5py.File(filename_new, 'r+')
-                energy = f[f"/{nuc}/energy/{Temp}K"][:]
-                cross_section = f[f"/{nuc}/reactions/reaction_{MT:03}/{Temp}K/xs"][:]
-                cross_section_perturb = cross_section.copy()
-                cross_section_perturb[cum_index[i]
-                    :cum_index[i+1]] *= perturbation + 1
-
-                # Overwrite the chosen nuclide
-                f[f"/{nuc}/reactions/reaction_{MT:03}/{Temp}K/xs"][:] = cross_section_perturb
-
-                f.close()
-
-                ###
-                #   Overwrite the name of the new file, and add to library
-                ###
-                data = openmc.data.IncidentNeutron.from_hdf5(filename_new)
-                data.name = f"{nuc}-mt{MT}-p{perturbation}-d{discretization:03}-g{i+1:03}"
-                data.export_to_hdf5(filename_new, "w")
-
-                lib.register_file(filename_new)
-else:
-    for nuc in nuclides:
-        for MT in mts:
-            if not MT in REACTION:
-                print('{} is not a valid MT number'.format(MT))
-                sys.exit(None)
-
-            reaction = REACTION[MT]
-
-            print(
-                f"Perturbing {nuc} {reaction} (MT = {MT}) at {Temp} by {perturbation}")
-
-            ###
-            #   Perturb nuclide
-            ###
-            filename = libdir/f"{nuc}.h5"
-            filename_new = output_dir/f"{nuc}-mt{MT}-p{perturbation}.h5"
-            if os.path.exists(filename_new):
-                print("This perturbation already exists so no need to repeat")
-                continue
-
-            # Make a copy of file.
-            shutil.copyfile(filename, filename_new)
-
-            f = h5py.File(filename_new, 'r+')                # open new file
-            energy = f[f"/{nuc}/energy/{Temp}K"][:]
+        if MT == 4:
+            inelastic_mts = inelastic(nuc)
+            for imt in inelastic_mts:
+                cross_section = f[f"/{nuc}/reactions/reaction_{imt:03}/{Temp}K/xs"][:]
+                cross_section_perturb = cross_section + cross_section * perturbation
+                f[f"/{nuc}/reactions/reaction_{imt:03}/{Temp}K/xs"][:] = cross_section_perturb
+        else:
             cross_section = f[f"/{nuc}/reactions/reaction_{MT:03}/{Temp}K/xs"][:]
-
             cross_section_perturb = cross_section + cross_section * perturbation
-
             # Overwrite the chosen nuclide
             f[f"/{nuc}/reactions/reaction_{MT:03}/{Temp}K/xs"][:] = cross_section_perturb
 
-            f.close()
+        f.close()
 
-            ###
-            #   Overwrite the name of the new file, and add to library
-            ###
-            data = openmc.data.IncidentNeutron.from_hdf5(filename_new)
-            data.name = f"{nuc}-mt{MT}-p{perturbation}"
-            data.export_to_hdf5(filename_new, "w")
+        ###
+        #   Overwrite the name of the new file, and add to library
+        ###
+        data = openmc.data.IncidentNeutron.from_hdf5(filename_new)
+        data.name = f"{nuc}-mt{MT}-p{perturbation}"
+        data.export_to_hdf5(filename_new, "w")
 
-            lib.register_file(filename_new)
+        lib.register_file(filename_new)
 
 post = output_dir / "cross_sections_perturbed.xml"
 lib.export_to_xml(post)
