@@ -170,7 +170,6 @@ for nuc in nuclides:
 
 post = output_dir / "cross_sections_perturbed.xml"
 lib.export_to_xml(post)
-# NOTE THIS BREAKS FOR MULTIPLE MT NUMBERS FOR NOW
 
 
 # %%
