@@ -17,136 +17,124 @@ os.chdir('/ironbenchmark')
 importlib.reload(finite_difference)
 
 
-def execute_perturbation(mt, perturbation, nuclides=None, discretization=None):
+def execute_perturbation(nuclides, mt, perturbation, discretization=None):
     """
         Runs Ander's modified cross section file perturbation script for specified mt
         and perturbation
     """
-    if nuclides is None:
-        if settings.MODEL == 'H1':
-            nuclides = ['H1']
-        else:
-            nuclides = ['Fe56']
-    nuclides = ' '.join(nuclides)
-
     if discretization is None:
-        command = f"python3 perturb_xs.py -n {nuclides} -mt {mt} -p {perturbation} -x '{settings.XLIB}' \
+        command = f"python3 perturb_xs.py -n {' '.join(nuclides)} -mt {mt} -p {perturbation} -x '{settings.XLIB}' \
             -l '{settings.LIBDIR}' -d '{settings.PERTURB_OUTPUT_DIR}'"
     else:
-        command = f"python3 perturb_xs.py -n {nuclides} -mt {mt} -p {perturbation} \
+        command = f"python3 perturb_xs.py -n {' '.join(nuclides)} -mt {mt} -p {perturbation} \
             -di {discretization} -x '{settings.XLIB}' -l '{settings.LIBDIR}' \
             -d '{settings.PERTURB_OUTPUT_DIR}'"
     os.system(command)
+    # A bit of a hack to let you change data library instantly without error
+    os.environ["OPENMC_CROSS_SECTIONS"] = settings.XLIB
 
 
-def run_single(N, run_env, check_repeat):
+def run_single(N, check_repeat):
     settings.N = N
-    settings.RUN_ENV = run_env
 
     if check_repeat:
         output_path = os.path.join(settings.RUN_ENV, f'output/e{N}')
         if os.path.exists(output_path):
+            print("Run already performed, loading in results...")
+            post_process.main()
             return
 
-    import model
-    import post_process
     model.load_model()
-    openmc.run(cwd=run_env)
+    openmc.run(cwd=settings.RUN_ENV)
     model.process()
     post_process.main()
 
 
-def main_run(powers, mts=None, perturbations=None, discretization=None, check_repeat=True,
-             run_env=None):
+def main_run(powers=[6], nuclides=None, mts=None, perturbations=None,
+             discretization=None, check_repeat=True):
     """
         Runs multiple simulations depending on varying numbers of particles,
          varying perturbations and discretization within those perturbations
     """
-    perturb_folder = os.path.join(settings.MAIN_DIR, 'perturbed_run_data')
-    standard_run_folder = os.path.join(settings.MAIN_DIR, 'standard_run')
 
-    if run_env is not None:
-        run_env = os.path.join(settings.MAIN_DIR, run_env)
-        if not os.path.exists(run_env):
-            os.makedirs(run_env)
+    global model
+    global post_process
+    global data_load
+    import model
+    import post_process
+    import data_load
+    importlib.reload(model)
+    importlib.reload(post_process)
+    importlib.reload(data_load)
+
+    if perturbations is None:
         for i in powers:
-            run_single(i, run_env, check_repeat)
-    elif mts is None:
-        for i in powers:
-            run_single(i, standard_run_folder, check_repeat)
+            run_single(i, check_repeat)
     else:
+        perturb_folder = os.path.join(settings.MAIN_DIR,
+                                      'perturbed_run_data')
+
+        if nuclides is None or mts is None or perturbations is None:
+            raise Exception("ERROR: either nuclides, mts or perturbations \
+                parameter has not been specified. \n All must be \
+                    specified to perform a perturbation run.")
+
         for mt in mts:
             for perturbation in perturbations:
                 if discretization is None:
-                    execute_perturbation(mt, perturbation)
-                    modify_materials.main(perturbation=perturbation, mt=mt)
+                    execute_perturbation(nuclides, mt, perturbation)
+                    modify_materials.main(nuclides, mt, perturbation)
                     id_code = f'mt{mt}-p{perturbation}'
-                    run_env = os.path.join(perturb_folder, id_code)
+                    settings.RUN_ENV = os.path.join(perturb_folder, id_code)
                     for i in powers:
-                        run_single(i, run_env, check_repeat)
+                        run_single(i, check_repeat)
                         finite_difference.compare_perturbation(
                             mt, perturbation)
                 else:
-                    execute_perturbation(mt, perturbation, discretization)
+                    execute_perturbation(
+                        nuclides, mt, perturbation, discretization)
                     modify_materials.main(
-                        perturbation=perturbation, discretization=discretization)
+                        nuclides, mt, perturbation, discretization)
                     for group in range(discretization):
                         id_code = f'mt{mt}-p{perturbation}d{discretization:03}'
                         group_code = f'g{group+1:03}'
-                        run_env = os.path.join(
+                        settings.RUN_ENV = os.path.join(
                             perturb_folder, id_code, group_code)
                         for i in powers:
-                            run_single(i, run_env, check_repeat)
+                            run_single(i, check_repeat)
 
 
-def load_config(model, n=3):
+def load_model(model, run_env=None):
     """
-        Loads various important settings needed by module functions
+        Function used to change model you are simulating from the default.
+        Takes as input the folder name of the model you want to test
     """
-    os.system(
-        'export OPENMC_CROSS_SECTIONS=/root/neutron_perturbed/cross_sections_perturbed.xml')
-    if os.uname().sysname == 'Linux':
-        # Full path to original unperturbed nuclear data library
-        settings.LIBDIR = "/root/nndc_hdf5"
-        # File where new cross section file for perturbed data is stored
-        settings.XLIB = '/root/neutron_perturbed/cross_sections_perturbed.xml'
-        # File where perturbed cross section hdf5 files are stored
-        settings.PERTURB_OUTPUT_DIR = '/root/neutron_perturbed'
-        # Full path to main folder
-        settings.HOME_DIR = '/ironbenchmark'
-    elif os.uname().sysname == 'Darwin':
-        settings.LIBDIR = "/Users/user1/Documents/Summer Internship 2022/Nuclear Data/endfb71_hdf5"
-        settings.XLIB = '/Users/user1/Documents/Summer Internship 2022/Nuclear Data/neutron_perturbed/cross_sections_perturbed.xml'
-        settings.PERTURB_OUTPUT_DIR = '/Users/user1/Documents/Summer Internship 2022/Nuclear Data/neutron_perturbed'
-        settings.HOME_DIR = '/Users/user1/Documents/Summer Internship 2022/Python code/Iron'
-    # which model we are simulating, Fe or H1
-    settings.MODEL = model
-    settings.MAIN_DIR = f'/ironbenchmark/{model}'
-    if model == 'H1':
-        settings.n = n
+    # Where our model is
+    settings.MAIN_DIR = os.path.join(settings.HOME_DIR, model)
+    # Which sub-folder in our model to run as our openmc environment
+    if run_env is None:
+        settings.RUN_ENV = os.path.join(settings.MAIN_DIR, 'standard_run')
+    else:
+        settings.RUN_ENV = os.path.join(settings.MAIN_DIR, run_env)
+        if not os.path.exists(settings.RUN_ENV):
+            os.makedirs(settings.RUN_ENV)
 
-    # So modules in sub directories can find important modules defined in the home directory
+    # So modules in sub directories can find important modules defined
+    #  in the home directory
+    match_items = []
     for item in sys.path:
         if re.match(rf'{settings.HOME_DIR}*', item):
-            sys.path.remove(item)
+            match_items.append(item)
+    for item in match_items:
+        sys.path.remove(item)
     sys.path.append(settings.HOME_DIR)
-    if settings.MAIN_DIR not in sys.path:
-        sys.path.append(settings.MAIN_DIR)
-    if os.getcwd() != settings.HOME_DIR:
-        os.chdir(settings.HOME_DIR)
+    sys.path.append(settings.MAIN_DIR)
 
 
 if __name__ == "__main__":
-    # Tells you which model folder has all of the information you want and loads settings
-    # for that
-    load_config('H1')
-    main_run(powers=[7], check_repeat=False)
-    # main_run(powers=[7], mts=[2, 102, 4],
-    #          perturbations=[0.01, 0.01, 0.3, 1.0], check_repeat=False)
-    # main_run(powers=[7], mts=[2, 4, 102], perturbations=[
-    #  0.01, 0.1, 0.3], check_repeat=False)
-
-    # %env OPENMC_CROSS_SECTIONS /root/neutron_perturbed/cross_sections_perturbed.xml
-
-
-# %%
+    model = 'H1'
+    load_model(model)
+    default_nuclides = {'H1': ['H1'],
+                        'Fe': ['Fe56'],
+                        'Fe-simplified': ['Fe56']}
+    main_run(powers=[6], check_repeat=False)

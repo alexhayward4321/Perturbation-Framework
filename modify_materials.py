@@ -15,12 +15,7 @@ perturb = 0.01
 MT = 102
 
 
-def main(nuclides=None, mt=102, perturbation=0.01, discretization=None):
-    if nuclides is None:
-        if settings.MODEL == 'H1':
-            nuclides = ['H1']
-        else:
-            nuclides = ['Fe56']
+def main(nuclides, mt, perturbation, discretization=None):
     if discretization is None:
         create_folder_env(nuclides, mt, perturbation)
     else:

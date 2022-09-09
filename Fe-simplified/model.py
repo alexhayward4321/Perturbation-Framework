@@ -15,7 +15,6 @@ importlib.reload(data_load)
 
 
 def load_mat_geom():
-    run_env = settings.RUN_ENV
 
     Fe = openmc.Material(material_id=1)
     Fe.add_nuclide("Fe56", 0.9138365)
@@ -31,7 +30,7 @@ def load_mat_geom():
     Air.set_density("g/cm3", 0.0012)
 
     Materials = openmc.Materials([Fe, Air])
-    Materials.export_to_xml(f'{run_env}/materials.xml')
+    Materials.export_to_xml(f'{settings.RUN_ENV}/materials.xml')
 
     # Creating model geometry
     ball_exterior = openmc.Sphere(r=15, surface_id=60)
@@ -59,13 +58,12 @@ def load_mat_geom():
     Universe = openmc.Universe(cells=[Fe_ball, air_layer_inner, detector_g, air_layer_middle,
                                detector_n, air_layer_outer])
     Geometry = openmc.Geometry(Universe)
-    Geometry.export_to_xml(f"{run_env}/geometry.xml")
+    Geometry.export_to_xml(f"{settings.RUN_ENV}/geometry.xml")
 
 
 def load_model():
     # Specifying settings and source information
     N = settings.N
-    run_env = settings.RUN_ENV
 
     openmc_settings = openmc.Settings()
     openmc_settings.run_mode = "fixed source"
@@ -95,7 +93,7 @@ def load_model():
         openmc_settings.source = [n_source]
 
     openmc_settings.photon_transport = True
-    openmc_settings.export_to_xml(f"{run_env}/settings.xml")
+    openmc_settings.export_to_xml(f"{settings.RUN_ENV}/settings.xml")
 
     ###
     # Specifying tallies
@@ -176,7 +174,7 @@ def load_model():
         gamma_tally_partisn,
         neutron_tally_partisn,
         sens_n, sens_g])
-    tallies.export_to_xml(f"{run_env}/tallies.xml")
+    tallies.export_to_xml(f"{settings.RUN_ENV}/tallies.xml")
 
 
 def plot_model():
@@ -208,8 +206,7 @@ def plot_model():
 def process():
 
     N = settings.N
-    run_env = settings.RUN_ENV
-    statepoint_path = f'{run_env}/statepoint.10.h5'
+    statepoint_path = f'{settings.RUN_ENV}/statepoint.10.h5'
     statepoint = openmc.StatePoint(statepoint_path)
 
     # Constructing filters for identification
@@ -243,7 +240,7 @@ def process():
     df_partisn_n = tally_partisn_n.get_pandas_dataframe()
 
     # Saving model output for later retrieval
-    subdir = os.path.join(run_env, f'output/e{N}')
+    subdir = os.path.join(settings.RUN_ENV, f'output/e{N}')
     filepath_g1 = os.path.join(subdir, 'g1.csv')
     filepath_n3 = os.path.join(subdir, 'n3.csv')
     filepath_n4 = os.path.join(subdir, 'n4.csv')
