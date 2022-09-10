@@ -5,7 +5,7 @@ import pandas as pd
 import os
 import re
 
-import settings
+import config
 
 IDS = ['nPrompt_725g', 'nDelayed', 'gPrompt', 'gDelayed']
 
@@ -67,9 +67,9 @@ def get_source_file_paths():
     """
     filenames = ['Cf252_' + id + '.dat' for id in IDS]
     input_folder = os.path.join(
-        settings.MAIN_DIR, 'data/external/sources/mcnp_input_sources')
+        config.MAIN_DIR, 'data/external/sources/mcnp_input_sources')
     output_folder = os.path.join(
-        settings.MAIN_DIR, 'data/external/sources/mcnp_h5_sources')
+        config.MAIN_DIR, 'data/external/sources/mcnp_h5_sources')
     filepaths = [os.path.join(input_folder, filename)
                  for filename in filenames]
     fileouts = []
@@ -112,7 +112,7 @@ def get_source_data_dict(convert=True):
 
 def read_ng_source(tegrity=False):
     filepath = os.path.join(
-        settings.MAIN_DIR, "data/external/sources/cf252_newest_ng-source.txt")
+        config.MAIN_DIR, "data/external/sources/cf252_newest_ng-source.txt")
     with open(filepath) as f:
         text = f.read()
     dset = re.compile(r'(?:^\d.*$\n)+', re.MULTILINE)
@@ -245,9 +245,9 @@ def read_benchmark_data():
 
     """
     path1 = os.path.join(
-        settings.MAIN_DIR, "data/external/benchmarks/benchmark1.txt")
+        config.MAIN_DIR, "data/external/benchmarks/benchmark1.txt")
     path2 = os.path.join(
-        settings.MAIN_DIR, "data/external/benchmarks/benchmark2.txt")
+        config.MAIN_DIR, "data/external/benchmarks/benchmark2.txt")
     paths = [path1, path2]
 
     data = re.compile(r'\d')
@@ -299,7 +299,7 @@ def read_partisn_data():
 
 def read_partisn_gamma():
     filepath = os.path.join(
-        settings.MAIN_DIR, "data/external/partisn_outputs/partisn_g_final_n.txt")
+        config.MAIN_DIR, "data/external/partisn_outputs/partisn_g_final_n.txt")
     df = pd.read_csv(filepath, delimiter='\t')
     df["Energy high [eV]"] = np.append(df["Energy [eV]"].values[1:], 0)
     df = df.drop(len(df)-1)
@@ -311,7 +311,7 @@ def read_partisn_gamma():
 
 def read_partisn_neutron():
     filepath = os.path.join(
-        settings.MAIN_DIR, "data/external/partisn_outputs/partisn_n_final_n.txt")
+        config.MAIN_DIR, "data/external/partisn_outputs/partisn_n_final_n.txt")
     df = pd.read_csv(filepath, delimiter='\t')
     new_df = df.set_axis(["energy low [eV]", "energy high [eV]", "Flux", "FI/dU"],
                          axis=1)
@@ -323,7 +323,7 @@ def read_mcnp_data():
     Returns dictionary of dataframes with energy bin, 
     """
     filepath = os.path.join(
-        settings.MAIN_DIR, "data/external/mcnp_outputs/mcnp_flux_n.txt")
+        config.MAIN_DIR, "data/external/mcnp_outputs/mcnp_flux_n.txt")
     with open(filepath) as f:
         text = f.read()
     dataset = re.compile(
@@ -358,7 +358,7 @@ def read_mcnp_data():
 
 def read_mcnp_gammas():
     filepath = os.path.join(
-        settings.MAIN_DIR, "data/external/mcnp_outputs/mcnp_g_final_n.txt")
+        config.MAIN_DIR, "data/external/mcnp_outputs/mcnp_g_final_n.txt")
     df = pd.read_csv(filepath, delimiter='\t')
     df = df[["energy", "integral", "Fi/dE [MeV]"]]
     df["Energy high [eV]"] = np.append(df["energy"].values[1:], 0)
@@ -372,7 +372,7 @@ def read_mcnp_gammas():
 
 
 if __name__ == "__main__":
-    settings.MAIN_DIR = '/ironbenchmark/Fe-simplified'
+    config.MAIN_DIR = '/ironbenchmark/Fe-simplified'
     # g_bins, g_vals, n_bins, n_vals = read_ng_source()
     a, b = get_partisn_tally_ebins()
 # %%

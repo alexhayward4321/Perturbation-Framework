@@ -9,7 +9,7 @@ import os
 import sys
 import re
 
-import settings
+import config
 import modify_materials
 import finite_difference
 
@@ -23,29 +23,30 @@ def execute_perturbation(nuclides, mt, perturbation, discretization=None):
         and perturbation
     """
     if discretization is None:
-        command = f"python3 perturb_xs.py -n {' '.join(nuclides)} -mt {mt} -p {perturbation} -x '{settings.XLIB}' \
-            -l '{settings.LIBDIR}' -d '{settings.PERTURB_OUTPUT_DIR}'"
+        command = f"python3 perturb_xs.py -n {' '.join(nuclides)} -mt {mt} -p {perturbation} -x '{config.XLIB}' \
+            -l '{config.LIBDIR}' -d '{config.PERTURB_OUTPUT_DIR}'"
     else:
         command = f"python3 perturb_xs.py -n {' '.join(nuclides)} -mt {mt} -p {perturbation} \
-            -di {discretization} -x '{settings.XLIB}' -l '{settings.LIBDIR}' \
-            -d '{settings.PERTURB_OUTPUT_DIR}'"
+            -di {discretization} -x '{config.XLIB}' -l '{config.LIBDIR}' \
+            -d '{config.PERTURB_OUTPUT_DIR}'"
     os.system(command)
     # A bit of a hack to let you change data library instantly without error
-    os.environ["OPENMC_CROSS_SECTIONS"] = settings.XLIB
+    os.environ["OPENMC_CROSS_SECTIONS"] = config.XLIB
 
 
 def run_single(N, check_repeat):
-    settings.N = N
+    config.N = N
 
     if check_repeat:
-        output_path = os.path.join(settings.RUN_ENV, f'output/e{N}')
+        output_path = os.path.join(config.RUN_ENV, f'output/e{N}')
         if os.path.exists(output_path):
             print("Run already performed, loading in results...")
             post_process.main()
             return
 
-    model.load_model()
-    openmc.run(cwd=settings.RUN_ENV)
+    model.settings()
+    model.tallies()
+    openmc.run(cwd=config.RUN_ENV)
     model.process()
     post_process.main()
 
@@ -71,7 +72,7 @@ def main_run(powers=[6], nuclides=None, mts=None, perturbations=None,
         for i in powers:
             run_single(i, check_repeat)
     else:
-        perturb_folder = os.path.join(settings.MAIN_DIR,
+        perturb_folder = os.path.join(config.MAIN_DIR,
                                       'perturbed_run_data')
 
         if nuclides is None or mts is None or perturbations is None:
@@ -85,7 +86,7 @@ def main_run(powers=[6], nuclides=None, mts=None, perturbations=None,
                     execute_perturbation(nuclides, mt, perturbation)
                     modify_materials.main(nuclides, mt, perturbation)
                     id_code = f'mt{mt}-p{perturbation}'
-                    settings.RUN_ENV = os.path.join(perturb_folder, id_code)
+                    config.RUN_ENV = os.path.join(perturb_folder, id_code)
                     for i in powers:
                         run_single(i, check_repeat)
                         finite_difference.compare_perturbation(
@@ -98,7 +99,7 @@ def main_run(powers=[6], nuclides=None, mts=None, perturbations=None,
                     for group in range(discretization):
                         id_code = f'mt{mt}-p{perturbation}d{discretization:03}'
                         group_code = f'g{group+1:03}'
-                        settings.RUN_ENV = os.path.join(
+                        config.RUN_ENV = os.path.join(
                             perturb_folder, id_code, group_code)
                         for i in powers:
                             run_single(i, check_repeat)
@@ -110,25 +111,25 @@ def load_model(model, run_env=None):
         Takes as input the folder name of the model you want to test
     """
     # Where our model is
-    settings.MAIN_DIR = os.path.join(settings.HOME_DIR, model)
+    config.MAIN_DIR = os.path.join(config.HOME_DIR, model)
     # Which sub-folder in our model to run as our openmc environment
     if run_env is None:
-        settings.RUN_ENV = os.path.join(settings.MAIN_DIR, 'standard_run')
+        config.RUN_ENV = os.path.join(config.MAIN_DIR, 'standard_run')
     else:
-        settings.RUN_ENV = os.path.join(settings.MAIN_DIR, run_env)
-        if not os.path.exists(settings.RUN_ENV):
-            os.makedirs(settings.RUN_ENV)
+        config.RUN_ENV = os.path.join(config.MAIN_DIR, run_env)
+        if not os.path.exists(config.RUN_ENV):
+            os.makedirs(config.RUN_ENV)
 
     # So modules in sub directories can find important modules defined
     #  in the home directory
     match_items = []
     for item in sys.path:
-        if re.match(rf'{settings.HOME_DIR}*', item):
+        if re.match(rf'{config.HOME_DIR}*', item):
             match_items.append(item)
     for item in match_items:
         sys.path.remove(item)
-    sys.path.append(settings.HOME_DIR)
-    sys.path.append(settings.MAIN_DIR)
+    sys.path.append(config.HOME_DIR)
+    sys.path.append(config.MAIN_DIR)
 
 
 if __name__ == "__main__":
@@ -137,4 +138,5 @@ if __name__ == "__main__":
     default_nuclides = {'H1': ['H1'],
                         'Fe': ['Fe56'],
                         'Fe-simplified': ['Fe56']}
+
     main_run(powers=[6], check_repeat=False)

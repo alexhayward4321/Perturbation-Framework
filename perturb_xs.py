@@ -12,7 +12,6 @@ import matplotlib.pyplot as plt
 from pathlib import Path
 
 import openmc.data
-import settings
 
 description = """
 This script generates perturbed cross sections for local sensitivity analysis. Script

@@ -8,15 +8,15 @@ import importlib
 import os
 
 import utils
-import settings
+import config
 import data_load
 
 importlib.reload(utils)
 
 
 def main(funclist=['output_summary']):
-    N = settings.N
-    run_env = settings.RUN_ENV
+    N = config.N
+    run_env = config.RUN_ENV
 
     ###
     # Loading in data
@@ -245,9 +245,9 @@ def main(funclist=['output_summary']):
 
 
 if __name__ == "__main__":
-    settings.N = 8
-    settings.MAIN_DIR = '/ironbenchmark/Fe-simplified'
-    settings.RUN_ENV = '/ironbenchmark/Fe-simplified/standard_run'
+    config.N = 8
+    config.MAIN_DIR = '/ironbenchmark/Fe-simplified'
+    config.RUN_ENV = '/ironbenchmark/Fe-simplified/standard_run'
     main(["compare_gamma_flux_tegrity", "output_summary"])
 
 # # %%

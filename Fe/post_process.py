@@ -8,13 +8,13 @@ import importlib
 import os
 
 import utils
-import settings
+import config
 import data_load
 
 
 def main(funclist=['output_summary']):
-    N = settings.N
-    run_env = settings.RUN_ENV
+    N = config.N
+    run_env = config.RUN_ENV
 
     ###
     # Loading in data
@@ -229,9 +229,9 @@ def main(funclist=['output_summary']):
 
 
 if __name__ == "__main__":
-    settings.N = 7
-    settings.MAIN_DIR = '/ironbenchmark/Fe'
-    settings.RUN_ENV = '/ironbenchmark/Fe/standard_run'
+    config.N = 7
+    config.MAIN_DIR = '/ironbenchmark/Fe'
+    config.RUN_ENV = '/ironbenchmark/Fe/standard_run'
     main(["output_summary"])
 
 # # %%

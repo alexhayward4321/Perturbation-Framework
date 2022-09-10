@@ -5,7 +5,7 @@ import pandas as pd
 
 import os
 
-import settings
+import config
 
 """
     I don't know what a utils folder does, but I've taken it to mean random
@@ -42,7 +42,7 @@ def plot_log_axes(x, y, filename=None, N=None, xlabel='Energy [eV]',
             raise Exception(
                 "You must specify how many particles you have simulated")
 
-        run_env = settings.RUN_ENV
+        run_env = config.RUN_ENV
         if other:
             filepath = os.path.join(
                 run_env, "graphs", f"other/{filename}.png")

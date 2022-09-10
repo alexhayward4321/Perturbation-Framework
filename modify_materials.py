@@ -6,7 +6,7 @@ import copy
 import os
 import shutil
 
-import settings
+import config
 
 
 disc = 10
@@ -27,9 +27,9 @@ def main(nuclides, mt, perturbation, discretization=None):
 def create_folder_env(nuclides, mt, perturbation,
                       discretization=None, group=None):
     # Creating openmc simulation run folder and specifying geometry and material xml file paths
-    geom_file = os.path.join(settings.MAIN_DIR, 'standard_run/geometry.xml')
-    mat_file = os.path.join(settings.MAIN_DIR, 'standard_run/materials.xml')
-    perturb_folder = os.path.join(settings.MAIN_DIR, 'perturbed_run_data/')
+    geom_file = os.path.join(config.MAIN_DIR, 'standard_run/geometry.xml')
+    mat_file = os.path.join(config.MAIN_DIR, 'standard_run/materials.xml')
+    perturb_folder = os.path.join(config.MAIN_DIR, 'perturbed_run_data/')
     if discretization is None:
         id_code = f'mt{mt}-p{perturbation}'
         folder_path = os.path.join(perturb_folder, id_code)

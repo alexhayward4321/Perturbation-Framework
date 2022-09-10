@@ -9,14 +9,14 @@ import os
 import re
 
 import data_load
-import settings
+import config
 
 importlib.reload(data_load)
 
 
-def load_model():
+def config():
     # Specifying settings and source information
-    N = settings.N
+    N = config.N
 
     openmc_settings = openmc.Settings()
     openmc_settings.run_mode = "fixed source"
@@ -36,11 +36,10 @@ def load_model():
     openmc_settings.source = [n_source]
     openmc_settings.photon_transport = True
 
-    openmc_settings.export_to_xml(f"{settings.RUN_ENV}/settings.xml")
+    openmc_settings.export_to_xml(f"{config.RUN_ENV}/settings.xml")
 
-    ###
-    # Specifying tallies
-    ###
+
+def tallies():
 
     # Tally for sensitivity tally (the one that matters most)
     sens_n = openmc.Tally(tally_id=1)
@@ -125,13 +124,13 @@ def load_model():
         gamma_tally_partisn,
         neutron_tally_partisn,
         sens_n, sens_g])
-    tallies.export_to_xml(f"{settings.RUN_ENV}/tallies.xml")
+    tallies.export_to_xml(f"{config.RUN_ENV}/tallies.xml")
 
 
 def process():
 
-    N = settings.N
-    statepoint_path = f'{settings.RUN_ENV}/statepoint.10.h5'
+    N = config.N
+    statepoint_path = f'{config.RUN_ENV}/statepoint.10.h5'
     statepoint = openmc.StatePoint(statepoint_path)
 
     # Constructing filters for identification
@@ -165,7 +164,7 @@ def process():
     df_partisn_n = tally_partisn_n.get_pandas_dataframe()
 
     # Saving model output for later retrieval
-    subdir = os.path.join(settings.RUN_ENV, f'output/e{N}')
+    subdir = os.path.join(config.RUN_ENV, f'output/e{N}')
     filepath_g1 = os.path.join(subdir, 'g1.csv')
     filepath_n3 = os.path.join(subdir, 'n3.csv')
     filepath_n4 = os.path.join(subdir, 'n4.csv')
@@ -193,10 +192,11 @@ def process():
 
 
 if __name__ == "__main__":
-    settings.N = 7
-    settings.MAIN_DIR = '/ironbenchmark/Fe'
-    settings.RUN_ENV = '/ironbenchmark/Fe/standard_run'
-    load_model()
+    config.N = 7
+    config.MAIN_DIR = '/ironbenchmark/Fe'
+    config.RUN_ENV = '/ironbenchmark/Fe/standard_run'
+    config()
+    tallies()
     process()
 
 # %%

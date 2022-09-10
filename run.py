@@ -1,14 +1,14 @@
 # %%
 import automate
-import settings
+import config
 
 import importlib
-importlib.reload(settings)
+importlib.reload(config)
 
 
 def run():
     # Telling the system what model to run
-    model = 'H1'
+    model = 'Fe-simplified'
     automate.load_model(model, run_env=None)
     # If you are lazy and so when you switch models you want some
     #  default parameters just add stuff to / modify the dictionary
@@ -17,7 +17,7 @@ def run():
                         'Fe': ['Fe56'],
                         'Fe-simplified': ['Fe56']}
 
-    # Running the model you want to run
+    # Running the model you want to run (examples below)
     # automate.main_run(powers=[6], check_repeat=False)
     automate.main_run(powers=[6], nuclides=default_nuclides[model],
                       mts=[2], perturbations=[0.1], check_repeat=False)

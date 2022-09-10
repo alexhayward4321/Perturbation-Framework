@@ -9,12 +9,12 @@ import os
 import re
 
 import data_load
-import settings
+import config
 
 importlib.reload(data_load)
 
 
-def load_mat_geom():
+def materials_geometry():
 
     Fe = openmc.Material(material_id=1)
     Fe.add_nuclide("Fe56", 0.9138365)
@@ -30,7 +30,7 @@ def load_mat_geom():
     Air.set_density("g/cm3", 0.0012)
 
     Materials = openmc.Materials([Fe, Air])
-    Materials.export_to_xml(f'{settings.RUN_ENV}/materials.xml')
+    Materials.export_to_xml(f'{config.RUN_ENV}/materials.xml')
 
     # Creating model geometry
     ball_exterior = openmc.Sphere(r=15, surface_id=60)
@@ -58,12 +58,12 @@ def load_mat_geom():
     Universe = openmc.Universe(cells=[Fe_ball, air_layer_inner, detector_g, air_layer_middle,
                                detector_n, air_layer_outer])
     Geometry = openmc.Geometry(Universe)
-    Geometry.export_to_xml(f"{settings.RUN_ENV}/geometry.xml")
+    Geometry.export_to_xml(f"{config.RUN_ENV}/geometry.xml")
 
 
-def load_model():
+def settings():
     # Specifying settings and source information
-    N = settings.N
+    N = config.N
 
     openmc_settings = openmc.Settings()
     openmc_settings.run_mode = "fixed source"
@@ -71,7 +71,7 @@ def load_model():
     openmc_settings.batches = 10
 
     # Getting the source
-    if os.path.basename(settings.RUN_ENV) == 'old_source':
+    if os.path.basename(config.RUN_ENV) == 'old_source':
         d = data_load.get_source_data_dict()
         n_bins = d['nPrompt_725g']['x']
         n_vals = d['nPrompt_725g']['y']
@@ -79,7 +79,7 @@ def load_model():
         n_source.energy = openmc.stats.Tabular(
             n_bins, n_vals, interpolation='histogram')
         openmc_settings.source = [n_source]
-    elif os.path.basename(settings.RUN_ENV) == 'missing_source':
+    elif os.path.basename(config.RUN_ENV) == 'missing_source':
         ...
     else:
         g_bins, g_vals, n_bins, n_vals = data_load.read_ng_source()
@@ -93,12 +93,11 @@ def load_model():
         openmc_settings.source = [n_source]
 
     openmc_settings.photon_transport = True
-    openmc_settings.export_to_xml(f"{settings.RUN_ENV}/settings.xml")
+    openmc_settings.export_to_xml(f"{config.RUN_ENV}/settings.xml")
 
-    ###
-    # Specifying tallies
-    ###
 
+
+def tallies():
     # Tally for sensitivity tally (the one that matters most)
     sens_n = openmc.Tally(tally_id=1)
     sens_g = openmc.Tally(tally_id=2)
@@ -174,7 +173,7 @@ def load_model():
         gamma_tally_partisn,
         neutron_tally_partisn,
         sens_n, sens_g])
-    tallies.export_to_xml(f"{settings.RUN_ENV}/tallies.xml")
+    tallies.export_to_xml(f"{config.RUN_ENV}/tallies.xml")
 
 
 def plot_model():
@@ -199,14 +198,14 @@ def plot_model():
 
     # plot_xy.color_by = 'material'
     Plots = openmc.Plots([plot_xy, plot_xz, vox_plot])
-    Plots.export_to_xml(f'{settings.RUN_ENV}/plots.xml')
-    openmc.plot_geometry(cwd=settings.RUN_ENV)
+    Plots.export_to_xml(f'{config.RUN_ENV}/plots.xml')
+    openmc.plot_geometry(cwd=config.RUN_ENV)
 
 
 def process():
 
-    N = settings.N
-    statepoint_path = f'{settings.RUN_ENV}/statepoint.10.h5'
+    N = config.N
+    statepoint_path = f'{config.RUN_ENV}/statepoint.10.h5'
     statepoint = openmc.StatePoint(statepoint_path)
 
     # Constructing filters for identification
@@ -240,7 +239,7 @@ def process():
     df_partisn_n = tally_partisn_n.get_pandas_dataframe()
 
     # Saving model output for later retrieval
-    subdir = os.path.join(settings.RUN_ENV, f'output/e{N}')
+    subdir = os.path.join(config.RUN_ENV, f'output/e{N}')
     filepath_g1 = os.path.join(subdir, 'g1.csv')
     filepath_n3 = os.path.join(subdir, 'n3.csv')
     filepath_n4 = os.path.join(subdir, 'n4.csv')
@@ -268,15 +267,16 @@ def process():
 
 
 if __name__ == "__main__":
-    settings.N = 7
-    settings.RUN_ENV = '/ironbenchmark/Fe-simplified/standard_run'
-    settings.MAIN_DIR = '/ironbenchmark/Fe-simplified'
-    if not os.path.exists(settings.RUN_ENV):
-        os.makedirs(settings.RUN_ENV)
-    load_mat_geom()
+    config.N = 7
+    config.RUN_ENV = '/ironbenchmark/Fe-simplified/standard_run'
+    config.MAIN_DIR = '/ironbenchmark/Fe-simplified'
+    if not os.path.exists(config.RUN_ENV):
+        os.makedirs(config.RUN_ENV)
+    materials_geometry()
+    settings()
+    tallies()
     # plot_model()
-    load_model()
-    openmc.run(cwd=settings.RUN_ENV)
+    openmc.run(cwd=config.RUN_ENV)
     process()
 
 # %%

@@ -35,6 +35,14 @@ XLIB = os.path.join(PERTURB_OUTPUT_DIR, 'cross_sections_perturbed.xml')
 # By default the code will run your unperturbed model
 RUN_ENV = os.path.join(MAIN_DIR, 'standard_run')
 
+# Determines how xml files will be generated each time when you do a run
+# with a run_env that is neither the standard_run folder or a perturbation
+# of your standard_run_folder. Three options for each xml file:
+# - File directly copied from your standard run folder (every run)
+# - File generated using function(s) in your model.py file
+# - Leave the files as they are (allows for by-hand modification of
+#   existing xml files)
+
 
 # --------------------------------
 # Automatically setting sys.path variables for module location,

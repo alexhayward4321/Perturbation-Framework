@@ -12,7 +12,7 @@ import re
 
 import data_load
 import utils
-import settings
+import config
 
 importlib.reload(data_load)
 
@@ -33,7 +33,7 @@ def find_power_folder_max(home_folder):
 
 def get_perturb_table():
     table_file = os.path.join(
-        settings.MAIN_DIR, 'perturbed_run_data/tables', f'e{settings.N}.csv')
+        config.MAIN_DIR, 'perturbed_run_data/tables', f'e{config.N}.csv')
     if not os.path.exists(os.path.dirname(table_file)):
         os.makedirs(os.path.dirname(table_file))
     if os.path.exists(table_file):
@@ -52,7 +52,7 @@ def get_perturb_table():
 
 def save(table):
     table_file = os.path.join(
-        settings.MAIN_DIR, 'perturbed_run_data/tables', f'e{settings.N}.csv')
+        config.MAIN_DIR, 'perturbed_run_data/tables', f'e{config.N}.csv')
     table.to_csv(table_file)
     return
 
@@ -66,7 +66,7 @@ def compare_perturbation(mt, perturbation, discretization=None,
 
     # Getting file locations of unperturbed and perturbed runs
     standard_folder = os.path.join(
-        settings.MAIN_DIR, f'standard_run/output/e{settings.N}')
+        config.MAIN_DIR, f'standard_run/output/e{config.N}')
     sens_n_file = 'sens_n.csv'
     sens_g_file = 'sens_g.csv'
     path_sens_n = os.path.join(standard_folder, sens_n_file)
@@ -77,9 +77,9 @@ def compare_perturbation(mt, perturbation, discretization=None,
     else:
         id_code = f'mt{mt}-p{perturbation}-d{discretization:03}-g{group+1:03}'
     perturb_home_folder = os.path.join(
-        settings.MAIN_DIR, 'perturbed_run_data/')
+        config.MAIN_DIR, 'perturbed_run_data/')
     output_folder = os.path.join(perturb_home_folder, id_code, 'output')
-    perturb_folder = os.path.join(output_folder, f'e{settings.N}')
+    perturb_folder = os.path.join(output_folder, f'e{config.N}')
 
     sens_n_file = 'sens_n.csv'
     sens_g_file = 'sens_g.csv'
@@ -108,9 +108,9 @@ def compare_perturbation(mt, perturbation, discretization=None,
 
 
 if __name__ == '__main__':
-    settings.N = 7
-    settings.LIBDIR = "/root/nndc_hdf5"
-    settings.MAIN_DIR = '/ironbenchmark/Fe-simplified'
+    config.N = 7
+    config.LIBDIR = "/root/nndc_hdf5"
+    config.MAIN_DIR = '/ironbenchmark/Fe-simplified'
     table = compare_perturbation(102, 0.1)
 
     # %%
