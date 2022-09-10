@@ -21,7 +21,7 @@ def run():
     # automate.main_run(powers=[6], check_repeat=False)
     automate.main_run(powers=[6], nuclides=default_nuclides[model],
                       mts=[2], perturbations=[0.1], check_repeat=False)
-    # automate.main_run(powers=[7], mts=[2, 102, 4],
+    # automate.main_run(powers=[7], nuclides=default_nuclides[model], mts=[2, 102, 4],
     #          perturbations=[0.01, 0.01, 0.3, 1.0], check_repeat=False)
 
 
