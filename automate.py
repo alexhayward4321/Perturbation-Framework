@@ -6,8 +6,9 @@ import pandas as pd
 
 import importlib
 import os
-import sys
 import re
+import shutil
+import sys
 
 import config
 import modify_materials
@@ -117,8 +118,27 @@ def load_model(model, run_env=None):
         config.RUN_ENV = os.path.join(config.MAIN_DIR, 'standard_run')
     else:
         config.RUN_ENV = os.path.join(config.MAIN_DIR, run_env)
+        
         if not os.path.exists(config.RUN_ENV):
             os.makedirs(config.RUN_ENV)
+            materials_path_from = os.path.join(
+                config.MAIN_DIR, 'standard_run', 'materials.xml')
+            geometry_path_from = os.path.join(
+                config.MAIN_DIR, 'standard_run', 'geometry.xml')
+            settings_path_from = os.path.join(
+                config.MAIN_DIR, 'standard_run', 'settings.xml')
+            tallies_path_from = os.path.join(
+                config.MAIN_DIR, 'standard_run', 'tallies.xml')
+
+            materials_path_to = os.path.join(config.RUN_ENV, 'materials.xml')
+            geometry_path_to = os.path.join(config.RUN_ENV, 'geometry.xml')
+            settings_path_to = os.path.join(config.RUN_ENV, 'settings.xml')
+            tallies_path_to = os.path.join(config.RUN_ENV, 'tallies.xml')
+
+            shutil.copyfile(materials_path_from, materials_path_to)
+            shutil.copyfile(geometry_path_from, geometry_path_to)
+            shutil.copyfile(settings_path_from, settings_path_to)
+            shutil.copyfile(tallies_path_from, tallies_path_to)
 
     # So modules in sub directories can find important modules defined
     #  in the home directory
