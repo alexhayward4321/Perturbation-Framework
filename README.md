@@ -1,6 +1,6 @@
 # Openmc Cross Section Perturbation and Sensitivity Analysis Toolkit
 
-## Introduction
+## Description
 
 This repository houses a python code used to compute the sensitivity of gamma and neutron fluxes to perturbations in nuclear cross section data for a user-specified 'base' physical model in [OpenMC](https://docs.openmc.org/en/stable/). 
 
