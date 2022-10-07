@@ -16,6 +16,7 @@ import openmc.data
 description = """
 This script generates perturbed cross sections for local sensitivity analysis. Script
 generates a cross_sections_perturbed.xml file with the standard library plus the perturbed evaluations.
+Code adapted from Ander Gray's original work (Department of Advanced Computing UKAEA)
 """
 
 

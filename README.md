@@ -1,10 +1,22 @@
-# Openmc cross section perturbation and sensitivity analysis toolkit
+# Openmc Cross Section Perturbation and Sensitivity Analysis Toolkit
 
-This repository houses a python code used to compute the sensitivity of gamma and neutron fluxes to perturbations of cross section data. It automates the perturbations of cross sections of a set of nuclides, reactions, and perturbation strengths. Further, if you specify a 'base' model in a folder, it automatically generates all of the materials, geometry, settings and tallies files within properly labelled folders for each perturbation, runs openmc simulations for them for a specified number of particles, then stores the results of the simulations as well as processed graphs in a standardised and easily accessible file structure and format. 
+## Introduction
+
+This repository houses a python code used to compute the sensitivity of gamma and neutron fluxes to perturbations in nuclear cross section data for a user-specified 'base' physical model in [OpenMC](https://docs.openmc.org/en/stable/). 
+
+## Why It's Useful
+
+The power of this toolkit is you can import into it an OpenMC model you have built with the python API, then automate the hdf5 nuclear data file modification; OpenMC input file preparation; running of simulations; output post-processing; and clearly labelled storage of output files / graphs for easy access. All these processes occur for your physical model according to:
+- How many particles you want to simulate
+- What nuclides you want to perturb
+- For what reactions you would like to perturb
+- How strongly you would like to perturb them
+
+Not only is this automated for a single run, but you can specify multiple perturbation strengths for multiple reaction types and multiple numbers of particles that will perform several simulations from a single run of a command. 
 
 ## Disclaimer
 
-It is still in a very early stage of development, so there are doubtless numerous bugs, but if determined a person should be able to pick up how the code works and modify it in order to improve it and make it more generally applicable. Note also that the primary developer of the code was inexperienced in building large interconnected python projects, and this explains the conspicuous absence of defined objects and classes, as well as some experimental ways of implementing features that were based on spontaneous problem solving while potentially ignorant of standard (and perhaps much simpler) ways of doing things.
+This is still in a very early stage of development and written by a relatively inexperienced developer. Expect some bugs, unimplemented features and convoluted existing feature implementation. There should nevertheless be sufficient information for a determined a person to pick up how the code works and improve it. 
 
 If you have any questions please feel free to email me at alexhayward4321@gmail.com.
 
@@ -16,15 +28,15 @@ git clone https://github.com/alexhayward4321/Iron <folder_name>
 ```
 inside the directory you would like to perform your data analysis (if you do not have git installed, install it [here](https://git-scm.com/downloads)). 
 
-Then open the configuration file config.py located in your newly downloaded repository. The crucial configuration variables you must set are the `HOME_DIR` and `LIBDIR` variables. Full instructions on all variables are given in the file, thus no section has been dedicated in this README.md for it, though reading the rest of this document will likely illuminate some incomplete explanations.
+Then open the configuration file config.py located in your newly downloaded repository. The crucial configuration variables you must set are the `HOME_DIR` and `LIBDIR` variables. Full instructions on all variables are given in the file, thus no section has been dedicated in this README for it, though reading the rest of this document will likely illuminate some incomplete explanations.
 
-Go to run.py file and specify a model in the eponymous variable according to the main folders defined under the repository directory. Go to the `automate.main_run()` function and modify the parameters there to configure the run how you want it. Then simply run the file. Congratulations! You have made your first automated monte carlo run.
+Go to the run.py file and specify a model in the eponymous variable according to the main folders defined under the repository directory. Go to the `automate.main_run()` function and modify the parameters there to configure the run how you want it. Then simply run the file. Congratulations! You have made your first automated monte carlo run.
 
 ## How it works
 
 ### Model folders
 
-Underneath the main folder where you installed this repository (`config.MAIN_DIR`) you create folders for each model you would like to run simulations for with files within of a specific format to facilitate the automation. Let us work through this with the example model Fe-simplified. Fe-simplified is an openmc model of an iron sphere with a source in the centre, and several tallies specified around it. Within Fe-simplified you will find several other folders and some python files. Pay attention in particular to the following five files/folders:
+Underneath the main folder where you installed this repository (`config.MAIN_DIR`) you create folders for each model you would like to run simulations for with files within of a specific format to facilitate the automation. Let us work through this with the example model Fe-simplified. Fe-simplified is an openmc model of an iron sphere with a fissile source in the centre, and several tallies specified around it. Within Fe-simplified you will find several other folders and some python files. Pay attention in particular to the following five files/folders:
 - model.py
 - post_process.py
 - data_load.py
@@ -33,10 +45,10 @@ Underneath the main folder where you installed this repository (`config.MAIN_DIR
 
 These are the five folders that are automatically built into the automation of the perturbations, and within the python files you may need to define functions in a certain way to get them to work how you want them.
 
-#### standard_run 
+#### **standard_run**
 Firstly, the standard_run folder is where your 'base' model which you would like to run perturbations for is stored. This is where information for the perturbed runs will be copied from and into the perturbed_run_data folder. This is also where a run of your model will automatically go (if running from run.py) if you specify no perturbations, and no separate run_env variable in the `automate.load_model()` function in run.py. 
 
-#### model.py
+#### **model.py**
 
 The model.py file is where all of the openmc xml file generating functions live. These are, by convention named:
 - materials_geometry() loads materials.xml and geometry.xml file for inside a given `config.RUN_ENV`
@@ -124,9 +136,10 @@ automate.main_run(powers=[6, 7, 8], nuclides=['Fe56', 'Fe57']],
 Will run 3 simulations with three different powers. Each simulation both nuclides Fe56 and Fe57 will each be perturbed by 0.1 for elastic nuclear reactions which have an mt of 2 (i.e. cross sections of mt=2 will be multiplied by 1.1)
 
 ```
-automate.main_run(powers=[6, 7], nuclides=['Fe56', 'Fe57','Fe58'], 
-    mts=[2, 4], perturbations=[0.1, 0.3, 0.01], 
-    check_repeat=False)
+    automate.main_run(powers=[6, 7], 
+        nuclides=['Fe56', 'Fe57','Fe58'], 
+        mts=[2, 4], perturbations=[0.1, 0.3, 0.01], 
+        check_repeat=False)
 ```
 Will have 12 runs, 6 for each power. The first run will involve all nuclides having their elastic (mt=2) cross sections perturbed by 0.1 and the run will have 10^6 particles. The second will be the same except the perturbation will now be 0.3, and so on...
 
@@ -135,7 +148,8 @@ Will have 12 runs, 6 for each power. The first run will involve all nuclides hav
 1. In finite_difference.py file, irritatingly runs of the same reaction and perturbation with only slight differences (e.g. 10th decimal place) in sensitivies are registered as different runs. Refine the criteria for whether or not a row should be duplicated. Note, sometimes it is useful to have data from a historical run with the same perturbation but a slightly different simulation to track the effects of any changes, so we don't necessarily want to automatically delete runs with the same perturbation
 1. Finish implementing the discretization feature for the cross section data. The idea would be that somehow you would input a energy group structure into the perturbation file for perturbations to occur at each group individually along the cross section. This is what is needed to verify Ivan Kodeli's code fully. There are partially started sections of code to implement this functionality already (should in theory have been separated in a different branch, I know, this is another extension if you choose).
 1. In theory no need for the command line interface for the perturb_xs.py module. Clean it up to make it fit better with the rest of the code and more understandable.
-1. 
+1. Adapt the code so there is no dependence at all on the python API. It only directly modifies copies of xml files in the standard_run folder when running perturbations. Python files can still live in the folder to make changes to the xml files.
+
 
 ### Further information
 
